@@ -1,93 +1,113 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Kê khai KPI_IHS_2026</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif:wght@600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <style>
-/* Layout: một cột các khối hồ sơ xếp chồng, thanh điểm dính trên cùng, gợi ý tạp chí nổi trên ô tìm */
+/* Giao diện theo lối các công cụ đánh giá hiệu suất phổ biến (Workday, Lattice, biểu mẫu GOV.UK):
+   nền xám lạnh, thẻ trắng viền mảnh, một màu nhấn xanh đậm cho thao tác và điểm số,
+   đỏ chỉ dành cho lỗi/chưa đạt, chữ không chân cỡ lớn dễ đọc, số liệu canh cột. */
 :root{
-  --paper:#f7f6f3; --surface:#ffffff; --sunk:#efedea;
-  --ink:#1e1c1a; --ink-2:#56514c; --ink-3:#8a837c;
-  --line:#ddd8d2; --line-2:#c6bfb7;
-  --seal:#9b1c2e; --seal-soft:#f6e9ea;
-  --ok:#2f6b4f; --ok-soft:#e8f1ec;
-  --warn:#8a5a10; --warn-soft:#f8efdf;
-  --font-head:"Noto Serif",Georgia,"Times New Roman",serif;
-  --font-ui:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
-  --r:10px;
+  --paper:#f4f6f9; --surface:#ffffff; --sunk:#f0f3f7; --field:#ffffff;
+  --ink:#111827; --ink-2:#374151; --ink-3:#6b7280;
+  --line:#e2e7ee; --line-2:#c9d1dc;
+  --accent:#1f4e8c; --accent-ink:#ffffff; --accent-soft:#e8f0fb;
+  --seal:#b42318; --seal-soft:#fdecea;
+  --ok:#067647; --ok-soft:#e7f6ee;
+  --warn:#9a5b00; --warn-soft:#fdf3e1;
+  --font-head:"Inter","Segoe UI",system-ui,sans-serif;
+  --font-ui:"Inter","Segoe UI",system-ui,sans-serif;
+  --r:12px;
+  --shadow:0 1px 2px rgba(16,24,40,.05);
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#17161a; --surface:#201f24; --sunk:#2a282f;
-  --ink:#eceaf0; --ink-2:#b5b0bb; --ink-3:#847f8c;
-  --line:#35323b; --line-2:#474350;
-  --seal:#e8808f; --seal-soft:#331c22;
-  --ok:#7fc9a3; --ok-soft:#1b2b24;
-  --warn:#e0b063; --warn-soft:#2d2619;
+  --paper:#0f141b; --surface:#171d26; --sunk:#1e2530; --field:#121821;
+  --ink:#eef1f5; --ink-2:#c3cad5; --ink-3:#8a94a3;
+  --line:#2a3340; --line-2:#3a4555;
+  --accent:#7fb0f0; --accent-ink:#0b1525; --accent-soft:#1a2a40;
+  --seal:#f3877d; --seal-soft:#3a1c1a;
+  --ok:#6fd3a0; --ok-soft:#14291f;
+  --warn:#f0bd62; --warn-soft:#30260f;
+  --shadow:none;
   color-scheme:dark;
 }}
 :root[data-theme="dark"]{
-  --paper:#17161a; --surface:#201f24; --sunk:#2a282f;
-  --ink:#eceaf0; --ink-2:#b5b0bb; --ink-3:#847f8c;
-  --line:#35323b; --line-2:#474350;
-  --seal:#e8808f; --seal-soft:#331c22;
-  --ok:#7fc9a3; --ok-soft:#1b2b24;
-  --warn:#e0b063; --warn-soft:#2d2619;
+  --paper:#0f141b; --surface:#171d26; --sunk:#1e2530; --field:#121821;
+  --ink:#eef1f5; --ink-2:#c3cad5; --ink-3:#8a94a3;
+  --line:#2a3340; --line-2:#3a4555;
+  --accent:#7fb0f0; --accent-ink:#0b1525; --accent-soft:#1a2a40;
+  --seal:#f3877d; --seal-soft:#3a1c1a;
+  --ok:#6fd3a0; --ok-soft:#14291f;
+  --warn:#f0bd62; --warn-soft:#30260f;
+  --shadow:none;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:var(--font-ui);font-size:15px;line-height:1.55;margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-ui);font-size:16px;line-height:1.55;margin:0;
+  -webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
-.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
 
-.masthead{padding-block:28px 18px;border-bottom:2px solid var(--seal)}
-.crest{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--seal);font-weight:600}
-.crest-2{font-weight:700;margin-top:2px}
-h1{font-family:var(--font-head);font-size:clamp(22px,4.4vw,30px);line-height:1.2;margin:8px 0 6px;text-wrap:balance}
-.sub{color:var(--ink-2);font-size:13.5px;margin:0;max-width:64ch}
+.masthead{padding-block:32px 20px}
+.crest{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+.crest-2{color:var(--accent);font-weight:700;margin-top:2px}
+h1{font-family:var(--font-head);font-size:clamp(24px,4.4vw,32px);line-height:1.2;font-weight:700;letter-spacing:-.015em;margin:10px 0 8px;text-wrap:balance}
+.sub{color:var(--ink-2);font-size:14.5px;margin:0;max-width:70ch}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
-     margin-top:16px;padding:12px 14px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+     margin-top:8px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;box-shadow:0 4px 14px rgba(16,24,40,.07)}
 .bar .stat{display:flex;flex-direction:column;min-width:0}
-.bar .k{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
-.bar .v{font-family:var(--font-head);font-size:19px;font-variant-numeric:tabular-nums;line-height:1.25}
-.bar .stat .sub{font-size:10.5px;color:var(--ink-3);font-weight:600;font-variant-numeric:tabular-nums}
+.bar .k{font-size:12px;color:var(--ink-3);font-weight:500}
+.bar .v{font-family:var(--font-head);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2;letter-spacing:-.01em}
+.bar .stat:first-child .v{color:var(--accent)}
+.bar .stat .sub{font-size:12px;color:var(--ink-3);font-weight:500;font-variant-numeric:tabular-nums}
 .bar .spacer{flex:1 1 auto;min-width:0}
-.pill{display:inline-block;padding:4px 11px;border-radius:999px;font-size:12.5px;font-weight:600;border:1px solid transparent}
-.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
-.pill.no{background:var(--seal-soft);color:var(--seal);border-color:var(--seal)}
-.pill.mid{background:var(--warn-soft);color:var(--warn);border-color:var(--warn)}
+.pill{display:inline-block;padding:5px 12px;border-radius:999px;font-size:13px;font-weight:600;border:1px solid transparent}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.no{background:var(--seal-soft);color:var(--seal)}
+.pill.mid{background:var(--warn-soft);color:var(--warn)}
 
-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-top:18px;overflow:hidden}
-.sechead{display:flex;gap:12px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line);background:var(--sunk)}
-.secnum{font-family:var(--font-head);font-size:13px;color:var(--seal);font-weight:700;letter-spacing:.04em;white-space:nowrap}
-.sechead h2{font-family:var(--font-head);font-size:16px;margin:0;font-weight:600;min-width:0}
-.secbody{padding:16px}
+section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-top:20px;overflow:hidden;box-shadow:var(--shadow)}
+.sechead{display:flex;gap:14px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.secnum{font-size:16px;font-weight:700;white-space:nowrap;color:var(--accent);background:var(--accent-soft);
+  border-radius:7px;padding:4px 10px;font-variant-numeric:tabular-nums}
+.sechead h2{font-family:var(--font-head);font-size:21px;margin:0;font-weight:600;min-width:0;letter-spacing:-.005em}
+.secbody{padding:20px}
 
-/* điểm tổng của mỗi mục và mỗi tiểu mục: viên tròn nổi bật, chữ số lớn */
+/* điểm tổng của mỗi mục và mỗi tiểu mục */
 .note,.subnum{margin-left:auto;display:inline-flex;align-items:baseline;gap:5px;white-space:nowrap;
-  font-family:var(--font-head);font-variant-numeric:tabular-nums;font-weight:700;
-  border-radius:999px;border:1px solid var(--line-2);background:var(--surface);color:var(--ink-3)}
-.note{font-size:18px;padding:4px 14px}
-.subnum{font-size:15px;padding:3px 11px}
-.note::after,.subnum::after{content:"điểm";font-family:var(--font-ui);font-weight:600;
-  letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3)}
-.note::after{font-size:10px}
-.subnum::after{font-size:9.5px}
-.note.co,.subnum.co{color:var(--seal);border-color:var(--seal);background:var(--seal-soft)}
-.note-txt{margin-left:auto;font-size:11.5px;color:var(--ink-3);white-space:nowrap;
-  letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+  font-variant-numeric:tabular-nums;font-weight:700;border-radius:999px;background:var(--sunk);color:var(--ink-3)}
+.note{font-size:20px;padding:5px 15px}
+.subnum{font-size:16.5px;padding:4px 12px}
+.note::after,.subnum::after{content:"điểm";font-weight:500;color:var(--ink-3)}
+.note::after{font-size:12px}
+.subnum::after{font-size:11.5px}
+.note.co,.subnum.co{color:var(--accent);background:var(--accent-soft)}
+.note.co::after,.subnum.co::after{color:var(--accent)}
+.note-txt{margin-left:auto;font-size:12.5px;color:var(--ink-3);white-space:nowrap;font-weight:500}
 
-.subhead{display:flex;align-items:center;gap:10px;margin-bottom:11px;padding-bottom:7px;border-bottom:1px solid var(--line)}
-.sublbl{font-family:var(--font-head);font-size:13.5px;font-weight:600;color:var(--ink-2);min-width:0}
+.subhead{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.sublbl{font-size:18px;font-weight:600;color:var(--ink);min-width:0}
+.sublbl .phu{font-weight:400;color:var(--ink-3)}
 
 /* lưới ô nhập: số cột cố định để các ô thẳng hàng nhau giữa các khối;
    subgrid cho nhãn và ô nhập của cùng một hàng luôn bắt đầu ở cùng độ cao */
-.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
 .grid.wide{grid-template-columns:1fr}
+.grid + .grid{margin-top:16px}
+.grid > label.rong2{grid-column:span 2}
+.grid > label.rong4{grid-column:1 / -1}
+textarea.tudai{resize:none;overflow:hidden;line-height:1.45;display:block;field-sizing:content}
+select{text-overflow:ellipsis}
+.chon{display:flex;flex-direction:column;gap:4px;min-width:0}
+.chon .daydu{font-size:13px;font-weight:500;color:var(--ink-2);line-height:1.4}
+.chon .daydu:empty{display:none}
 .grid.doi{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:540px){.grid,.grid.doi{grid-template-columns:1fr}}
-label{display:flex;flex-direction:column;gap:5px;font-size:12px;font-weight:600;color:var(--ink-2);min-width:0}
-label .hint{font-weight:400;color:var(--ink-3);font-size:11.5px}
+@media (max-width:540px){.grid,.grid.doi{grid-template-columns:1fr}
+  .grid > label.rong2,.grid > label.rong4{grid-column:auto}}
+label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink-2);min-width:0}
+label .hint{font-weight:400;color:var(--ink-3);font-size:12.5px}
 @supports (grid-template-rows:subgrid){
   .grid > label{display:grid;grid-template-rows:subgrid;grid-row:span 2;align-items:start}
   .grid > label > span:first-child{align-self:end}
@@ -96,65 +116,92 @@ label .hint{font-weight:400;color:var(--ink-3);font-size:11.5px}
   .grid:not(.wide) > label > span:first-child{min-height:2.7em}
 }
 label > span:first-child{line-height:1.35}
-input,select,textarea{font-family:inherit;font-size:14px;color:var(--ink);background:var(--paper);
-  border:1px solid var(--line-2);border-radius:7px;padding:8px 10px;width:100%;min-width:0}
-input:focus-visible,select:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--seal);outline-offset:1px}
-button{font-family:inherit;font-size:13.5px;font-weight:600;cursor:pointer;border-radius:7px;border:1px solid var(--line-2);
-  background:var(--paper);color:var(--ink);padding:8px 14px}
-button:hover{border-color:var(--ink-3)}
-button.primary{background:var(--seal);border-color:var(--seal);color:#fff}
-button.primary:hover{filter:brightness(1.08)}
-button.ghost{border-style:dashed;color:var(--ink-2);width:100%;padding:10px}
-button.del{border:0;background:transparent;color:var(--ink-3);padding:4px 7px;font-size:17px;line-height:1}
-button.del:hover{color:var(--seal)}
+input,select,textarea{font-family:inherit;font-size:15px;color:var(--ink);background:var(--field);
+  border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;width:100%;min-width:0;min-height:42px;
+  transition:border-color .12s, box-shadow .12s}
+input:hover,select:hover{border-color:var(--ink-3)}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button{font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer;border-radius:8px;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink);padding:9px 16px;min-height:42px}
+button:hover{background:var(--sunk)}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+button.primary:hover{background:var(--accent);filter:brightness(1.1)}
+button.ghost{border-style:dashed;color:var(--accent);width:100%;padding:11px;background:transparent}
+button.ghost:hover{background:var(--accent-soft);border-color:var(--accent)}
+button.del{border:0;background:transparent;color:var(--ink-3);padding:4px 8px;font-size:18px;line-height:1;min-height:0}
+button.del:hover{color:var(--seal);background:var(--seal-soft)}
 
-.rec{border:1px solid var(--line);border-radius:9px;padding:13px;margin-bottom:11px;background:var(--paper)}
-.rec-top{display:flex;align-items:center;gap:9px;margin-bottom:11px}
-.rec-n{width:23px;height:23px;flex:none;border-radius:50%;background:var(--sunk);color:var(--ink-2);
-  font-size:11.5px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums}
-.rec-top .ttl{font-size:12.5px;font-weight:600;color:var(--ink-2);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:help}
+.rec{border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px;background:var(--surface)}
+.rec:hover{border-color:var(--line-2)}
+.rec-top{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.rec-n{width:26px;height:26px;flex:none;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+  font-size:12.5px;font-weight:700;display:grid;place-items:center;font-variant-numeric:tabular-nums}
+.rec-top .ttl{font-size:15.5px;font-weight:600;color:var(--ink);min-width:0;line-height:1.4;overflow-wrap:anywhere;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}   /* tên đầy đủ đã có trong ô bên dưới */
 /* trỏ chuột vào tên dài: bung xuống nhiều dòng để kiểm tra, không cắt ellipsis */
-.rec-top .ttl:hover{overflow:visible;white-space:normal;word-break:break-word}
-.rec-top .score{margin-left:auto;font-family:var(--font-head);font-size:15px;font-weight:700;
-  font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-2);
-  background:var(--sunk);border-radius:999px;padding:2px 11px}
-.rec-top .score.co{color:var(--seal);background:var(--seal-soft)}
 
-.lookup{position:relative;margin-top:13px}
-.sugg{position:absolute;z-index:8;left:0;right:0;top:calc(100% + 3px);background:var(--surface);border:1px solid var(--line-2);
-  border-radius:8px;max-height:270px;overflow-y:auto;box-shadow:0 10px 26px rgba(0,0,0,.17)}
-.sugg div{padding:8px 11px;cursor:pointer;border-bottom:1px solid var(--line);font-size:13px}
+.rec-top .score{margin-left:auto;font-size:15px;font-weight:700;
+  font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink-3);
+  background:var(--sunk);border-radius:999px;padding:3px 12px}
+.rec-top .score.co{color:var(--accent);background:var(--accent-soft)}
+
+.lookup{position:relative;margin-top:14px}
+.sugg{position:absolute;z-index:8;left:0;right:0;top:calc(100% + 4px);background:var(--surface);border:1px solid var(--line-2);
+  border-radius:10px;max-height:280px;overflow-y:auto;box-shadow:0 12px 28px rgba(16,24,40,.16)}
+.sugg div{padding:9px 12px;cursor:pointer;border-bottom:1px solid var(--line);font-size:14px}
 .sugg div:last-child{border-bottom:0}
-.sugg div:hover{background:var(--sunk)}
+.sugg div:hover{background:var(--accent-soft)}
 .sugg .nm{font-weight:600}
-.sugg .mt{color:var(--ink-3);font-size:11.5px;font-variant-numeric:tabular-nums}
-.verdict{margin-top:10px;padding:9px 11px;border-radius:7px;font-size:12.5px;background:var(--sunk);border-left:3px solid var(--line-2)}
+.sugg .mt{color:var(--ink-3);font-size:12.5px;font-variant-numeric:tabular-nums}
+.verdict{margin-top:12px;padding:10px 13px;border-radius:8px;font-size:14px;line-height:1.6;background:var(--sunk);border-left:3px solid var(--line-2)}
 .verdict.found{background:var(--ok-soft);border-left-color:var(--ok)}
 .verdict.miss{background:var(--seal-soft);border-left-color:var(--seal)}
 .verdict b{font-variant-numeric:tabular-nums}
-.flag{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:999px;font-size:10.5px;font-weight:700;
-  letter-spacing:.05em;text-transform:uppercase;background:var(--warn-soft);color:var(--warn)}
-.code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:11.5px;color:var(--ink-3)}
+/* khối công thức điểm quy đổi: từng bước tính trên một dòng, số canh cột */
+.verdict.calc{background:var(--accent-soft);border-left-color:var(--accent);font-variant-numeric:tabular-nums}
+.verdict.calc .kq{font-size:15px;color:var(--ink)}
+.verdict.calc .kq b{color:var(--accent)}
+.verdict.calc .buoc{color:var(--ink-2);font-size:13.5px;margin-top:3px}
+.verdict.calc .buoc i{font-style:normal;color:var(--ink-3)}
+.flag{display:inline-block;margin-left:7px;padding:1px 8px;border-radius:999px;font-size:11.5px;font-weight:600;
+  background:var(--warn-soft);color:var(--warn)}
+.code{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12.5px;color:var(--ink-3)}
 
-.sumrow{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.sumrow{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
 .sumrow .lbl{color:var(--ink-2);min-width:0}
-.sumrow .val{font-family:var(--font-head);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
-.sumrow.total{border-top:2px solid var(--ink);border-bottom:0;margin-top:5px;padding-top:11px;font-size:16px}
-.checks{margin-top:14px;display:flex;flex-direction:column;gap:7px}
-.chk{display:flex;gap:9px;align-items:flex-start;font-size:13px;padding:9px 11px;border-radius:7px;background:var(--sunk)}
+.sumrow .val{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:600}
+.sumrow.total{border-top:2px solid var(--ink);border-bottom:0;margin-top:6px;padding-top:12px;font-size:17px;font-weight:700}
+.sumrow.total .val{color:var(--accent)}
+.checks{margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px;padding:10px 13px;border-radius:8px;background:var(--sunk)}
 .chk.good{background:var(--ok-soft);color:var(--ok)}
 .chk.bad{background:var(--seal-soft);color:var(--seal)}
 .chk .mk{font-weight:700;flex:none}
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.msg{margin-top:11px;font-size:13px;color:var(--ink-2);min-height:19px;line-height:1.55}
-.msg a.linktai{display:inline-block;margin:2px 0;padding:6px 14px;border-radius:8px;
-  background:var(--seal);color:#fff;font-weight:600;text-decoration:none}
-.msg a.linktai:hover{filter:brightness(1.06)}
-.foot{margin-top:26px;font-size:12px;color:var(--ink-3);line-height:1.6}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.msg{margin-top:12px;font-size:14px;color:var(--ink-2);min-height:19px;line-height:1.55}
+.msg a.linktai{display:inline-block;margin:2px 0;padding:7px 15px;border-radius:8px;
+  background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none}
+.msg a.linktai:hover{filter:brightness(1.1)}
+.foot{margin-top:28px;font-size:13px;color:var(--ink-3);line-height:1.65}
 .foot b{color:var(--ink-2)}
-.mc{font-size:12.5px;color:var(--ink-2);background:var(--sunk);border-left:3px solid var(--line-2);
-  padding:8px 11px;border-radius:0 7px 7px 0;margin:0 0 13px;line-height:1.5}
-@media (max-width:460px){.bar{gap:11px}.bar .v{font-size:17px}}
+button.lienket{min-height:0;padding:3px 10px;font-size:13px;margin-left:4px;color:var(--accent);border-color:var(--accent);background:var(--surface)}
+button.lienket:hover{background:var(--accent-soft)}
+.mc.lk{margin:-2px 0 12px;border-left-color:var(--ok)}
+input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor:not-allowed}
+.rec.nhay{box-shadow:0 0 0 3px var(--accent);transition:box-shadow .2s}
+.mc{font-size:14px;color:var(--ink-2);background:var(--sunk);border-left:3px solid var(--accent);
+  padding:10px 13px;border-radius:0 8px 8px 0;margin:0 0 14px;line-height:1.55}
+@media (max-width:540px){
+  .bar{gap:6px 18px;padding:10px 14px}
+  .bar .k{font-size:11px}
+  .bar .v{font-size:19px}
+  .bar .spacer{display:none}
+  .bar .pill{font-size:12px;padding:3px 10px}
+  #btn-xlsx{display:none}   /* trên điện thoại dùng nút xuất ở mục III, giữ thanh điểm gọn */
+  .secbody{padding:16px}.sechead{padding:14px 16px}
+  .sechead h2{font-size:18px}.sublbl{font-size:16.5px}.secnum{font-size:14.5px}
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -253,6 +300,7 @@ button.del:hover{color:var(--seal)}
 
   <p class="foot">
     <b>Bài báo trong nước.</b> Nhóm loại 1 đến 4 suy từ khung điểm công trình trong danh mục Hội đồng Giáo sư Nhà nước: 1,0 là nhóm 1, 0,75 nhóm 2, 0,5 nhóm 3, 0,25 nhóm 4, tương ứng các mã 1.1.1 đến 1.1.4 trong Biểu mẫu 609. Khung điểm đổi theo năm công bố và theo lĩnh vực, hệ thống chọn đúng khung rồi hiển thị nguyên văn điều kiện để đối chiếu.<br>
+    <b>Chia điểm giữa các tác giả.</b> Mọi công trình khoa học đều chia theo Điều 4 khoản 4 Quy chế 1020: tác giả chính hưởng 1/3 tổng điểm quy đổi, phần còn lại chia đều cho các thành viên tham gia; nếu chỉ có hai tác giả thì tác giả chính hưởng 2/3, đồng tác giả 1/3. Với nhiệm vụ khoa học đã nghiệm thu, chủ nhiệm là tác giả chính, còn thư ký khoa học, thành viên chính và thành viên hưởng phần bằng nhau; điểm âm do nghiệm thu quá hạn hoặc không đạt cũng chia theo đúng hệ số đó. Với sách, chủ biên là tác giả chính; có từ hai chủ biên trở lên thì phần 1/3 của tác giả chính được chia đều cho các đồng chủ biên. Quy chế cho phép chia phần còn lại theo giá trị đóng góp của từng người; khi không xác định được cụ thể thì chia đều, và đây là cách bảng tính áp dụng. Quy chế 1020 không còn cách chia theo thoả thuận riêng của nhóm tác giả.<br>
     <b>Chống tính trùng.</b> Khi đã tính điểm cho cả cuốn sách thì không tính thêm chương sách hay bài viết của chính mình trong cuốn đó. Mỗi sản phẩm chỉ tính một lần trong một chu kỳ đánh giá (Điều 4 khoản 1).
   </p>
 </div>
@@ -580,6 +628,8 @@ const S = {
   nv:[], kh:[], bb:[], ky:[], sach:[], hd:[]
 };
 const CHUYEN_HD = {"KRA 2 — Hội thảo trong nước|6":"ky:ky_tn_tb","KRA 2 — Hội thảo trong nước|7":"ky:ky_tn_kt","KRA 2 — Hội thảo trong nước|8":"ky:ky_tn_noisbn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|0":"ky:ky_qt_tb_nn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|1":"ky:ky_qt_tb_td_nn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|2":"ky:ky_qt_tb_vn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|3":"ky:ky_qt_tb_td_vn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|4":"ky:ky_qt_kt_nn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|5":"ky:ky_qt_kt_td_nn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|6":"ky:ky_qt_kt_vn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|7":"ky:ky_qt_kt_td_vn","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|8":"KRA 3 — Trình bày tại hội thảo, tọa đàm quốc tế (không có bài kỷ yếu)|0","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|9":"KRA 3 — Trình bày tại hội thảo, tọa đàm quốc tế (không có bài kỷ yếu)|1","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|10":"KRA 3 — Trình bày tại hội thảo, tọa đàm quốc tế (không có bài kỷ yếu)|2","KRA 3 — Tham gia hội thảo, tọa đàm quốc tế|11":"KRA 3 — Trình bày tại hội thảo, tọa đàm quốc tế (không có bài kỷ yếu)|3"};
+/* Quy chế 1020 không cho chia điểm theo thoả thuận riêng: mọi sản phẩm đều chia
+   theo Điều 4 khoản 4, nên chỉ còn một cách chia duy nhất. */
 const CHIA_MD = 'phan';
 const NGANH_CUA_LV = {};
 Object.keys(DM.nganh).forEach(k => DM.nganh[k].linh_vuc.forEach(([v]) => NGANH_CUA_LV[v] = k));
@@ -600,15 +650,9 @@ function timTapChi(r){
   if(!r.tapchi && !r.issn) return null;
   return DM.tap_chi.find(t => (r.issn && t.issn === r.issn) || t.ten === r.tapchi) || null;
 }
-/* Hai cách chia điểm giữa các tác giả:
-   - deu   : CÓ thoả thuận chia đều — chia đều TĐS cho số tác giả, không phân chính/phụ.
-   - phan  : KHÔNG có thoả thuận chia đều — phân biệt tác giả chính/đứng đầu với
-             các tác giả còn lại (theo Điều 4.4 Quy chế 1020). */
-const CHIA_OPT = [
-  ['phan','Không có thoả thuận chia đều điểm (phân biệt tác giả chính/đứng đầu với các tác giả còn lại)'],
-  ['deu','Có thoả thuận chia đều điểm (chia đều cho số tác giả, không phân chính/phụ)']
-];
-const TEN_CHIA = {phan:'phân chính/phụ', deu:'chia đều'};
+/* Chỉ còn một cách chia điểm giữa các tác giả: phân biệt tác giả chính/đứng đầu
+   với các tác giả còn lại theo Điều 4 khoản 4 Quy chế 1020. */
+const TEN_CHIA = {phan:'theo Điều 4 khoản 4 Quy chế 1020'};
 
 /* ===== tra khung điểm tạp chí theo năm công bố và lĩnh vực ===== */
 function chonQuyTac(tc, nam, lv){
@@ -632,36 +676,47 @@ function chonQuyTac(tc, nam, lv){
   return best;
 }
 
-/* ===== hệ số tác giả =====
-   chia = 'deu'  : chia đều, mỗi tác giả TĐS/n (vai trò không ảnh hưởng)
-   chia = 'phan' : phân chính/phụ theo Điều 4 khoản 4 Quy chế 1020 —
-                   >2 tác giả: tác giả chính hưởng 1/3, phần còn lại (2/3) chia
-                   cho CẢ n tác giả, nên chính = 1/3 + (2/3)/n, mỗi người còn lại
-                   = (2/3)/n (tác giả chính nhiều điểm nhất);
-                   đúng 2 tác giả: chính 2/3, đồng tác giả 1/3. */
-function heSo(vai, n, ct, chia){
+/* ===== hệ số tác giả — Điều 4 khoản 4 Quy chế 1020 =====
+   Trên 2 tác giả: tác giả chính hưởng 1/3, phần còn lại (2/3) chia đều cho CẢ n
+   tác giả, nên chính = 1/3 + (2/3)/n, mỗi người còn lại = (2/3)/n.
+   Đúng 2 tác giả: chính 2/3, đồng tác giả 1/3 — cũng chính là công thức trên.
+   Quy chế cho phép chia phần còn lại theo giá trị đóng góp của từng người; khi
+   không xác định được cụ thể thì chia đều, và đây là cách hệ thống áp dụng. */
+function heSo(vai, n){
   n = Math.max(1, parseInt(n,10)||1);
   if(n === 1) return {h:1};
-  if((chia || CHIA_MD) === 'deu') return {h: 1/n};
-  if(n === 2) return {h: vai==='chinh' ? 2/3 : 1/3};
   const phan = (2/3)/n;
   return {h: vai==='chinh' ? 1/3 + phan : phan};
 }
 const VAITRO = [
-  ['chinh','Tác giả chính / đứng đầu danh sách'],
-  ['dong','Tác giả còn lại (không phải chính/đứng đầu)']
+  ['chinh','Tác giả chính'],
+  ['dong','Tác giả còn lại']
 ];
+/* vai trò trong nhiệm vụ KH&CN đã nghiệm thu: chủ nhiệm là tác giả chính,
+   thư ký khoa học, thành viên chính và thành viên chia đều phần còn lại */
+/* Mục II.1 dùng đúng các lựa chọn vai trò của mục I (VAI_NV_I). Tên vai trò lưu ở
+   r.vaitroNV; r.vaitro chỉ còn để tính hệ số: Chủ nhiệm → 'chinh', các vai trò khác → 'dong'. */
+function tenVaiNV(r){ return r.vaitroNV || (r.vaitro === 'chinh' ? 'Chủ nhiệm' : 'Thành viên'); }
+function maVaiNV(ten){ return ten === 'Chủ nhiệm' ? 'chinh' : 'dong'; }
+/* vai trò đứng tên trên sách — chủ biên được tính như tác giả chính (Điều 4.4 Quy chế 1020) */
+const VAI_SACH = [
+  ['cb','Chủ biên'],
+  ['tg','Tác giả (không phải chủ biên)']
+];
+const TEN_VAI_SACH = {cb:'Chủ biên', tg:'Tác giả'};
 
 /* ===================== Mẫu bản ghi ===================== */
 const MAU = {
   nv:   () => ({id:uid(), ten:'', vaitro:'Chủ nhiệm', tiendo:'Đang thực hiện', ghichu:''}),
-  kh:   () => ({id:uid(), ten:'', loai:'1.3.17', muc:'dat', thoigian:'', diem:null, suaTay:false}),
+  kh:   () => ({id:uid(), ten:'', loai:'1.3.17', muc:'dat', thoigian:'',
+                vaitro:'chinh', sotg:1, diem:null, suaTay:false}),
   bb:   () => ({id:uid(), loai:'tn', tieude:'', linhvuc:'', tapchi:'', issn:'', nhom:null, dieukien:'', tenRieng:'',
-                thang:'', nam:NAM_NAY, qt:'', goiyQt:'', diem:null, suaTay:false, vaitro:'chinh', sotg:1, chia:CHIA_MD, link:'', cankcu:''}),
+                thang:'', nam:NAM_NAY, qt:'', goiyQt:'', diem:null, suaTay:false, vaitro:'chinh', sotg:1, link:'', cankcu:''}),
   ky:   () => ({id:uid(), tieude:'', hoithao:'', loai:'', isbn:'', thang:'', nam:NAM_NAY,
-                vaitro:'chinh', sotg:1, chia:CHIA_MD, diem:null, suaTay:false, link:''}),
+                vaitro:'chinh', sotg:1, diem:null, suaTay:false, link:''}),
   sach: () => ({id:uid(), ten:'', kieu:'s_tn_ck_off', nxb:'', isbn:'', thang:'', nam:NAM_NAY,
-                vaitro:'chinh', sotg:1, chia:CHIA_MD, diem:null, suaTay:false, link:''}),
+                vaitro:'chinh', vaisach:'cb', sochubien:1, sotg:1,
+                diem:null, suaTay:false, link:''}),
   hd:   (pn) => ({id:uid(), pn:pn||'tuvan', ma:'', noidung:'', soluong:1, tien:'',
                   thoigian:'', noicap:'', quocgia:'', chutoa:'buoi', sophien:2,
                   diem:null, suaTay:false})
@@ -689,15 +744,36 @@ function tdsKyYeu(r){
   const o = KY_YEU.find(x => x.id === r.loai); return o ? o.d : 0;
 }
 function quyDoiKY(r){
-  const t = tdsKyYeu(r); const h = heSo(r.vaitro, r.sotg, 'A', r.chia);
+  const t = tdsKyYeu(r); const h = heSo(r.vaitro, r.sotg);
   const o = KY_YEU.find(x => x.id === r.loai);
   return {tds:t, h:h.h, canh:h.canh, d:t*h.h, loi: o ? !!o.loi : false};
 }
 
-function quyDoiBaiBao(r){ const t = tdsBaiBao(r); const h = heSo(r.vaitro, r.sotg, 'A', r.chia); return {tds:t, h:h.h, canh:h.canh, d:t*h.h}; }
-function quyDoiSach(r){ const t = tdsSach(r); const h = heSo(r.vaitro, r.sotg, ctSach(r), r.chia); return {tds:t, h:h.h, canh:h.canh, d:t*h.h}; }
-/* nhiệm vụ KH&CN chỉ tính cho chủ nhiệm nên không chia điểm đồng tác giả */
-function quyDoiNV(r){ const t = tdsNhiemVu(r); return {tds:t, h:1, d:t}; }
+function quyDoiBaiBao(r){ const t = tdsBaiBao(r); const h = heSo(r.vaitro, r.sotg); return {tds:t, h:h.h, canh:h.canh, d:t*h.h}; }
+
+/* Hệ số chia điểm cho SÁCH — dùng chung một quy tắc với bài báo, theo Điều 4 khoản 4
+   Quy chế 1020: chủ biên là tác giả chính, hưởng 1/3 tổng điểm quy đổi cộng với phần
+   chia đều (2/3)/n; mỗi tác giả còn lại hưởng (2/3)/n. Có từ hai chủ biên trở lên thì
+   phần 1/3 của tác giả chính được chia đều cho các đồng chủ biên, nên mỗi đồng chủ biên
+   hưởng (1/3)/m + (2/3)/n. Tổng hệ số của tất cả tác giả luôn bằng 1.
+   n = tổng tác giả, m = số chủ biên. */
+function heSoSach(r){
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  if(n === 1) return {h:1};
+  const phan = (2/3)/n;                   // phần chia đều cho mọi tác giả tham gia
+  if((r.vaisach || 'cb') !== 'cb') return {h: phan};
+  const m = Math.min(n, Math.max(1, parseInt(r.sochubien,10)||1));
+  return {h: (1/3)/m + phan};
+}
+function quyDoiSach(r){ const t = tdsSach(r); const h = heSoSach(r); return {tds:t, h:h.h, canh:h.canh, d:t*h.h}; }
+/* Nhiệm vụ KH&CN đã nghiệm thu chia điểm theo Điều 4 khoản 4 Quy chế 1020:
+   chủ nhiệm nhiệm vụ là tác giả chính; thư ký khoa học, thành viên chính và
+   thành viên hưởng phần chia đều bằng nhau. Điểm âm (nghiệm thu quá hạn hoặc
+   không đạt) cũng chia theo đúng hệ số đó. */
+function quyDoiNV(r){
+  const t = tdsNhiemVu(r); const h = heSo(r.vaitro, r.sotg);
+  return {tds:t, h:h.h, canh:h.canh, d:t*h.h};
+}
 /* Mỗi phần của mục II.4 cần một bộ ô khác nhau.
    tien    — mục 2.2, nhập thu nhập ròng, đơn vị 100 triệu đồng
    chutoa  — chủ tọa hội thảo, tọa đàm: thời gian tổ chức và mức chủ tọa
@@ -738,7 +814,8 @@ function moTaHeSoHD(r){
     return 'chủ tọa ít nhất một buổi';
   }
   if(k === 'quocgia') return '1 đoàn';
-  if(k === 'sl') return `${fmt(Math.max(0, docSo(r.soluong)), 0)} ${(it && it.dv) || 'lượt'}`;
+  if(k === 'sl' && phanCuaBanGhi(r) === 'tuvan') return '1 báo cáo';
+  if(k === 'sl') return `${Math.max(0, docSo(r.soluong))} ${(it && it.dv) || 'lượt'}`;
   return '1 lượt';
 }
 function quyDoiHD(r){
@@ -748,7 +825,7 @@ function quyDoiHD(r){
   const tien = k === 'tien';
   let sl = 1;
   if(tien) sl = Math.max(0, docSo(r.tien)) / 100;
-  else if(k === 'sl') sl = Math.max(0, docSo(r.soluong));
+  else if(k === 'sl') sl = phanCuaBanGhi(r) === 'tuvan' ? 1 : Math.max(0, docSo(r.soluong));
   const hs = k === 'chutoa' ? heSoChuToa(r) : 1;
   return {tds:t, sl, hs, he: sl * hs, d: t * sl * hs, kieu:k,
           loi: it ? !!it.loi : false, tien, dv: it ? (it.dv || 'đơn vị') : ''};
@@ -764,7 +841,7 @@ const PHAN_HD = [
   {id:'chutri',   t:'c) Chủ trì hội thảo, tọa đàm',
    g:['KRA 2 — Hội thảo trong nước', 'KRA 3 — Chủ trì hội thảo, tọa đàm quốc tế'],
    mc:'Minh chứng: giấy mời, chương trình hội thảo/tọa đàm'},
-  {id:'trinhbay', t:'d) Trình bày tại hội thảo, tọa đàm',
+  {id:'trinhbay', t:'d) Trình bày tại hội thảo, tọa đàm', phu:'(đối với trường hợp không có bài tham luận trong kỷ yếu hội thảo)',
    g:['KRA 3 — Trình bày tại hội thảo, tọa đàm quốc tế (không có bài kỷ yếu)'],
    mc:'Minh chứng: giấy mời, chương trình hội thảo/tọa đàm'},
   {id:'nhanluc',  t:'đ) Phát triển nguồn nhân lực',
@@ -863,7 +940,7 @@ function renderDinhMuc(){
   const v = docSo(S.hsl);
   if(!S.chucdanh){
     el2.className = 'mc';
-    el2.textContent = 'Chọn chức danh nghề nghiệp rồi điền hệ số lương, hệ thống sẽ tự dò bậc và định mức tối thiểu theo Quy chế 1020.';
+    el2.textContent = 'Hướng dẫn: Chọn chức danh nghề nghiệp và hệ số lương, hệ thống tự động tính định mức.';
     return;
   }
   const ds = DINHMUC[S.chucdanh]
@@ -909,11 +986,66 @@ function field(label, hint, node){
   if(hint){ const h = el('span','hint'); h.textContent = ' ' + hint; sp.append(h); }
   l.append(sp, node); return l;
 }
+/* ô chữ dài (tên, tiêu đề, mô tả): tự xuống dòng và tự cao lên để thấy toàn bộ nội dung;
+   Enter không chèn dòng mới vì nội dung vẫn là một dòng khi xuất Word/Excel */
+function inpDai(val, oninput, ph){
+  const e = el('textarea','tudai'); e.rows = 1;
+  e.value = (val===null||val===undefined)?'':val;
+  if(ph) e.placeholder = ph;
+  e.oninput = () => { e.value = e.value.replace(/[\r\n]+/g,' '); oninput(e.value); caoVua(e); };
+  e.onkeydown = ev => { if(ev.key === 'Enter') ev.preventDefault(); };
+  return e;
+}
+function caoVua(t){ t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px'; }
+function rong(l){ l.classList.add('rong2'); return l; }   // nhãn chiếm 2 cột
+
+/* Ô chọn không xuống dòng được, nên đo chữ đang chọn: dài hơn ô thì cho ô chiếm 2 cột,
+   vẫn dài thì chiếm cả hàng. Chạy lại sau mỗi lần dựng trang và khi đổi cỡ cửa sổ. */
+const thuocDo = document.createElement('canvas').getContext('2d');
+/* bề rộng chữ đang chọn + đệm hai bên + mũi tên của ô chọn */
+function canRong(sl, chu){
+  const cs = getComputedStyle(sl); thuocDo.font = cs.font;
+  return thuocDo.measureText(chu).width + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + 24;
+}
+function khitO(){
+  document.querySelectorAll('textarea.tudai').forEach(caoVua);
+  const cacO = [...document.querySelectorAll('.grid > label select')];
+  cacO.forEach(sl => {
+    const l = sl.closest('label');
+    const chu = sl.selectedIndex >= 0 ? sl.options[sl.selectedIndex].text : '';
+    sl.title = chu;
+    if(l.classList.contains('rong2') && !l.dataset.tuGian) return;  // ô đã cố định 2 cột
+    l.classList.remove('rong2','rong4'); delete l.dataset.tuGian;
+    const can = canRong(sl, chu);
+    const co = sl.clientWidth;
+    if(!co || can <= co) return;
+    const gap = parseFloat(getComputedStyle(l.parentElement).columnGap) || 16;
+    l.classList.add(can <= co*2 + gap ? 'rong2' : 'rong4');
+    l.dataset.tuGian = '1';
+  });
+  /* đã giãn mà vẫn bị cắt (điện thoại, lựa chọn rất dài): hiện đủ nội dung ngay dưới ô */
+  cacO.forEach(sl => {
+    const chu = sl.title;
+    const cat = sl.clientWidth && canRong(sl, chu) > sl.clientWidth;
+    const boc = sl.parentElement.classList.contains('chon') ? sl.parentElement : null;
+    if(cat){
+      let b = boc;
+      if(!b){ b = el('div','chon'); sl.replaceWith(b); b.append(sl, el('span','daydu')); }
+      b.querySelector('.daydu').textContent = chu;
+    } else if(boc){
+      const dd = boc.querySelector('.daydu'); if(dd) dd.textContent = '';
+    }
+  });
+}
+let henKhit = 0;
+window.addEventListener('resize', () => { clearTimeout(henKhit); henKhit = setTimeout(khitO, 120); });
+document.addEventListener('change', e => { if(e.target.tagName === 'SELECT') khitO(); });
+
 function inp(val, oninput, ph, type){
   const e = el('input'); e.type = type||'text'; e.value = (val===null||val===undefined)?'':val;
   if(ph) e.placeholder = ph; e.oninput = () => oninput(e.value); return e;
 }
-/* ô số nguyên dương (số tác giả): chỉ nhận 1, 2, 3… — không âm, không 0, không lẻ */
+/* ô đếm (số tác giả, số chủ biên…): chỉ nhận 1, 2, 3… — không âm, không 0, không lẻ */
 function inpNguyen(val, oninput, ph){
   const e = el('input');
   e.type = 'number'; e.min = '1'; e.step = '1'; e.inputMode = 'numeric';
@@ -958,7 +1090,7 @@ function selGroup(val, groups, onchange){
 }
 const THANG = [['','— Không ghi —'], ...Array.from({length:12},(_,i)=>[String(i+1), 'Tháng '+(i+1)])];
 function oThang(r){
-  return field('Tháng công bố','ghi vào cột Năm công bố của mẫu, dạng tháng/năm',
+  return field('Tháng công bố','',
     sel(String(r.thang||''), THANG, v=>{ r.thang=v; renderAll(); }));
 }
 function thoiGianCB(r){
@@ -973,26 +1105,119 @@ function oDiem(r, lai){
 function oTacGia(r){
   const g = el('div','grid');
   const n = Math.max(1, parseInt(r.sotg,10)||1);
-  const chia = r.chia || CHIA_MD;
   g.append(
-    field('Tổng số tác giả','số nguyên dương, gồm cả tác giả trong và ngoài Viện',
-      inpNguyen(r.sotg, v=>{r.sotg=v; renderAll();}, '1')),
-    field('Cách chia điểm','theo thoả thuận giữa các tác giả',
-      sel(chia, CHIA_OPT, v=>{r.chia=v; renderAll();}))
+    field('Tổng số tác giả','',
+      inpNguyen(r.sotg, v=>{r.sotg=v; renderAll();}, '1'))
   );
-  /* Vai trò chỉ cần khi có từ 2 tác giả và KHÔNG chia đều */
-  if(n >= 2 && chia === 'phan'){
-    g.append(field('Vai trò của người kê khai','phân biệt tác giả chính/đứng đầu với các tác giả còn lại',
+  /* Vai trò chỉ cần khi có từ 2 tác giả */
+  if(n >= 2){
+    g.append(field('Vai trò của người kê khai','',
       sel(r.vaitro, VAITRO, v=>{r.vaitro=v; renderAll();})));
   }
   g.append(field('Mã DOI (nếu có)','',inp(r.link, v=>r.link=v, '10.xxxx/xxxxx')));
   return g;
 }
-function dongQuyDoi(q){
-  const v = el('div','verdict' + (q.canh ? ' miss' : ''));
-  v.innerHTML = `Điểm quy đổi: ${fmt(q.tds,3)} × ${fmt(q.h,4)} = <b>${fmt(q.d)}</b>`
-    + (q.canh ? `<br><b>${esc(q.canh)}</b>` : '');
+/* ô chia điểm cho NHIỆM VỤ KH&CN: đếm người tham gia thay vì tác giả, không có DOI */
+function oTacGiaNV(r){
+  const g = el('div','grid');
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  g.append(
+    field('Số người tham gia nhiệm vụ (bao gồm cả chủ nhiệm)','',
+      inpNguyen(r.sotg, v=>{r.sotg=v; delete r.tamSoNguoi; renderAll();}, '1'))
+  );
+  if(n >= 2){
+    const o = sel(tenVaiNV(r), VAI_NV_I, v=>{r.vaitroNV=v; r.vaitro=maVaiNV(v); renderAll();});
+    if(r.nguonNV){ o.disabled = true; o.title = 'Lấy từ mục I — sửa vai trò ở mục I'; }
+    g.append(field('Vai trò của người kê khai','',o));
+  }
+  return g;
+}
+/* Dòng điểm quy đổi: ghi đủ công thức, giá trị thay vào và căn cứ, để người kê khai
+   tự kiểm tra được. loai: 'nv' nhiệm vụ KH&CN, 'bb' bài báo, 'ky' kỷ yếu, 'sach' sách. */
+function dongQuyDoi(q, r, loai){
+  const v = el('div','verdict calc' + (q.canh ? ' miss' : ''));
+  const nv = loai === 'nv', sach = loai === 'sach';
+  const ai = nv ? 'người tham gia' : 'tác giả';
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  const h = fmt(q.h,4);
+  let vai, cthuc, thay;
+  if(n === 1){
+    vai = nv ? 'Một người thực hiện' : 'Tác giả duy nhất';
+    cthuc = 'hưởng toàn bộ điểm'; thay = `hệ số = ${h}`;
+  } else if(sach && (r.vaisach || 'cb') === 'cb'){
+    const m = Math.min(n, Math.max(1, parseInt(r.sochubien,10)||1));
+    if(m > 1){
+      vai = `Đồng chủ biên (${m} chủ biên, phần tác giả chính chia đều)`;
+      cthuc = '(1/3) ÷ số chủ biên + (2/3) ÷ số tác giả';
+      thay = `(1/3) ÷ ${m} + (2/3) ÷ ${n} = ${h}`;
+    } else {
+      vai = 'Chủ biên (tính như tác giả chính)';
+      cthuc = '1/3 + (2/3) ÷ số tác giả';
+      thay = `1/3 + (2/3) ÷ ${n} = ${h}`;
+    }
+  } else if(!sach && r.vaitro === 'chinh'){
+    vai = nv ? 'Chủ nhiệm (tác giả chính)' : 'Tác giả chính';
+    cthuc = `1/3 + (2/3) ÷ số ${ai}`;
+    thay = `1/3 + (2/3) ÷ ${n} = ${h}`;
+  } else {
+    vai = nv ? tenVaiNV(r)
+             : (sach ? 'Tác giả (không phải chủ biên)' : 'Tác giả còn lại');
+    cthuc = `(2/3) ÷ số ${ai}`;
+    thay = `(2/3) ÷ ${n} = ${h}`;
+  }
+  const nguon = r.suaTay ? 'điểm sản phẩm đã sửa tay' : 'điểm sản phẩm theo Biểu mẫu 609';
+  v.innerHTML =
+      `<div class="kq">Điểm quy đổi = Điểm sản phẩm × Hệ số chia điểm = ${fmt(q.tds,3)} × ${h} = <b>${fmt(q.d,3)}</b></div>`
+    + `<div class="buoc"><i>Điểm sản phẩm:</i> ${fmt(q.tds,3)} (${nguon})</div>`
+    + `<div class="buoc"><i>Hệ số chia điểm — ${esc(vai)}${n > 1 ? `, ${n} ${ai}` : ''}:</i> `
+    + (n > 1 ? `${cthuc} = ${thay}` : `${cthuc}, ${thay}`) + `</div>`
+    + (n > 1 ? `<div class="buoc"><i>Căn cứ:</i> Điều 4 khoản 4 Quy chế 1020 — tác giả chính hưởng 1/3 tổng điểm, `
+      + `2/3 còn lại chia đều cho tất cả ${n} ${ai} (kể cả tác giả chính)`
+      + (n === 2 ? '; với 2 người, tác giả chính được 2/3, người còn lại 1/3' : '') + `.</div>` : '')
+    + (q.canh ? `<div class="buoc"><b>${esc(q.canh)}</b></div>` : '');
   return v;
+}
+
+/* ---------- Liên kết mục I → mục II.1 ----------
+   Nhiệm vụ ở mục I chọn "Đã hoàn thành" thì tự có một dòng ở mục II.1 (k.nguonNV = id
+   nhiệm vụ). Tên và vai trò luôn lấy từ mục I; loại nhiệm vụ, kết quả nghiệm thu, thời
+   gian hoàn thành, số người tham gia do người dùng tự điền ở II.1.
+   - Đổi tiến độ khỏi "Đã hoàn thành": dòng II.1 được cất vào n.luuKH (không mất phần đã
+     điền), chọn lại "Đã hoàn thành" thì lấy ra đúng như cũ.
+   - Xoá dòng liên kết ở II.1: đánh dấu n.khongII1 để không tự tạo lại; mục I có nút chuyển lại.
+   - Xoá nhiệm vụ ở mục I: dòng liên kết ở II.1 bị xoá theo. */
+const VAI_NV_I = [['Chủ nhiệm','Chủ nhiệm'],['Thành viên chính','Thành viên chính'],
+  ['Thư ký khoa học/Thành viên chính','Thư ký khoa học/Thành viên chính'],['Thành viên','Thành viên'],
+  ['Thư ký khoa học','Thư ký khoa học']];
+const DA_XONG = 'Đã hoàn thành';
+function dongBoNV(){
+  const ids = new Set(S.nv.map(n => n.id));
+  for(let i = S.kh.length - 1; i >= 0; i--)
+    if(S.kh[i].nguonNV && !ids.has(S.kh[i].nguonNV)) S.kh.splice(i,1);
+  S.nv.forEach(n => {
+    const idx = S.kh.findIndex(k => k.nguonNV === n.id);
+    if(n.tiendo === DA_XONG && !n.khongII1){
+      let k = idx >= 0 ? S.kh[idx] : null;
+      if(!k){
+        k = n.luuKH || Object.assign(MAU.kh(), {nguonNV: n.id});
+        delete n.luuKH;
+        S.kh.push(k);
+      }
+      k.ten = n.ten || '';
+      k.vaitroNV = n.vaitro || 'Chủ nhiệm';
+      k.vaitro = maVaiNV(k.vaitroNV);
+      /* không phải chủ nhiệm thì nhiệm vụ có ít nhất 2 người; tạm tính 2 cho tới khi
+         người dùng điền đúng, tránh tính trọn điểm cho thành viên */
+      if(k.vaitro === 'dong' && (parseInt(k.sotg,10)||1) < 2){ k.sotg = 2; k.tamSoNguoi = true; }
+    } else if(idx >= 0){
+      n.luuKH = S.kh[idx];
+      S.kh.splice(idx,1);
+    }
+  });
+}
+function denDongKH(id){
+  const o = document.getElementById('kh-' + id);
+  if(o){ o.scrollIntoView({behavior:'smooth', block:'center'}); o.classList.add('nhay'); setTimeout(()=>o.classList.remove('nhay'), 1400); }
 }
 
 /* ---------- I. Nhiệm vụ được giao ---------- */
@@ -1001,13 +1226,33 @@ function renderNV(){
   S.nv.forEach((r,i) => {
     const d = recShell(i, r.ten || 'Nhiệm vụ chưa đặt tên', () => { S.nv.splice(i,1); renderAll(); });
     const g = el('div','grid');
+    const oTen = inpDai(r.ten, v=>{r.ten=v;}, 'Nhiệm vụ cấp Bộ…');
+    oTen.onchange = () => renderAll();        // gõ xong (rời ô) mới đồng bộ sang II.1
     g.append(
-      field('Tên nhiệm vụ','',inp(r.ten, v=>{r.ten=v;}, 'Nhiệm vụ cấp Bộ…')),
-      field('Vai trò','',sel(r.vaitro,[['Chủ nhiệm','Chủ nhiệm'],['Thành viên chính','Thành viên chính'],['Thư ký khoa học/Thành viên chính','Thư ký khoa học/Thành viên chính'],['Thành viên','Thành viên'],['Thư ký khoa học','Thư ký khoa học']], v=>r.vaitro=v)),
-      field('Tiến độ thực hiện','',sel(r.tiendo,[['Đã hoàn thành','Đã hoàn thành'],['Đang thực hiện','Đang thực hiện'],['Chậm tiến độ','Chậm tiến độ']], v=>r.tiendo=v)),
-      field('Ghi chú','',inp(r.ghichu, v=>r.ghichu=v))
+      rong(field('Tên nhiệm vụ','',oTen)),
+      field('Vai trò','',sel(r.vaitro, VAI_NV_I, v=>{r.vaitro=v; renderAll();})),
+      field('Tiến độ thực hiện','',sel(r.tiendo,[[DA_XONG,DA_XONG],['Đang thực hiện','Đang thực hiện'],['Chậm tiến độ','Chậm tiến độ']], v=>{r.tiendo=v; renderAll();})),
+      field('Ghi chú','',inpDai(r.ghichu, v=>r.ghichu=v))
     );
-    d.append(g); box.append(d);
+    d.append(g);
+    if(r.tiendo === DA_XONG){
+      const v = el('div','verdict');
+      const k = S.kh.findIndex(x => x.nguonNV === r.id);
+      if(k >= 0){
+        v.classList.add('found');
+        v.innerHTML = 'Đã tự động chuyển sang mục II.1 ';
+        const b = el('button','lienket'); b.type='button'; b.textContent='Đi tới mục II.1 →';
+        b.onclick = () => denDongKH(S.kh[k].id);
+        v.append(b);
+      } else {
+        v.innerHTML = 'Không chuyển sang mục II.1 vì dòng liên kết đã bị xoá ở đó. ';
+        const b = el('button','lienket'); b.type='button'; b.textContent='Chuyển lại sang mục II.1';
+        b.onclick = () => { delete r.khongII1; renderAll(); };
+        v.append(b);
+      }
+      d.append(v);
+    }
+    box.append(d);
   });
 }
 
@@ -1016,10 +1261,24 @@ function renderKH(){
   const box = $('#list-kh'); box.innerHTML='';
   S.kh.forEach((r,i) => {
     const q = quyDoiNV(r);
-    const d = recShell(i, r.ten || 'Nhiệm vụ KH&CN', () => { S.kh.splice(i,1); renderAll(); }, fmt(q.d));
+    const nguon = r.nguonNV ? S.nv.find(n => n.id === r.nguonNV) : null;
+    const d = recShell(i, r.ten || 'Nhiệm vụ KH&CN', () => {
+      if(nguon) nguon.khongII1 = true;     // không tự tạo lại dòng vừa xoá
+      S.kh.splice(i,1); renderAll();
+    }, fmt(q.d));
+    d.id = 'kh-' + r.id;
+    if(nguon){
+      const ln = el('div','mc lk');
+      ln.textContent = `Liên kết từ mục I — nhiệm vụ số ${S.nv.indexOf(nguon)+1}, vai trò ${nguon.vaitro}. `
+        + 'Tên và vai trò sửa ở mục I; các ô còn lại điền tại đây.'
+        + (r.tamSoNguoi ? ' Bạn không phải chủ nhiệm nên số người tham gia đang tạm tính là 2 — hãy điền đúng số người để chia điểm chính xác.' : '');
+      d.append(ln);
+    }
+    const oTen = inpDai(r.ten, v=>{r.ten=v;});
+    if(nguon){ oTen.readOnly = true; oTen.title = 'Lấy từ mục I — sửa tên ở mục I'; }
     const g = el('div','grid');
     g.append(
-      field('Tên công trình / sản phẩm','',inp(r.ten, v=>{r.ten=v;})),
+      rong(field('Tên công trình / sản phẩm','',oTen)),
       field('Loại nhiệm vụ','mã 1.3 trong Biểu mẫu 609',
         sel(r.loai, NHIEM_VU.map(n=>[n.id, `${n.id} — ${n.t}`]), v=>{r.loai=v; r.suaTay=false; r.diem=null; renderAll();})),
       field('Kết quả nghiệm thu','',sel(r.muc, MUC_DH, v=>{r.muc=v; r.suaTay=false; r.diem=null; renderAll();})),
@@ -1027,6 +1286,7 @@ function renderKH(){
       oDiem(r, tdsNhiemVu(r))
     );
     d.append(g);
+    d.append(oTacGiaNV(r));
     const nv = NHIEM_VU.find(x=>x.id===r.loai);
     const dgoc = diemNhiemVu(nv, r.muc);
     const v = el('div','verdict ' + (dgoc === null ? 'miss' : (dgoc < 0 ? 'miss' : 'found')));
@@ -1036,6 +1296,7 @@ function renderKH(){
         + (dgoc < 0 ? ' <span class="flag">điểm âm</span>' : '')
         + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '');
     d.append(v);
+    d.append(dongQuyDoi(q, r, 'nv'));
     box.append(d);
   });
 }
@@ -1048,7 +1309,7 @@ function renderBB(){
     const d = recShell(i, r.tieude || 'Bài báo chưa đặt tên', () => { S.bb.splice(i,1); renderAll(); }, fmt(q.d));
     const g1 = el('div','grid');
     g1.append(
-      field('Tiêu đề bài báo','',inp(r.tieude, v=>{r.tieude=v;})),
+      rong(field('Tiêu đề bài báo','',inpDai(r.tieude, v=>{r.tieude=v;}))),
       field('Nơi công bố','',sel(r.loai,[['tn','Tạp chí trong nước — tra danh mục HĐGSNN'],['qt','Tạp chí quốc tế — tự kê xếp hạng']], v=>{
         r.loai=v; r.tapchi=''; r.issn=''; r.nhom=null; r.maQD=''; r.xephang=''; r.dieukien=''; r.qt=''; r.diem=null; r.suaTay=false; renderAll();
       })),
@@ -1168,7 +1429,7 @@ function renderBB(){
     g3.append(oDiem(r, tdsBaiBao(r)));
     d.append(g3);
     d.append(oTacGia(r));
-    d.append(dongQuyDoi(q));
+    d.append(dongQuyDoi(q, r, 'bb'));
     box.append(d);
   });
 }
@@ -1190,8 +1451,8 @@ function renderKY(){
     const d = recShell(i, r.tieude || 'Bài kỷ yếu chưa đặt tên', () => { S.ky.splice(i,1); renderAll(); }, fmt(q.d));
     const g1 = el('div','grid');
     g1.append(
-      field('Tiêu đề bài viết','',inp(r.tieude, v=>{r.tieude=v;})),
-      field('Tên hội thảo / tọa đàm','',inp(r.hoithao, v=>r.hoithao=v)),
+      rong(field('Tiêu đề bài viết','',inpDai(r.tieude, v=>{r.tieude=v;}))),
+      rong(field('Tên hội thảo / tọa đàm','',inpDai(r.hoithao, v=>r.hoithao=v))),
       field('Năm công bố','',inp(r.nam, v=>{r.nam=v; renderAll();}, '2026','number')),
       oThang(r)
     );
@@ -1215,7 +1476,7 @@ function renderKY(){
         + (o.loi && !r.isbn ? '<br><b>Mức điểm này yêu cầu kỷ yếu có mã ISBN.</b> Nhập mã ISBN, hoặc chọn lại mức không ISBN.' : '');
     d.append(v);
     d.append(oTacGia(r));
-    d.append(dongQuyDoi(q));
+    d.append(dongQuyDoi(q, r, 'ky'));
     box.append(d);
   });
 }
@@ -1228,10 +1489,10 @@ function renderSach(){
     const d = recShell(i, r.ten || 'Ấn phẩm chưa đặt tên', () => { S.sach.splice(i,1); renderAll(); }, fmt(q.d));
     const g = el('div','grid');
     g.append(
-      field('Tên sách / chương sách / bài viết','',inp(r.ten, v=>{r.ten=v;})),
+      rong(field('Tên sách / chương sách / bài viết','',inpDai(r.ten, v=>{r.ten=v;}))),
       field('Loại ấn phẩm','mã 1.1.5 – 1.2.7 trong Biểu mẫu 609',
         sel(r.kieu, AN_PHAM.map(a=>[a.id, `${a.ma} · ${a.t} — ${fmt(a.d,3)}`]), v=>{r.kieu=v; r.suaTay=false; r.diem=null; renderAll();})),
-      field('Nhà xuất bản','',inp(r.nxb, v=>r.nxb=v)),
+      field('Nhà xuất bản','',inpDai(r.nxb, v=>r.nxb=v)),
       field('Mã ISBN','',inp(r.isbn, v=>r.isbn=v)),
       field('Năm công bố','',inp(r.nam, v=>{r.nam=v; renderAll();}, '2026','number')),
       oThang(r),
@@ -1240,13 +1501,33 @@ function renderSach(){
     d.append(g);
     const o = AN_PHAM.find(x=>x.id===r.kieu);
     const v = el('div','verdict found');
-    v.innerHTML = `<span class="code">${esc(o.ma)}</span> ${esc(o.t)} → <b>${fmt(o.d,3)}</b> điểm · chia tác giả theo Công thức ${o.ct}`
+    v.innerHTML = `<span class="code">${esc(o.ma)}</span> ${esc(o.t)} → <b>${fmt(o.d,3)}</b> điểm · chia điểm tác giả theo Điều 4 khoản 4 Quy chế 1020`
       + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '');
     d.append(v);
-    d.append(oTacGia(r));
-    d.append(dongQuyDoi(q));
+    d.append(oTacGiaSach(r));
+    d.append(dongQuyDoi(q, r, 'sach'));
     box.append(d);
   });
+}
+/* ô chia điểm cho SÁCH: khi không chia đều, phân chủ biên (tác giả chính) và tác giả
+   theo Điều 4 khoản 4 Quy chế 1020, thay cho ô "Vai trò" của bài báo. */
+function oTacGiaSach(r){
+  const g = el('div','grid');
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  g.append(
+    field('Tổng số tác giả','',
+      inpNguyen(r.sotg, v=>{r.sotg=v; renderAll();}, '1'))
+  );
+  if(n >= 2){
+    g.append(field('Vai trò','',
+      sel(r.vaisach || 'cb', VAI_SACH, v=>{r.vaisach=v; renderAll();})));
+    if((r.vaisach || 'cb') === 'cb'){
+      g.append(field('Tổng số chủ biên','từ 2 chủ biên trở lên thì phần của tác giả chính chia đều',
+        inpNguyen(r.sochubien, v=>{r.sochubien=v; renderAll();}, '1')));
+    }
+  }
+  g.append(field('Mã DOI (nếu có)','',inp(r.link, v=>r.link=v, '10.xxxx/xxxxx')));
+  return g;
 }
 
 /* ---------- II.4 Hoạt động khác ---------- */
@@ -1256,6 +1537,7 @@ function renderHD(){
     const head = el('div','subhead');
     if(pi) head.style.marginTop = '22px';
     const lbl = el('span','sublbl'); lbl.textContent = p.t;
+    if(p.phu){ const ph = el('span','phu'); ph.textContent = ' ' + p.phu; lbl.append(ph); }
     const num = el('span','subnum');
     const cua = S.hd.filter(r => phanCuaBanGhi(r) === p.id);
     const tongP = cua.reduce((a,r)=>a + quyDoiHD(r).d, 0);
@@ -1295,7 +1577,7 @@ function theHD(r, p){
       selGroup(r.ma, nhomHD(p), v=>{ r.ma=v; r.suaTay=false; r.diem=null; renderAll(); })));
     d.append(g0);
     const g = el('div','grid');
-    g.append(field('Mô tả cụ thể','', inp(r.noidung, v=>{r.noidung=v;}, goiYHD(it, q.tien))));
+    g.append(rong(field('Mô tả cụ thể','', inpDai(r.noidung, v=>{r.noidung=v;}, goiYHD(it, q.tien)))));
     if(q.kieu === 'tien'){
       g.append(field('Thu nhập ròng sau thuế (triệu đồng)','đã trừ 10% thuế TNCN; dấu phẩy là thập phân, ví dụ 30,5',
         inpSo(r.tien, v=>{r.tien=v; renderAll();}, 'ví dụ 30,5')));
@@ -1316,8 +1598,9 @@ function theHD(r, p){
           inp(r.quocgia, v=>{r.quocgia=v;}, 'ví dụ Nhật Bản')),
         field('Thời gian','tháng/năm', inp(r.thoigian, v=>{r.thoigian=v;}, 'ví dụ 5/2026'))
       );
-    } else {
-      g.append(field('Số lượng','số nguyên dương',inpNguyen(r.soluong, v=>{r.soluong=v; renderAll();}, '1')));
+    } else if(p.id !== 'tuvan'){
+      /* báo cáo tư vấn chính sách: mỗi báo cáo kê một dòng riêng, số lượng luôn là 1 */
+      g.append(field('Số lượng','',inpNguyen(r.soluong, v=>{r.soluong=v; renderAll();}, '1')));
     }
     g.append(oDiem(r, it ? it.d : 0));
     d.append(g);
@@ -1326,15 +1609,15 @@ function theHD(r, p){
       g2.append(field('Mức chủ tọa','Sổ tay QĐ 609 mục 2.4, dùng chung cho KRA 2 và KRA 3',
         sel(r.chutoa || 'buoi', MUC_CHUTOA, v=>{ r.chutoa=v; renderAll(); })));
       if(r.chutoa === 'noitiep')
-        g2.append(field('Số phiên nối tiếp trong buổi','số nguyên dương',
+        g2.append(field('Số phiên nối tiếp trong buổi','',
           inpNguyen(r.sophien, v=>{r.sophien=v; renderAll();}, '3')));
       d.append(g2);
     }
     const v = el('div','verdict ' + (it ? 'found' : 'miss'));
     v.innerHTML = it
-      ? `<span class="code">${esc(it.ma)}</span> ${esc(it.t)} → ${fmt(q.tds,3)} điểm`
-        + (q.kieu === 'sl' || q.kieu === 'tien' ? ` / ${esc(q.dv)}` : '')
-        + ` × ${esc(moTaHeSoHD(r))} = <b>${fmt(q.d)}</b>`
+      ? `<span class="code">${esc(it.ma)}</span> ${esc(it.t)}<br>Điểm quy đổi = ${fmt(q.tds,3)} điểm`
+        + ((q.kieu === 'sl' && p.id !== 'tuvan') || q.kieu === 'tien' ? ` / ${esc(q.dv)}` : '')
+        + ` × ${esc(moTaHeSoHD(r))} = <b>${fmt(q.d,3)}</b>`
         + (it.loi ? ' <span class="flag">tính vào nhóm lõi</span>' : '')
         + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '')
         + (q.tien ? '<br>Chỉ tính hợp đồng do Viện ký, không tính hợp đồng cá nhân tự ký làm ngoài.' : '')
@@ -1382,7 +1665,10 @@ function tinhToan(){
       else xeploai = 'ht';
     }
   }
-  return {tKH,tBB,tKY,tSach,tHD,kyLoi,hdLoi,tong,loiCot,chuan,tyLeGiam,sauGiam,vuot,datMuc,xeploai,tenGiam:g.t};
+  /* Điều 5: điểm nhóm sản phẩm lõi phải đạt ít nhất một nửa định mức GỐC theo chức danh
+     và hệ số lương, không áp dụng giảm trừ (định mức 1 điểm → lõi tối thiểu 0,5). */
+  const loiCan = chuan === null ? null : chuan / 2;
+  return {tKH,tBB,tKY,tSach,tHD,kyLoi,hdLoi,tong,loiCot,loiCan,chuan,tyLeGiam,sauGiam,vuot,datMuc,xeploai,tenGiam:g.t};
 }
 const TEN_XEPLOAI = {
   ht:'Hoàn thành', vuot30:'Hoàn thành vượt mức từ 30% đến dưới 50%',
@@ -1426,7 +1712,9 @@ function renderSum(){
     ['Định mức tối thiểu theo chức danh và hệ số lương', c.chuan===null?'chưa xác định':fmt(c.chuan,2)],
     ['Tỷ lệ giảm trừ áp dụng', c.tyLeGiam ? Math.round(c.tyLeGiam*100)+'%' : '0%'],
     ['Định mức tối thiểu sau giảm trừ', c.sauGiam===null?'chưa xác định':fmt(c.sauGiam,2)],
-    ['Tỷ lệ đạt định mức tối thiểu', chuoiTyLe(c)]
+    ['Tỷ lệ đạt định mức tối thiểu', chuoiTyLe(c)],
+    ['Điểm sản phẩm lõi', fmt(c.loiCot,3)],
+    ['Mức lõi phải đạt — một nửa định mức gốc, không tính giảm trừ', c.loiCan===null?'chưa xác định':fmt(c.loiCan,2)]
   ];
   const box = $('#sum'); box.innerHTML='';
   rows.forEach(([l,v]) => {
@@ -1450,9 +1738,9 @@ function renderSum(){
       : 'Chọn chức danh nghề nghiệp và điền hệ số lương ở mục A để hệ thống xác định định mức.');
   } else {
     them(c.tong + 1e-9 >= c.sauGiam, `Tổng điểm ${fmt(c.tong,2)} so với định mức phải đạt ${fmt(c.sauGiam,2)}.`);
-    const nua = c.sauGiam/2;
-    them(c.loiCot + 1e-9 >= nua,
-      `Điểm bài báo, sách, nhiệm vụ KH&CN và bài kỷ yếu có ISBN đạt ${fmt(c.loiCot,2)}, cần ít nhất ${fmt(nua,2)} (một nửa định mức — Điều 5).`);
+    them(c.loiCot + 1e-9 >= c.loiCan,
+      `Điểm sản phẩm lõi (bài báo, sách, nhiệm vụ KH&CN và bài kỷ yếu có ISBN) đạt ${fmt(c.loiCot,2)}, cần ít nhất ${fmt(c.loiCan,2)} `
+      + `= một nửa định mức gốc ${fmt(c.chuan,2)}, không tính giảm trừ (Điều 5).`);
   }
   const thieuCanCu = S.bb.filter(r => r.loai==='qt' && r.qt && !r.cankcu).length;
   if(thieuCanCu) them(false, `${thieuCanCu} bài quốc tế chưa ghi căn cứ xếp hạng. Người giám sát sẽ không đối chiếu được.`);
@@ -1466,7 +1754,39 @@ function renderSum(){
   if(sachTrung) them(null, 'Có cả sách và chương sách trong danh sách. Kiểm tra không tính trùng chương sách nằm trong cuốn sách đã kê.');
 }
 
-function renderAll(){ renderNV(); renderKH(); renderBB(); renderKY(); renderSach(); renderHD(); renderDinhMuc(); renderSum(); luuNhap(); }
+/* Mỗi lần gõ, các danh sách được dựng lại nên ô đang nhập bị thay bằng ô mới và mất con trỏ.
+   Ghi lại ô đang nhập (vị trí trong danh sách + vị trí con trỏ) rồi trả con trỏ về đúng chỗ
+   sau khi dựng lại, để gõ được nhiều chữ số liên tục. */
+function giuConTro(){
+  const a = document.activeElement;
+  if(!a || !/^(INPUT|SELECT|TEXTAREA)$/.test(a.tagName)) return null;
+  const host = a.closest('[id^="list-"], #hd-wrap');
+  if(!host) return null;
+  const all = [...host.querySelectorAll('input,select,textarea')];
+  let s = null, e = null;
+  try { s = a.selectionStart; e = a.selectionEnd; } catch(_){}
+  return {id: host.id, i: all.indexOf(a), s, e};
+}
+function traConTro(k){
+  if(!k || k.i < 0) return;
+  const host = document.getElementById(k.id);
+  const o = host && host.querySelectorAll('input,select,textarea')[k.i];
+  if(!o) return;
+  o.focus({preventScroll:true});
+  if(k.s !== null && k.s !== undefined){ try { o.setSelectionRange(k.s, k.e); } catch(_){} }
+}
+let dangDung = false;
+function renderAll(){
+  if(dangDung) return;            // ô bị gỡ khỏi trang có thể phát blur → tránh dựng lồng nhau
+  dangDung = true;
+  const k = giuConTro();
+  try {
+    dongBoNV();
+    renderNV(); renderKH(); renderBB(); renderKY(); renderSach(); renderHD(); renderDinhMuc(); renderSum(); luuNhap();
+  } finally { dangDung = false; }
+  khitO();
+  traConTro(k);
+}
 
 /* ===================== Lưu nháp ===================== */
 const KEY = 'kpi2026-draft-v2';
@@ -1504,11 +1824,28 @@ function TBL(rows, widths){
     + `</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>${grid}</w:tblGrid>${body}</w:tbl>`;
 }
 const HEAD = t => ({t, b:true, align:'center', shade:'EDEDED'});
-function moTaTacGia(r){
+/* mô tả cho sách (có trường vaisach) khác bài báo: nêu chủ biên/đồng chủ biên */
+function moTaSach(r){
   const n = Math.max(1, parseInt(r.sotg,10)||1);
   if(n === 1) return 'Tác giả duy nhất';
-  if((r.chia || CHIA_MD) === 'deu') return `${n} tác giả, chia đều điểm`;
-  if(r.vaitro === 'chinh') return `Tác giả chính/đứng đầu, ${n} tác giả`;
+  if((r.vaisach || 'cb') !== 'cb') return `Tác giả (không phải chủ biên), ${n} tác giả`;
+  const m = Math.min(n, Math.max(1, parseInt(r.sochubien,10)||1));
+  return m > 1
+    ? `Đồng chủ biên — tác giả chính (${m} chủ biên), ${n} tác giả`
+    : `Chủ biên — tác giả chính, ${n} tác giả`;
+}
+/* mô tả cho nhiệm vụ KH&CN: nêu chủ nhiệm hay thành viên */
+function moTaNV(r){
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  if(n === 1) return 'Chủ nhiệm, không chia điểm';
+  return (r.vaitro === 'chinh' ? 'Chủ nhiệm — tác giả chính' : tenVaiNV(r))
+    + `, ${n} người tham gia`;
+}
+function moTaTacGia(r){
+  if('vaisach' in r) return moTaSach(r);
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  if(n === 1) return 'Tác giả duy nhất';
+  if(r.vaitro === 'chinh') return `Tác giả chính, ${n} tác giả`;
   return `Tác giả còn lại, ${n} tác giả`;
 }
 
@@ -1531,31 +1868,35 @@ function buildDocXml(){
   out.push(P(`4. Hệ số lương hiện hưởng: ${S.hsl || '..........'}    Thời gian nâng bậc lương: ${S.nangbac || '..........'}`));
   out.push(P(`5. Đơn vị công tác${laLanhDaoVien() ? '' : ' (Phòng)'}: ${S.phong || '.....................'}`, {after:200}));
 
+  /* mục chưa kê gì: in một dòng trống để giữ khung bảng của mẫu, không tính điểm mẫu */
+  const dongTrong = n => Array.from({length:n}, () => ({t:''}));
   out.push(P('I. NHIỆM VỤ ĐƯỢC GIAO', {b:true, after:100}));
   const rNV = [[HEAD('STT'),HEAD('Nhiệm vụ'),HEAD('Vai trò'),HEAD('Tiến độ thực hiện'),HEAD('Ghi chú')]];
-  (S.nv.length ? S.nv : [MAU.nv()]).forEach((r,i) => rNV.push([
+  S.nv.forEach((r,i) => rNV.push([
     {t:String(i+1), align:'center'}, {t:r.ten}, {t:r.vaitro, align:'center'}, {t:r.tiendo, align:'center'}, {t:r.ghichu}]));
+  if(!S.nv.length) rNV.push(dongTrong(5));
   out.push(TBL(rNV, [700, 3400, 1700, 2100, 1460]));
   out.push(P(''));
 
   out.push(P('II. SẢN PHẨM KHOA HỌC', {b:true, after:100}));
   out.push(P('1. Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', {b:true, after:80}));
   const rKH = [[HEAD('STT'),HEAD('Tên công trình/sản phẩm'),HEAD('Thời gian hoàn thành'),HEAD('Xếp loại'),HEAD('Tính điểm'),HEAD('Ghi chú')]];
-  (S.kh.length ? S.kh : [MAU.kh()]).forEach((r,i) => {
+  S.kh.forEach((r,i) => {
     const nv = NHIEM_VU.find(x=>x.id===r.loai);
     rKH.push([
       {t:String(i+1), align:'center'}, {t:r.ten}, {t:r.thoigian, align:'center'},
       {t:(MUC_DH.find(m=>m[0]===r.muc)||['',''])[1], align:'center'},
       {t:fmt(quyDoiNV(r).d), align:'center'},
-      {t:nv ? nv.t : ''}]);
+      {t:(nv ? nv.t : '') + (Math.max(1, parseInt(r.sotg,10)||1) > 1 ? ' · ' + moTaNV(r) : '')}]);
   });
+  if(!S.kh.length) rKH.push(dongTrong(6));
   out.push(TBL(rKH, [620, 2700, 1300, 1500, 1000, 2240]));
   out.push(P(''));
 
   out.push(P('2. Bài báo khoa học', {b:true, after:80}));
   out.push(P('a) Bài báo đăng trên tạp chí', {b:true, sz:24, after:60}));
   const rBB = [[HEAD('STT'),HEAD('Tiêu đề bài báo'),HEAD('Tên tạp chí'),HEAD('Xếp hạng'),HEAD('Năm công bố'),HEAD('Tác giả/đồng tác giả'),HEAD('Đường link / DOI (nếu có)'),HEAD('Tính điểm')]];
-  (S.bb.length ? S.bb : [MAU.bb()]).forEach((r,i) => {
+  S.bb.forEach((r,i) => {
     let xh = '';
     if(r.loai === 'tn'){ const nh = nhomTuKhung(r.nhom); xh = nh ? `${nh.ma} · nhóm loại ${nh.nhom} (HĐGSNN)` : ''; }
     else { const o = BAO_QT.find(x=>x.id===r.qt); xh = o ? `${o.ma} · ${o.t}` : ''; }
@@ -1565,12 +1906,13 @@ function buildDocXml(){
       {t:thoiGianCB(r), align:'center'}, {t:moTaTacGia(r), align:'center'}, {t:r.link},
       {t:fmt(quyDoiBaiBao(r).d), align:'center'}]);
   });
+  if(!S.bb.length) rBB.push(dongTrong(8));
   out.push(TBL(rBB, [520, 1800, 1400, 1550, 760, 1300, 1180, 850]));
   out.push(P(''));
 
   out.push(P('b) Bài đăng toàn văn trong kỷ yếu hội thảo', {b:true, sz:24, after:60}));
   const rKY = [[HEAD('STT'),HEAD('Tiêu đề bài viết'),HEAD('Tên hội thảo'),HEAD('Loại kỷ yếu'),HEAD('Mã ISBN'),HEAD('Năm công bố'),HEAD('Tác giả/đồng tác giả'),HEAD('Đường link / DOI (nếu có)'),HEAD('Tính điểm')]];
-  (S.ky.length ? S.ky : [MAU.ky()]).forEach((r,i) => {
+  S.ky.forEach((r,i) => {
     const o = KY_YEU.find(x=>x.id===r.loai);
     rKY.push([
       {t:String(i+1), align:'center'}, {t:r.tieude}, {t:r.hoithao},
@@ -1578,24 +1920,26 @@ function buildDocXml(){
       {t:thoiGianCB(r), align:'center'}, {t:moTaTacGia(r), align:'center'}, {t:r.link},
       {t:fmt(quyDoiKY(r).d), align:'center'}]);
   });
+  if(!S.ky.length) rKY.push(dongTrong(9));
   out.push(TBL(rKY, [480, 1500, 1350, 1700, 900, 700, 1180, 700, 850]));
   out.push(P(''));
 
   out.push(P('3. Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', {b:true, after:80}));
   const rS = [[HEAD('STT'),HEAD('Tên sách/Chương sách'),HEAD('Nhà xuất bản'),HEAD('Mã ISBN'),HEAD('Năm công bố'),HEAD('Tác giả/đồng tác giả'),HEAD('Đường link / DOI (nếu có)'),HEAD('Tính điểm')]];
-  (S.sach.length ? S.sach : [MAU.sach()]).forEach((r,i) => {
+  S.sach.forEach((r,i) => {
     const o = AN_PHAM.find(x=>x.id===r.kieu);
     rS.push([
       {t:String(i+1), align:'center'}, {t:(o?o.ma+' · ':'') + r.ten}, {t:r.nxb}, {t:r.isbn, align:'center'},
       {t:thoiGianCB(r), align:'center'}, {t:moTaTacGia(r), align:'center'}, {t:r.link},
       {t:fmt(quyDoiSach(r).d), align:'center'}]);
   });
+  if(!S.sach.length) rS.push(dongTrong(8));
   out.push(TBL(rS, [520, 1900, 1400, 1300, 760, 1300, 1330, 850]));
   out.push(P(''));
 
   out.push(P('4. Hoạt động khác', {b:true, after:80}));
   const rH = [[HEAD('STT'),HEAD('Nội dung'),HEAD('Tính điểm')]];
-  (S.hd.length ? S.hd : [MAU.hd()]).forEach((r,i) => {
+  S.hd.forEach((r,i) => {
     const it = timHD(r.ma); const q = quyDoiHD(r);
     const phu = [];
     if(r.quocgia) phu.push(`quốc gia ${r.quocgia}`);
@@ -1608,6 +1952,7 @@ function buildDocXml(){
       + (phu.length ? ` (${phu.join('; ')})` : '');
     rH.push([{t:String(i+1), align:'center'}, {t:nd}, {t:fmt(q.d), align:'center'}]);
   });
+  if(!S.hd.length) rH.push(dongTrong(3));
   out.push(TBL(rH, [700, 7260, 1400]));
   out.push(P(''));
 
@@ -1869,10 +2214,10 @@ ${sheets.map((s,i)=>`<Relationship Id="rId${i+1}" Type="http://schemas.openxmlfo
 }
 
 function moTaTacGiaH(r){
+  if('vaisach' in r) return moTaSach(r);
   const n = Math.max(1, parseInt(r.sotg,10) || 1);
   if(n === 1) return 'Tác giả duy nhất';
-  if((r.chia || CHIA_MD) === 'deu') return `${n} tác giả, chia đều điểm`;
-  if(r.vaitro === 'chinh') return `Tác giả chính/đứng đầu, ${n} tác giả`;
+  if(r.vaitro === 'chinh') return `Tác giả chính, ${n} tác giả`;
   return `Tác giả còn lại, ${n} tác giả`;
 }
 function thoiGianCBh(r){
@@ -1888,7 +2233,7 @@ function thoiGianCBh(r){
 const W_BANG = [6, 34, 26, 24, 13, 19, 18, 14, 13, 13, 13, 10];
 
 function heSoCua(r, ct){
-  const h = heSo(r.vaitro, r.sotg, ct || 'A', r.chia);
+  const h = heSo(r.vaitro, r.sotg);
   return h.h;
 }
 
@@ -1965,15 +2310,15 @@ function dungBangTinh(){
   tieuDe('II. SẢN PHẨM KHOA HỌC');
 
   tieuDe('1. Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo');
-  const bKH = bangSP(['STT', 'Tên công trình/sản phẩm', 'Mã mục 609', 'Thời gian hoàn thành', 'Kết quả nghiệm thu'],
+  const bKH = bangSP(['STT', 'Tên công trình/sản phẩm', 'Mã mục 609', 'Thời gian hoàn thành', 'Kết quả nghiệm thu', 'Người tham gia'],
     S.kh.map((x, i) => {
       const nv = NHIEM_VU.find(y => y.id === x.loai);
       return {
-        tds: tdsNhiemVu(x), hs: 1, loi: true,
+        tds: tdsNhiemVu(x), hs: heSoCua(x, 'A'), loi: true,
         cells: [T(i + 1, 4), T(x.ten || '', 1), T(nv ? nv.id : '', 4), T(x.thoigian || '', 4),
-          T((MUC_DH.find(m => m[0] === x.muc) || ['', ''])[1], 1)]
+          T((MUC_DH.find(m => m[0] === x.muc) || ['', ''])[1], 1), T(moTaNV(x), 1)]
       };
-    }), 5, false);
+    }), 6, false);
   dong([]);
 
   tieuDe('2. Bài báo khoa học');
@@ -2008,7 +2353,7 @@ function dungBangTinh(){
     S.sach.map((x, i) => {
       const q = AN_PHAM.find(y => y.id === x.kieu);
       return {
-        tds: tdsSach(x), hs: heSoCua(x, ctSach(x)), loi: true,
+        tds: tdsSach(x), hs: heSoSach(x).h, loi: true,
         cells: [T(i + 1, 4), T((q ? q.ma + ' · ' : '') + (x.ten || ''), 1), T(x.nxb || '', 1),
           T(x.isbn || '', 4), T(thoiGianCBh(x), 4), T(x.link || '', 1), T(moTaTacGiaH(x), 1)]
       };
@@ -2062,7 +2407,7 @@ function dungBangTinh(){
   const oLoi = nhanTong('Điểm nhóm sản phẩm lõi (Điều 5)',
     `${oKH}+${oBB}+${oSach}` + (bKY.oLoi ? `+${bKY.oLoi}` : '') + (bHD.oLoi ? `+${bHD.oLoi}` : ''),
     c.loiCot);
-  nhanTong('Mức lõi phải đạt — một nửa định mức sau giảm trừ', `${oSau}/2`, c.sauGiam === null ? null : c.sauGiam / 2);
+  const oLoiCan = nhanTong('Mức lõi phải đạt — một nửa định mức gốc, không tính giảm trừ', `${oChuan}/2`, c.loiCan);
 
   dong([]);
   const xl = `IF(${oSau}=0,"",IF(${oTong}<${oSau},"${TEN_XEPLOAI.khong}",`
@@ -2075,9 +2420,9 @@ function dungBangTinh(){
   const oXL = `${o(7)}${rXL + 1}`;
   const rD5 = r0();
   const cD5 = new Array(8).fill(null);
-  cD5[0] = T('Điều 5 — điểm nhóm lõi đạt tối thiểu một nửa định mức', 12);
-  cD5[7] = { v: (c.sauGiam !== null && c.loiCot + 1e-9 >= c.sauGiam / 2) ? 'Đạt' : 'Chưa đạt',
-             k: 'f', f: `IF(${oSau}=0,"",IF(${oLoi}>=${oSau}/2,"Đạt","Chưa đạt"))`, s: 11 };
+  cD5[0] = T('Điều 5 — điểm nhóm lõi đạt tối thiểu một nửa định mức gốc (không tính giảm trừ)', 12);
+  cD5[7] = { v: (c.loiCan !== null && c.loiCot + 1e-9 >= c.loiCan) ? 'Đạt' : 'Chưa đạt',
+             k: 'f', f: `IF(${oChuan}=0,"",IF(${oLoi}>=${oLoiCan},"Đạt","Chưa đạt"))`, s: 11 };
   dong(cD5); gop(rD5, 0, 6);
   dong([]);
 
@@ -2148,7 +2493,7 @@ function bind(){
 /* bản nháp cũ có ngành, lĩnh vực và cách chia đặt ở mục A — chuyển xuống từng dòng */
 function chuanHoa(){
   const lvCu = S.linhvuc || 'triet';
-  const chiaCu = S.chia || CHIA_MD;
+
   if(!Array.isArray(S.ky)) S.ky = [];
   /* các mục kỷ yếu từng nằm ở Hoạt động khác — chuyển sang mục II.2b */
   const giuLai = [];
@@ -2158,7 +2503,7 @@ function chuanHoa(){
     if(typeof moi === 'string' && moi.startsWith('ky:')){
       const sl = Math.max(1, Math.round(docSo(r.soluong)||1));
       for(let i=0;i<sl;i++) S.ky.push(Object.assign(MAU.ky(), {
-        tieude: r.noidung || '', loai: moi.slice(3), link: r.link || '', chia: chiaCu,
+        tieude: r.noidung || '', loai: moi.slice(3), link: r.link || '',
         diem: r.suaTay ? r.diem : null, suaTay: !!r.suaTay
       }));
     } else { r.ma = moi; giuLai.push(r); }
@@ -2167,7 +2512,6 @@ function chuanHoa(){
   S.hd.forEach(r => { r.pn = phanCuaBanGhi(r); });
   S.bb.forEach(r => {
     delete r.nganh;
-    if(!r.chia) r.chia = chiaCu;
     if(r.loai !== 'tn') return;
     const tc = timTapChi(r);
     if(!tc){ if(!r.linhvuc) r.linhvuc = lvCu; return; }
@@ -2175,19 +2519,38 @@ function chuanHoa(){
     if(!r.linhvuc || !lv.some(x => x[0] === r.linhvuc)) r.linhvuc = lv.some(x => x[0] === lvCu) ? lvCu : lv[0][0];
     traLaiDiem(r);
   });
-  [...S.sach, ...S.ky].forEach(r => { if(!r.chia) r.chia = chiaCu; });
-  S.kh.forEach(r => { delete r.vaitro; delete r.sotg; delete r.chia; delete r.link; });
+  S.kh.forEach(r => {
+    delete r.link;
+    if(r.vaitro !== 'chinh' && r.vaitro !== 'dong') r.vaitro = 'chinh';
+    if(!(parseInt(r.sotg,10) >= 1)) r.sotg = 1;
+  });
   delete S.nganh; delete S.linhvuc; delete S.chia;
   /* lĩnh vực của bản nháp cũ có thể thuộc ngành đã đổi mã — tra lại cho chắc */
   S.bb.forEach(r => { if(r.loai === 'tn' && r.linhvuc && !NGANH_CUA_LV[r.linhvuc]) {
     const tc = timTapChi(r); const lv = tc ? lvCuaTapChi(tc) : [];
     r.linhvuc = lv.length ? lv[0][0] : ''; traLaiDiem(r);
   }});
-  /* cách chia điểm cũ (qc1020/st609) và vai trò "deu" → mô hình mới phan/deu */
-  [...S.bb, ...S.ky, ...S.sach].forEach(r => {
-    if(r.vaitro === 'deu'){ r.chia = 'deu'; r.vaitro = 'chinh'; }
-    if(r.chia !== 'deu' && r.chia !== 'phan') r.chia = 'phan';
+  /* Quy chế 1020 bỏ cách chia theo thoả thuận riêng: xoá trường chia của bản nháp cũ,
+     mọi bản ghi tính lại theo Điều 4 khoản 4; vai trò "deu" cũ coi như tác giả chính. */
+  [...S.bb, ...S.ky, ...S.sach, ...S.kh].forEach(r => {
+    delete r.chia;
     if(r.vaitro !== 'chinh' && r.vaitro !== 'dong') r.vaitro = 'chinh';
+  });
+  /* sách của bản nháp cũ chưa có vai trò chủ biên: suy từ vaitro cũ */
+  S.sach.forEach(r => { if(!r.vaisach) r.vaisach = (r.vaitro === 'dong') ? 'tg' : 'cb'; });
+  /* bản nháp lập trước khi chuyển sang cách chia của Quy chế 1020: gộp "đồng chủ biên"
+     vào "chủ biên" kèm số chủ biên; bản ghi "chủ biên" cũ vốn không dùng ô số chủ biên
+     (luôn lưu sẵn 2) nên đặt lại về 1. Chỉ chạy một lần, sau đó người dùng tự chỉnh. */
+  if(!S.chia1020){
+    S.sach.forEach(r => {
+      if(r.vaisach === 'dcb'){ r.vaisach = 'cb'; r.sochubien = Math.max(2, parseInt(r.sochubien,10)||2); }
+      else r.sochubien = 1;
+    });
+    S.chia1020 = true;
+  }
+  S.sach.forEach(r => {
+    if(r.vaisach !== 'cb' && r.vaisach !== 'tg') r.vaisach = 'cb';
+    if(!(parseInt(r.sochubien,10) >= 1)) r.sochubien = 1;
   });
   /* bản nháp từ phiên bản trước có nút Gửi và link thư mục Drive */
   delete S.linkMC; delete S.trangthai; delete S.thoiDiemGui; delete S.capNhatGui;
@@ -2208,4 +2571,6 @@ if(!napNhap()){
 }
 bind();
 renderAll();
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(khitO);   // đo lại khi phông chữ tải xong
 </script>
+</body></html>
