@@ -254,7 +254,7 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
   </section>
 
   <section>
-    <div class="sechead"><span class="secnum">II.1</span><h2>Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo</h2><span class="note" id="note-kh">0,00</span></div>
+    <div class="sechead"><span class="secnum">II.1</span><h2>Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu</h2><span class="note" id="note-kh">0,00</span></div>
     <div class="secbody"><div id="list-kh"></div><button class="ghost" data-add="kh">+ Thêm nhiệm vụ đã nghiệm thu</button></div>
   </section>
 
@@ -421,20 +421,20 @@ const NHIEM_VU = [
   {id:'1.3.2',  t:'Nhiệm vụ Chương trình khoa học và công nghệ cấp quốc gia khác',dh:[7.098,4.056,2.535,-4.056], qh:[null,-7.098,-13.182]},
   {id:'1.3.3',  t:'Dự án khoa học và công nghệ cấp quốc gia (độc lập)',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
   {id:'1.3.4',  t:'Đề án khoa học cấp quốc gia (độc lập)',                dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
-  {id:'1.3.5',  t:'Đề tài/nhiệm vụ khoa học và công nghệ cấp quốc gia (độc lập)',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
-  {id:'1.3.6',  t:'Đề tài/nhiệm vụ Nghị định thư cấp quốc gia',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
+  {id:'1.3.5',  t:'Nhiệm vụ khoa học và công nghệ cấp quốc gia (độc lập)',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
+  {id:'1.3.6',  t:'Nhiệm vụ Nghị định thư cấp quốc gia',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
   {id:'1.3.7',  t:'Chương trình khoa học trọng điểm cấp bộ',              dh:[7.098,4.056,2.535,-4.056], qh:[-5.577,-7.098,-13.182]},
   {id:'1.3.8',  t:'Chương trình khoa học cấp bộ độc lập',                 dh:[7.098,4.056,2.535,-4.056], qh:[-5.577,-7.098,-13.182]},
-  {id:'1.3.9',  t:'Đề tài/nhiệm vụ Chương trình khoa học trọng điểm cấp bộ', dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
-  {id:'1.3.10', t:'Đề tài/nhiệm vụ Chương trình khoa học cấp bộ độc lập', dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
-  {id:'1.3.11', t:'Đề tài/nhiệm vụ khoa học cấp bộ',                      dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
-  {id:'1.3.12', t:'Đề tài/nhiệm vụ khoa học cấp bộ đột xuất',             dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
-  {id:'1.3.13', t:'Đề tài/nhiệm vụ Nghị định thư (song phương) cấp bộ',dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
+  {id:'1.3.9',  t:'Nhiệm vụ Chương trình khoa học trọng điểm cấp bộ', dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
+  {id:'1.3.10', t:'Nhiệm vụ Chương trình khoa học cấp bộ độc lập', dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
+  {id:'1.3.11', t:'Nhiệm vụ khoa học cấp bộ',                      dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
+  {id:'1.3.12', t:'Nhiệm vụ khoa học cấp bộ đột xuất',             dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
+  {id:'1.3.13', t:'Nhiệm vụ Nghị định thư (song phương) cấp bộ',dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.14', t:'Dự án điều tra cơ bản kinh tế - xã hội',               dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.15', t:'Nhiệm vụ bảo vệ môi trường',                           dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.16', t:'Nhiệm vụ cấp Đề án (cấp bộ)',                          dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
-  {id:'1.3.17', t:'Đề tài cơ sở',                                         dh:[1.250,0.750,0.250,-0.250], qh:[-0.550,-0.700,-1.300]},
-  {id:'1.3.18', t:'Đề tài/nhiệm vụ khoa học và công nghệ cấp tỉnh/thành phố (tài trợ 100%)', dh:[1.550,0.950,0.350,-0.250], qh:[-0.850,-1.450,-2.050]}
+  {id:'1.3.17', t:'Nhiệm vụ cơ sở'  ,                                         dh:[1.250,0.750,0.250,-0.250], qh:[-0.550,-0.700,-1.300]},
+  {id:'1.3.18', t:'Nhiệm vụ khoa học và công nghệ cấp tỉnh/thành phố (tài trợ 100%)', dh:[1.550,0.950,0.350,-0.250], qh:[-0.850,-1.450,-2.050]}
 ];
 const MUC_DH = [['xs','Bảo vệ đúng hạn — Xuất sắc'],['kha','Bảo vệ đúng hạn — Khá'],['dat','Bảo vệ đúng hạn — Đạt'],['kdat','Bảo vệ đúng hạn — Không đạt'],
                 ['q_kha','Bảo vệ quá hạn — Khá'],['q_dat','Bảo vệ quá hạn — Đạt'],['q_kdat','Bảo vệ quá hạn — Không đạt']];
@@ -461,9 +461,9 @@ const KY_YEU = [
   {id:'ky_qt_kt_td_nn',ma:'3.3.2.1',t:'Tọa đàm quốc tế được tổ chức ở nước ngoài — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.425, loi:true},
   {id:'ky_qt_kt_vn',  ma:'3.3.2.2', t:'Hội thảo quốc tế được tổ chức ở Việt Nam — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.505, loi:true},
   {id:'ky_qt_kt_td_vn',ma:'3.3.2.2',t:'Tọa đàm quốc tế được tổ chức ở Việt Nam — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.257, loi:true},
-  {id:'ky_tn_tb',     ma:'2.4.4.1', t:'Hội thảo Đề tài/Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', d:1.000, loi:true},
-  {id:'ky_tn_kt',     ma:'2.4.4.3', t:'Hội thảo Đề tài/Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — không trình bày nhưng có bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', d:0.500, loi:true},
-  {id:'ky_tn_noisbn', ma:'2.4.4.2', t:'Hội thảo Đề tài/Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu hội thảo không có mã ISBN', d:0.250, loi:false}
+  {id:'ky_tn_tb',     ma:'2.4.4.1', t:'Hội thảo Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', d:1.000, loi:true},
+  {id:'ky_tn_kt',     ma:'2.4.4.3', t:'Hội thảo Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — không trình bày nhưng có bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', d:0.500, loi:true},
+  {id:'ky_tn_noisbn', ma:'2.4.4.2', t:'Hội thảo Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu hội thảo không có mã ISBN', d:0.250, loi:false}
 ];
 
 /* KRA 2–3–4: các mục gắn với cá nhân cán bộ. loi = thuộc nhóm sản phẩm lõi (Điều 5) */
@@ -503,8 +503,8 @@ const HOAT_DONG = [
     {ma:'2.1.2.6', t:'Đóng góp ý kiến văn kiện Đảng cấp trên tại mục Tin tức của Viện Hàn lâm KHXH Việt Nam', d:0.016}
   ]},
   {g:'KRA 2 — Thu nhập nghiên cứu ròng ngoài VASS', items:[
-    {ma:'2.2.1', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ Viện) từ hợp đồng nghiên cứu của Viện ký với cơ quan TW, Bộ, Ban, Ngành, đề tài Quỹ Phát triển khoa học và công nghệ Quốc gia (Nafosted)', d:2.500, dv:'100 triệu đồng', tien:true},
-    {ma:'2.2.2', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ của Viện) từ hợp đồng nghiên cứu của Viện ký với chính quyền địa phương (đề tài cấp tỉnh), doanh nghiệp, tổ chức, và các cá nhân khác', d:2.500, dv:'100 triệu đồng', tien:true},
+    {ma:'2.2.1', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ Viện) từ hợp đồng nghiên cứu của Viện ký với cơ quan TW, Bộ, Ban, Ngành, nhiệm vụ Quỹ Phát triển khoa học và công nghệ Quốc gia (Nafosted)', d:2.500, dv:'100 triệu đồng', tien:true},
+    {ma:'2.2.2', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ của Viện) từ hợp đồng nghiên cứu của Viện ký với chính quyền địa phương (nhiệm vụ cấp tỉnh), doanh nghiệp, tổ chức, và các cá nhân khác', d:2.500, dv:'100 triệu đồng', tien:true},
     {ma:'2.2.3', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ Viện) từ hợp đồng nghiên cứu của Viện ký với các tổ chức phát triển quốc tế và từ nguồn tài trợ của các quỹ nghiên cứu khoa học quốc tế', d:2.000, dv:'100 triệu đồng', tien:true}
   ]},
   {g:'KRA 2 — Hội thảo trong nước', items:[
@@ -710,7 +710,7 @@ const TEN_VAI_SACH = {cb:'Chủ biên', tg:'Tác giả'};
 
 /* ===================== Mẫu bản ghi ===================== */
 const MAU = {
-  nv:   () => ({id:uid(), ten:'', vaitro:'Chủ nhiệm', tiendo:'Đang thực hiện', ghichu:''}),
+  nv:   () => ({id:uid(), ten:'', vaitro:'Chủ nhiệm', tiendo:'Đang thực hiện', cap:''}),
   kh:   () => ({id:uid(), ten:'', loai:'1.3.17', muc:'dat', thoigian:'',
                 vaitro:'chinh', sotg:1, diem:null, suaTay:false}),
   bb:   () => ({id:uid(), loai:'tn', tieude:'', linhvuc:'', tapchi:'', issn:'', nhom:null, dieukien:'', tenRieng:'',
@@ -1225,6 +1225,31 @@ function denDongKH(id){
   if(o){ o.scrollIntoView({behavior:'smooth', block:'center'}); o.classList.add('nhay'); setTimeout(()=>o.classList.remove('nhay'), 1400); }
 }
 
+/* ---------- Cấp nhiệm vụ (cột Ghi chú của Mẫu số 01) ---------- */
+const CAP_NV = [['','— Chọn —'],['cs','Nhiệm vụ cơ sở'],['bo','Nhiệm vụ cấp bộ'],['nn','Nhiệm vụ cấp nhà nước'],['tinh','Nhiệm vụ cấp tỉnh']];
+const TEN_CAP_NV = {cs:'Nhiệm vụ cơ sở', bo:'Nhiệm vụ cấp bộ', nn:'Nhiệm vụ cấp nhà nước', tinh:'Nhiệm vụ cấp tỉnh'};
+/* cấp suy từ loại nhiệm vụ 1.3 của Biểu mẫu 609: 1.3.1–1.3.6 cấp quốc gia, 1.3.7–1.3.16 cấp bộ,
+   1.3.17 cơ sở, 1.3.18 cấp tỉnh */
+function capTuLoai(loai){
+  const n = parseInt(String(loai || '').split('.')[2], 10);
+  if(!n) return '';
+  if(n <= 6) return 'nn';
+  if(n <= 16) return 'bo';
+  return n === 17 ? 'cs' : 'tinh';
+}
+/* chưa chọn cấp: lấy theo loại nhiệm vụ ở dòng II.1 liên kết, rồi theo ghi chú/tên cũ */
+function capNV(r){
+  if(r.cap) return r.cap;
+  const k = (typeof S !== 'undefined') ? S.kh.find(x => x.nguonNV === r.id) : null;
+  if(k && k.loai) return capTuLoai(k.loai);
+  const t = norm((r.ghichu || '') + ' ' + (r.ten || ''));
+  if(/co so/.test(t)) return 'cs';
+  if(/nha nuoc|quoc gia/.test(t)) return 'nn';
+  if(/cap bo|\bbo\b/.test(t)) return 'bo';
+  if(/cap tinh|thanh pho/.test(t)) return 'tinh';
+  return '';
+}
+
 /* ---------- I. Nhiệm vụ được giao ---------- */
 function renderNV(){
   const box = $('#list-nv'); box.innerHTML='';
@@ -1237,7 +1262,7 @@ function renderNV(){
       rong(field('Tên nhiệm vụ','',oTen)),
       field('Vai trò','',sel(r.vaitro, VAI_NV_I, v=>{r.vaitro=v; renderAll();})),
       field('Tiến độ thực hiện','',sel(r.tiendo,[[DA_XONG,DA_XONG],['Đang thực hiện','Đang thực hiện'],['Chậm tiến độ','Chậm tiến độ']], v=>{r.tiendo=v; renderAll();})),
-      field('Ghi chú','',inpDai(r.ghichu, v=>r.ghichu=v))
+      field('Ghi chú — cấp nhiệm vụ','',sel(capNV(r), CAP_NV, v=>{r.cap=v; renderAll();}))
     );
     d.append(g);
     if(r.tiendo === DA_XONG){
@@ -1559,7 +1584,7 @@ function renderHD(){
 }
 /* gợi ý cho ô Mô tả cụ thể, đổi theo mục đã chọn trong Biểu mẫu 609 */
 function goiYHD(it, tien){
-  if(tien) return 'Tên đề tài, số hợp đồng…';
+  if(tien) return 'Tên nhiệm vụ, số hợp đồng…';
   if(!it) return 'Tên báo cáo, hội thảo, văn bằng, chứng chỉ…';
   const t = norm(it.t);
   if(t.includes('chung chi') || t.includes('van bang'))
@@ -1709,7 +1734,7 @@ function renderSum(){
   pill.textContent = c.xeploai ? TEN_XEPLOAI[c.xeploai] : 'Chưa chọn chức danh và hệ số lương';
 
   const rows = [
-    ['Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', fmt(c.tKH,3)],
+    ['Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu', fmt(c.tKH,3)],
     ['Bài báo đăng trên tạp chí', fmt(c.tBB,3)],
     ['Bài đăng toàn văn trong kỷ yếu hội thảo', fmt(c.tKY,3)],
     ['Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', fmt(c.tSach,3)],
@@ -1916,12 +1941,34 @@ function duongLink(s){
   return s;
 }
 function xepHangBB(r){
-  if(r.loai === 'tn'){
-    return r.nhom === null || r.nhom === undefined ? 'Danh mục HĐGSNN'
-      : `Danh mục HĐGSNN, khung 0–${fmt(r.nhom,2)} điểm`;
-  }
+  if(r.loai === 'tn'){ const nh = nhomTuKhung(r.nhom); return nh ? `Nhóm loại ${nh.nhom}` : ''; }
   const o = BAO_QT.find(x => x.id === r.qt);
-  return o ? o.t.replace(' — nhóm ', ' ') : '';
+  if(!o) return '';
+  if(o.id.startsWith('isi') || o.id.startsWith('sco')) return o.t.replace(' — nhóm ', ' ');
+  return o.id.startsWith('aci') ? 'ACI' : 'Tạp chí quốc tế có mã ISSN';
+}
+
+/* ---- Nội dung gọn cho file Word: chỉ thông tin chính ---- */
+function tacGiaWord(r){
+  const n = Math.max(1, parseInt(r.sotg,10)||1);
+  if(n === 1) return 'Tác giả duy nhất';
+  if('vaisach' in r){
+    if((r.vaisach || 'cb') !== 'cb') return `Tác giả/${n} tác giả`;
+    return (Math.min(n, Math.max(1, parseInt(r.sochubien,10)||1)) > 1 ? 'Đồng chủ biên' : 'Chủ biên') + `/${n} tác giả`;
+  }
+  return (r.vaitro === 'chinh' ? 'Tác giả chính' : 'Đồng tác giả') + `/${n} tác giả`;
+}
+function noiDungHDWord(r){
+  const it = timHD(r.ma);
+  const nd = String(r.noidung || '').trim();
+  if(!it) return nd;
+  const p = phanCuaBanGhi(r);
+  if(p === 'thunhap')
+    return (nd || 'Hợp đồng nghiên cứu') + ` (thu nhập ròng sau thuế ${tienVN(docSo(r.tien))} triệu đồng)`;
+  if(p === 'tuvan')
+    return (nd || 'Báo cáo tư vấn chính sách') + ' (' + it.t.charAt(0).toLowerCase() + it.t.slice(1) + ')';
+  if(!nd) return it.t;
+  return `${it.t}: ${nd}`;
 }
 
 function buildDocXml(){
@@ -1957,9 +2004,9 @@ function buildDocXml(){
   /* I. Nhiệm vụ được giao */
   out.push(PT('I. NHIỆM VỤ ĐƯỢC GIAO', {b:true, before:200, after:120, keep:true}));
   const rNV = [[HEAD('STT'), HEAD('Nhiệm vụ'), HEAD('Vai trò'), HEAD('Tiến độ thực hiện'), HEAD('Ghi chú')]];
-  S.nv.forEach((r,i) => rNV.push([GIUA(String(i+1)), {t:r.ten}, {t:r.vaitro}, {t:r.tiendo}, {t:r.ghichu}]));
+  S.nv.forEach((r,i) => rNV.push([GIUA(String(i+1)), {t:r.ten}, {t:r.vaitro}, {t:r.tiendo}, {t:TEN_CAP_NV[capNV(r)] || ''}]));
   if(!S.nv.length) rNV.push(trong(5));
-  out.push(W_TBL(rNV, [700, 3500, 1900, 2000, 972]));
+  out.push(W_TBL(rNV, [700, 3300, 1800, 1700, 1572]));
 
   /* II. Sản phẩm khoa học */
   out.push(PT('II. SẢN PHẨM KHOA HỌC', {b:true, before:240, after:120, keep:true}));
@@ -1968,13 +2015,11 @@ function buildDocXml(){
   const rKH = [[HEAD('STT'), HEAD('Tên công trình/sản phẩm'), HEAD('Thời gian hoàn thành'),
                 HEAD('Xếp loại'), HEAD('Tính điểm'), HEAD('Ghi chú')]];
   S.kh.forEach((r,i) => {
-    const nv = NHIEM_VU.find(x => x.id === r.loai);
     rKH.push([GIUA(String(i+1)), {t:r.ten}, GIUA(r.thoigian), GIUA(XEPLOAI_NV[r.muc] || ''),
-      GIUA(fmt(quyDoiNV(r).d)),
-      {t:(nv ? `${nv.t} (mục ${nv.id})` : '') + '\n' + moTaNV(r)}]);
+      GIUA(fmt(quyDoiNV(r).d)), {t:TEN_CAP_NV[capTuLoai(r.loai)] || ''}]);
   });
   if(!S.kh.length) rKH.push(trong(6));
-  out.push(W_TBL(rKH, [700, 2500, 1300, 1150, 950, 2472]));
+  out.push(W_TBL(rKH, [700, 3000, 1300, 1300, 1000, 1772]));
 
   /* Mẫu số 01 có một bảng chung cho bài báo; bài đăng toàn văn trong kỷ yếu hội thảo
      có mã ISBN (cùng nhóm điều kiện bắt buộc Điều 5) kê tiếp trong bảng này */
@@ -1983,16 +2028,16 @@ function buildDocXml(){
                 HEAD('Năm công bố'), HEAD('Tác giả/đồng tác giả'), HEAD('Đường link (nếu có)'), HEAD('Tính điểm')]];
   let stt = 0;
   S.bb.forEach(r => rBB.push([
-    GIUA(String(++stt)), {t:r.tieude}, GIUA((r.tapchi || '') + (r.issn ? `\nISSN: ${r.issn}` : '')),
-    GIUA(xepHangBB(r)), GIUA(thoiGianCB(r)), GIUA(moTaTacGia(r)), {t:duongLink(r.link)},
+    GIUA(String(++stt)), {t:r.tieude}, GIUA(r.tapchi || ''),
+    GIUA(xepHangBB(r)), GIUA(thoiGianCB(r)), GIUA(tacGiaWord(r)), {t:duongLink(r.link)},
     GIUA(fmt(quyDoiBaiBao(r).d))]));
   S.ky.forEach(r => {
     const o = KY_YEU.find(x => x.id === r.loai);
     rBB.push([
       GIUA(String(++stt)), {t:r.tieude},
-      GIUA('Kỷ yếu hội thảo: ' + (r.hoithao || '') + (r.isbn ? `\nISBN: ${r.isbn}` : '')),
-      GIUA(o ? `Bài đăng toàn văn trong kỷ yếu ${o.loi ? 'có' : 'không có'} mã ISBN (mục ${o.ma})` : ''),
-      GIUA(thoiGianCB(r)), GIUA(moTaTacGia(r)), {t:duongLink(r.link)},
+      GIUA('Kỷ yếu ' + (r.hoithao || 'hội thảo')),
+      GIUA(o ? `Kỷ yếu ${o.loi ? 'có' : 'không có'} mã ISBN` : ''),
+      GIUA(thoiGianCB(r)), GIUA(tacGiaWord(r)), {t:duongLink(r.link)},
       GIUA(fmt(quyDoiKY(r).d))]);
   });
   if(!stt) rBB.push(trong(8));
@@ -2003,8 +2048,8 @@ function buildDocXml(){
                HEAD('Năm công bố'), HEAD('Tác giả/đồng tác giả'), HEAD('Đường link (nếu có)'), HEAD('Tính điểm')]];
   S.sach.forEach((r,i) => {
     const o = AN_PHAM.find(x => x.id === r.kieu);
-    rS.push([GIUA(String(i+1)), {t:(r.ten || '') + (o ? `\n(${o.t}, mục ${o.ma})` : '')}, GIUA(r.nxb), GIUA(r.isbn),
-      GIUA(thoiGianCB(r)), GIUA(moTaTacGia(r)), {t:duongLink(r.link)}, GIUA(fmt(quyDoiSach(r).d))]);
+    rS.push([GIUA(String(i+1)), {t:r.ten || ''}, GIUA(r.nxb), GIUA(r.isbn),
+      GIUA(thoiGianCB(r)), GIUA(tacGiaWord(r)), {t:duongLink(r.link)}, GIUA(fmt(quyDoiSach(r).d))]);
   });
   if(!S.sach.length) rS.push(trong(8));
   out.push(W_TBL(rS, [700, 1700, 1450, 1250, 850, 1150, 1100, 872]));
@@ -2012,17 +2057,7 @@ function buildDocXml(){
   out.push(PT('4. Hoạt động khác', {b:true, before:240, after:120, keep:true}));
   const rH = [[HEAD('STT'), HEAD('Nội dung'), HEAD('Tính điểm')]];
   S.hd.forEach((r,i) => {
-    const it = timHD(r.ma); const q = quyDoiHD(r);
-    const phu = [];
-    if(r.quocgia) phu.push(`quốc gia ${r.quocgia}`);
-    if(r.thoigian) phu.push(r.noicap ? `cấp ${r.thoigian}` : `thời gian ${r.thoigian}`);
-    if(r.noicap) phu.push(`nơi cấp ${r.noicap}`);
-    if(q.kieu === 'tien') phu.push(`thu nhập ròng sau thuế ${tienVN(docSo(r.tien))} triệu đồng`);
-    else if(q.kieu === 'sl' && q.sl > 1) phu.push(`số lượng ${fmt(q.sl,0)}`);
-    else if(q.kieu === 'chutoa' && q.hs !== 1) phu.push(moTaHeSoHD(r));
-    const nd = (it ? `${it.t} (mục ${it.ma})` : '') + (r.noidung ? ` — ${r.noidung}` : '')
-      + (phu.length ? ` (${phu.join('; ')})` : '');
-    rH.push([GIUA(String(i+1)), {t:nd}, GIUA(fmt(q.d))]);
+    rH.push([GIUA(String(i+1)), {t:noiDungHDWord(r)}, GIUA(fmt(quyDoiHD(r).d))]);
   });
   if(!S.hd.length) rH.push(trong(3));
   out.push(W_TBL(rH, [700, 6172, 2200]));
@@ -2031,7 +2066,7 @@ function buildDocXml(){
   out.push(dongCham('Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ (nếu có):',
     c.sauGiam === null ? '' : fmt(c.sauGiam,3), {after:120}));
   out.push(dongCham('Tỷ lệ vượt định mức tối thiểu:',
-    c.datMuc === null ? '' : chuoiTyLe(c), {after:120}));
+    c.vuot === null ? '' : (c.vuot >= 0 ? fmt(c.vuot,1) + '%' : 'Không vượt'), {after:120}));
 
   out.push(PT('III. ĐÁNH GIÁ MỨC ĐỘ HOÀN THÀNH ĐỊNH MỨC LAO ĐỘNG', {b:true, before:240, after:160, keep:true}));
   const hop = (k, ten) => PX(R(c.xeploai === k ? '☒' : '☐', {font:'Segoe UI Symbol'}) + R(' ' + ten), {after:160, keep:true});
@@ -2408,12 +2443,12 @@ function dungBangTinh(){
   dong(['STT', 'Nhiệm vụ', 'Vai trò', 'Tiến độ thực hiện', 'Ghi chú'].map(x => T(x, 2)));
   if (!S.nv.length) dong([T('', 1), T('', 1), T('', 1), T('', 1), T('', 1)]);
   S.nv.forEach((x, i) => dong([T(i + 1, 4), T(x.ten || '', 1), T(x.vaitro || '', 4),
-    T(x.tiendo || '', 4), T(x.ghichu || '', 1)]));
+    T(x.tiendo || '', 4), T(TEN_CAP_NV[capNV(x)] || '', 1)]));
   dong([]);
 
   tieuDe('II. SẢN PHẨM KHOA HỌC');
 
-  tieuDe('1. Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo');
+  tieuDe('1. Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu');
   const bKH = bangSP(['STT', 'Tên công trình/sản phẩm', 'Mã mục 609', 'Thời gian hoàn thành', 'Kết quả nghiệm thu', 'Người tham gia'],
     S.kh.map((x, i) => {
       const nv = NHIEM_VU.find(y => y.id === x.loai);
@@ -2491,7 +2526,7 @@ function dungBangTinh(){
     gop(rr, 0, 6);
     return `${o(7)}${rr + 1}`;
   };
-  const oKH   = nhanTong('Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', bKH.oTong, c.tKH);
+  const oKH   = nhanTong('Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu', bKH.oTong, c.tKH);
   const oBB   = nhanTong('Bài báo đăng trên tạp chí', bBB.oTong, c.tBB);
   const oKY   = nhanTong('Bài đăng toàn văn trong kỷ yếu hội thảo', bKY.oTong, c.tKY);
   const oSach = nhanTong('Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', bSach.oTong, c.tSach);
@@ -2668,7 +2703,7 @@ function chuanHoa(){
 
 initSelects();
 if(!napNhap()){
-  S.nv.push(Object.assign(MAU.nv(), {ten:'(ví dụ) Đề tài cơ sở 2026', tiendo:'Đang thực hiện'}));
+  S.nv.push(Object.assign(MAU.nv(), {ten:'(ví dụ) Nhiệm vụ cơ sở 2026', tiendo:'Đang thực hiện'}));
   S.bb.push(Object.assign(MAU.bb(), {tieude:'(ví dụ) Chuyển đổi sinh kế của hộ gia đình ven đô'}));
 } else {
   chuanHoa();
