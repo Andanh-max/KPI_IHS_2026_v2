@@ -210,13 +210,13 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
     <div class="crest">Viện Hàn lâm Khoa học xã hội Việt Nam</div>
     <div class="crest crest-2">Viện Địa lý nhân văn và Phát triển bền vững</div>
     <h1>Kê khai và tính điểm KPI năm 2026</h1>
-    <p class="sub">Điểm sản phẩm lấy theo Biểu mẫu bảng tính KPI ban hành kèm Quyết định 609/QĐ-KHXH ngày 26/4/2025. Định mức, giảm trừ và xếp loại theo Quy chế định mức lao động kèm Quyết định 1020/QĐ-KHXH ngày 29/5/2026.</p>
+    <p class="sub">Điểm sản phẩm theo Biểu mẫu bảng tính Chỉ số đo lường hiệu quả hoạt động (KPI) ở cấp độ Viện Nghiên cứu ban hành kèm Quyết định số 609/QĐ-KHXH ngày 26/4/2025. Định mức lao động, định mức giảm trừ và mức độ hoàn thành theo Quy chế định mức lao động ban hành kèm Quyết định số 1020-QĐ/KHXH ngày 29/5/2026.</p>
   </header>
 
   <div class="bar">
     <div class="stat"><span class="k">Tổng điểm KPI</span><span class="v" id="bar-tong">0,00</span></div>
-    <div class="stat"><span class="k">Định mức phải đạt</span><span class="v" id="bar-dinhmuc">—</span></div>
-    <div class="stat"><span class="k">Tỷ lệ đạt định mức</span><span class="v" id="bar-vuot">—</span><span class="sub" id="bar-vuot-sub"></span></div>
+    <div class="stat"><span class="k">Tổng điểm KPI tối thiểu sau giảm trừ</span><span class="v" id="bar-dinhmuc">—</span></div>
+    <div class="stat"><span class="k">Tỷ lệ vượt định mức tối thiểu</span><span class="v" id="bar-vuot">—</span><span class="sub" id="bar-vuot-sub"></span></div>
     <div class="spacer"></div>
     <span class="pill no" id="bar-xeploai">Chưa đủ dữ liệu</span>
     <button class="primary" id="btn-xlsx">Xuất file Excel</button>
@@ -238,10 +238,10 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
           </select></label>
         <label><span>Hệ số lương hiện hưởng <span class="hint">chọn bậc đang hưởng</span></span>
           <select id="f-hsl"><option value="">— Chọn chức danh trước —</option></select></label>
-        <label><span>Thời gian nâng bậc lương</span><input id="f-nangbac" placeholder="01/2025"></label>
-        <label><span>Diện giảm trừ định mức <span class="hint">Điều 9; không cộng dồn, lấy mức cao nhất</span></span>
+        <label><span>Thời gian nâng bậc lương <span class="hint">tháng/năm; nâng bậc trong năm xem Điều 3 khoản 5</span></span><input id="f-nangbac" placeholder="01/2025"></label>
+        <label><span>Đối tượng giảm trừ định mức <span class="hint">Điều 9; tỷ lệ giảm trừ không cộng dồn, áp dụng mức giảm cao nhất</span></span>
           <select id="f-giamtru"></select></label>
-        <label><span>Số tháng được giảm <span class="hint">chỉ với diện nghỉ hoặc đi học, mỗi tháng giảm 1/12</span></span>
+        <label><span>Số tháng nghỉ/tạm vắng <span class="hint">chỉ với nhóm 5 và 6 Điều 9: mỗi tháng được giảm 1/12 định mức năm</span></span>
           <input id="f-thang" type="number" min="0" max="12" step="1" value="0"></label>
       </div>
       <div class="mc" id="hd-dinhmuc" style="margin:13px 0 0"></div>
@@ -254,12 +254,12 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
   </section>
 
   <section>
-    <div class="sechead"><span class="secnum">II.1</span><h2>Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu</h2><span class="note" id="note-kh">0,00</span></div>
+    <div class="sechead"><span class="secnum">II.1</span><h2>Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo</h2><span class="note" id="note-kh">0,00</span></div>
     <div class="secbody"><div id="list-kh"></div><button class="ghost" data-add="kh">+ Thêm nhiệm vụ đã nghiệm thu</button></div>
   </section>
 
   <section>
-    <div class="sechead"><span class="secnum">II.2</span><h2>Bài báo khoa học và bài đăng kỷ yếu</h2><span class="note" id="note-bb">0,00</span></div>
+    <div class="sechead"><span class="secnum">II.2</span><h2>Bài báo khoa học</h2><span class="note" id="note-bb">0,00</span></div>
     <div class="secbody">
       <div class="mc">Minh chứng: file scan bìa, mục lục, nội dung bài viết</div>
       <div class="subhead"><span class="sublbl">a) Bài báo đăng trên tạp chí</span><span class="subnum" id="note-bb-a">0,00</span></div>
@@ -272,7 +272,7 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
   </section>
 
   <section>
-    <div class="sechead"><span class="secnum">II.3</span><h2>Sách, chương sách và bài viết trong sách có mã ISBN</h2><span class="note" id="note-sach">0,00</span></div>
+    <div class="sechead"><span class="secnum">II.3</span><h2>Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch</h2><span class="note" id="note-sach">0,00</span></div>
     <div class="secbody">
       <div class="mc">Minh chứng: file scan bìa, danh sách tác giả, mục lục, mã ISBN</div>
       <div id="list-sach"></div><button class="ghost" data-add="sach">+ Thêm ấn phẩm có ISBN</button>
@@ -285,7 +285,7 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
   </section>
 
   <section>
-    <div class="sechead"><span class="secnum">III</span><h2>Tổng hợp và đánh giá mức độ hoàn thành</h2></div>
+    <div class="sechead"><span class="secnum">III</span><h2>Đánh giá mức độ hoàn thành định mức lao động</h2></div>
     <div class="secbody">
       <div id="sum"></div>
       <div class="checks" id="checks"></div>
@@ -300,8 +300,8 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
 
   <p class="foot">
     <b>Bài báo trong nước.</b> Nhóm loại 1 đến 4 suy từ khung điểm công trình trong danh mục Hội đồng Giáo sư Nhà nước: 1,0 là nhóm 1, 0,75 nhóm 2, 0,5 nhóm 3, 0,25 nhóm 4, tương ứng các mã 1.1.1 đến 1.1.4 trong Biểu mẫu 609. Khung điểm đổi theo năm công bố và theo lĩnh vực, hệ thống chọn đúng khung rồi hiển thị nguyên văn điều kiện để đối chiếu.<br>
-    <b>Chia điểm giữa các tác giả.</b> Mọi công trình khoa học đều chia theo Điều 4 khoản 4 Quy chế 1020: tác giả chính hưởng 1/3 tổng điểm quy đổi, phần còn lại chia đều cho các thành viên tham gia; nếu chỉ có hai tác giả thì tác giả chính hưởng 2/3, đồng tác giả 1/3. Với nhiệm vụ khoa học đã nghiệm thu, chủ nhiệm là tác giả chính, còn thư ký khoa học, thành viên chính và thành viên hưởng phần bằng nhau; điểm âm do nghiệm thu quá hạn hoặc không đạt cũng chia theo đúng hệ số đó. Với sách, chủ biên là tác giả chính; có từ hai chủ biên trở lên thì phần 1/3 của tác giả chính được chia đều cho các đồng chủ biên. Quy chế cho phép chia phần còn lại theo giá trị đóng góp của từng người; khi không xác định được cụ thể thì chia đều, và đây là cách bảng tính áp dụng. Quy chế 1020 không còn cách chia theo thoả thuận riêng của nhóm tác giả.<br>
-    <b>Chống tính trùng.</b> Khi đã tính điểm cho cả cuốn sách thì không tính thêm chương sách hay bài viết của chính mình trong cuốn đó. Mỗi sản phẩm chỉ tính một lần trong một chu kỳ đánh giá (Điều 4 khoản 1).
+    <b>Chia điểm giữa các tác giả.</b> Mọi kết quả hoạt động chuyên môn quy đổi đều chia theo Điều 4 khoản 4 Quy chế 1020: có nhiều hơn 02 tác giả tham gia thì tác giả chính được hưởng 1/3 số điểm, số điểm còn lại được chia theo giá trị đóng góp của từng thành viên tham gia, không xác định được thì chia đều cho các thành viên tham gia; trường hợp chỉ có 02 tác giả, tác giả chính được hưởng 2/3 tổng điểm quy đổi, đồng tác giả được hưởng 1/3 tổng điểm. Với nhiệm vụ khoa học đã nghiệm thu, chủ nhiệm là tác giả chính, còn thư ký khoa học, thành viên chính và thành viên hưởng phần bằng nhau; điểm âm do nghiệm thu quá hạn hoặc không đạt cũng chia theo đúng hệ số đó. Với sách, chủ biên là tác giả chính; có từ hai chủ biên trở lên thì phần 1/3 của tác giả chính được chia đều cho các đồng chủ biên. Quy chế cho phép chia phần còn lại theo giá trị đóng góp của từng người; khi không xác định được cụ thể thì chia đều, và đây là cách bảng tính áp dụng. Quy chế 1020 không còn cách chia theo thoả thuận riêng của nhóm tác giả.<br>
+    <b>Chống tính trùng.</b> Khi đã tính điểm cho cả cuốn sách thì không tính thêm chương sách hay bài viết của chính mình trong cuốn đó. Mỗi sản phẩm khoa học chỉ được tính điểm một lần duy nhất trong cùng một chu kỳ đánh giá, xếp loại (Điều 4 khoản 1). Bài báo khoa học, báo cáo khoa học tại hội nghị khoa học, sách chuyên khảo, giáo trình đã công bố có nội dung trùng lặp từ 30% trở lên với công trình khác của cùng tác giả chỉ được tính điểm quy đổi một lần (Điều 4 khoản 2). Không tính điểm quy đổi đối với kết quả hoạt động chuyên môn được hình thành từ kết quả thực hiện nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã được tính điểm quy đổi (Điều 4 khoản 3). Chỉ tính điểm đối với các sản phẩm có đầy đủ minh chứng kèm theo (Điều 4 khoản 5). Sản phẩm khoa học được tính điểm KPI trong năm công bố; chưa kê khai hoặc chưa được tính trong năm công bố thì được tính cho năm liền kề tiếp theo (Điều 4 khoản 7).
   </p>
 </div>
 
@@ -337,9 +337,9 @@ const BAO_QT = [
   {id:'sco_q3',  ma:'1.2.2.3', t:'Scopus — nhóm Q3', d:5.700},
   {id:'sco_q4',  ma:'1.2.2.4', t:'Scopus — nhóm Q4', d:5.250},
   {id:'aci_on',  ma:'1.2.3.1', t:'ACI — công bố trực tuyến', d:1.250},
-  {id:'aci_off', ma:'1.2.3.2', t:'ACI — không trực tuyến', d:1.000},
-  {id:'issn_on', ma:'1.2.4.1', t:'Tạp chí quốc tế có ISSN — trực tuyến', d:1.005},
-  {id:'issn_off',ma:'1.2.4.2', t:'Tạp chí quốc tế có ISSN — không trực tuyến', d:0.755}
+  {id:'aci_off', ma:'1.2.3.2', t:'ACI — công bố không trực tuyến', d:1.000},
+  {id:'issn_on', ma:'1.2.4.1', t:'Tạp chí quốc tế có ISSN — công bố trực tuyến', d:1.005},
+  {id:'issn_off',ma:'1.2.4.2', t:'Tạp chí quốc tế có ISSN — công bố không trực tuyến', d:0.755}
 ];
 
 /* Danh sách gợi ý tạp chí quốc tế cán bộ Viện hay đăng (đối chiếu ISSN Portal,
@@ -359,85 +359,88 @@ const TAPCHI_QT = [
 
 /* 1.1.5–1.1.11 và 1.2.5–1.2.7 — ấn phẩm có ISBN. ct: công thức chia tác giả */
 const AN_PHAM = [
-  {id:'bv_tn_ck_on',  ma:'1.1.5.1', t:'Bài viết trong sách chuyên khảo trong nước — trực tuyến', d:0.472, ct:'A'},
-  {id:'bv_tn_ck_off', ma:'1.1.5.1', t:'Bài viết trong sách chuyên khảo trong nước — không trực tuyến', d:0.222, ct:'A'},
-  {id:'bv_tn_gt_on',  ma:'1.1.5.2', t:'Bài viết trong sách giáo trình trong nước — trực tuyến', d:0.398, ct:'A'},
-  {id:'bv_tn_gt_off', ma:'1.1.5.2', t:'Bài viết trong sách giáo trình trong nước — không trực tuyến', d:0.148, ct:'A'},
-  {id:'bv_tn_tk_on',  ma:'1.1.5.3', t:'Bài viết trong sách tham khảo trong nước — trực tuyến', d:0.361, ct:'A'},
-  {id:'bv_tn_tk_off', ma:'1.1.5.3', t:'Bài viết trong sách tham khảo trong nước — không trực tuyến', d:0.111, ct:'A'},
-  {id:'bv_tn_hd_on',  ma:'1.1.5.4', t:'Bài viết trong sách hướng dẫn trong nước — trực tuyến', d:0.324, ct:'A'},
-  {id:'bv_tn_hd_off', ma:'1.1.5.4', t:'Bài viết trong sách hướng dẫn trong nước — không trực tuyến', d:0.074, ct:'A'},
-  {id:'bv_tn_d_on',   ma:'1.1.5.5', t:'Bài viết trong sách dịch trong nước — trực tuyến', d:0.292, ct:'A'},
-  {id:'bv_tn_d_off',  ma:'1.1.5.5', t:'Bài viết trong sách dịch trong nước — không trực tuyến', d:0.052, ct:'A'},
+  {id:'bv_tn_ck_on',  ma:'1.1.5.1', t:'Bài viết trong sách chuyên khảo xuất bản trong nước — công bố trực tuyến', d:0.472, ct:'A'},
+  {id:'bv_tn_ck_off', ma:'1.1.5.1', t:'Bài viết trong sách chuyên khảo xuất bản trong nước — công bố không trực tuyến', d:0.222, ct:'A'},
+  {id:'bv_tn_gt_on',  ma:'1.1.5.2', t:'Bài viết trong sách giáo trình xuất bản trong nước — công bố trực tuyến', d:0.398, ct:'A'},
+  {id:'bv_tn_gt_off', ma:'1.1.5.2', t:'Bài viết trong sách giáo trình xuất bản trong nước — công bố không trực tuyến', d:0.148, ct:'A'},
+  {id:'bv_tn_tk_on',  ma:'1.1.5.3', t:'Bài viết trong sách tham khảo xuất bản trong nước — công bố trực tuyến', d:0.361, ct:'A'},
+  {id:'bv_tn_tk_off', ma:'1.1.5.3', t:'Bài viết trong sách tham khảo xuất bản trong nước — công bố không trực tuyến', d:0.111, ct:'A'},
+  {id:'bv_tn_hd_on',  ma:'1.1.5.4', t:'Bài viết trong sách hướng dẫn xuất bản trong nước — công bố trực tuyến', d:0.324, ct:'A'},
+  {id:'bv_tn_hd_off', ma:'1.1.5.4', t:'Bài viết trong sách hướng dẫn xuất bản trong nước — công bố không trực tuyến', d:0.074, ct:'A'},
+  {id:'bv_tn_d_on',   ma:'1.1.5.5', t:'Bài viết trong sách dịch xuất bản trong nước — công bố trực tuyến', d:0.292, ct:'A'},
+  {id:'bv_tn_d_off',  ma:'1.1.5.5', t:'Bài viết trong sách dịch xuất bản trong nước — công bố không trực tuyến', d:0.052, ct:'A'},
 
-  {id:'cs_tn_ck_on',  ma:'1.1.6.1', t:'Chương sách chuyên khảo trong nước — trực tuyến', d:0.702, ct:'A'},
-  {id:'cs_tn_ck_off', ma:'1.1.6.1', t:'Chương sách chuyên khảo trong nước — không trực tuyến', d:0.577, ct:'A'},
-  {id:'cs_tn_gt_on',  ma:'1.1.6.2', t:'Chương sách giáo trình trong nước — trực tuyến', d:0.510, ct:'A'},
-  {id:'cs_tn_gt_off', ma:'1.1.6.2', t:'Chương sách giáo trình trong nước — không trực tuyến', d:0.385, ct:'A'},
-  {id:'cs_tn_tk_on',  ma:'1.1.6.3', t:'Chương sách tham khảo trong nước — trực tuyến', d:0.414, ct:'A'},
-  {id:'cs_tn_tk_off', ma:'1.1.6.3', t:'Chương sách tham khảo trong nước — không trực tuyến', d:0.289, ct:'A'},
-  {id:'cs_tn_hd_on',  ma:'1.1.6.4', t:'Chương sách hướng dẫn trong nước — trực tuyến', d:0.317, ct:'A'},
-  {id:'cs_tn_hd_off', ma:'1.1.6.4', t:'Chương sách hướng dẫn trong nước — không trực tuyến', d:0.192, ct:'A'},
-  {id:'cs_tn_d_on',   ma:'1.1.6.5', t:'Chương sách dịch trong nước — trực tuyến', d:0.260, ct:'A'},
-  {id:'cs_tn_d_off',  ma:'1.1.6.5', t:'Chương sách dịch trong nước — không trực tuyến', d:0.135, ct:'A'},
+  {id:'cs_tn_ck_on',  ma:'1.1.6.1', t:'Chương sách trong sách chuyên khảo xuất bản trong nước — công bố trực tuyến', d:0.702, ct:'A'},
+  {id:'cs_tn_ck_off', ma:'1.1.6.1', t:'Chương sách trong sách chuyên khảo xuất bản trong nước — công bố không trực tuyến', d:0.577, ct:'A'},
+  {id:'cs_tn_gt_on',  ma:'1.1.6.2', t:'Chương sách trong sách giáo trình xuất bản trong nước — công bố trực tuyến', d:0.510, ct:'A'},
+  {id:'cs_tn_gt_off', ma:'1.1.6.2', t:'Chương sách trong sách giáo trình xuất bản trong nước — công bố không trực tuyến', d:0.385, ct:'A'},
+  {id:'cs_tn_tk_on',  ma:'1.1.6.3', t:'Chương sách trong sách tham khảo xuất bản trong nước — công bố trực tuyến', d:0.414, ct:'A'},
+  {id:'cs_tn_tk_off', ma:'1.1.6.3', t:'Chương sách trong sách tham khảo xuất bản trong nước — công bố không trực tuyến', d:0.289, ct:'A'},
+  {id:'cs_tn_hd_on',  ma:'1.1.6.4', t:'Chương sách trong sách hướng dẫn xuất bản trong nước — công bố trực tuyến', d:0.317, ct:'A'},
+  {id:'cs_tn_hd_off', ma:'1.1.6.4', t:'Chương sách trong sách hướng dẫn xuất bản trong nước — công bố không trực tuyến', d:0.192, ct:'A'},
+  {id:'cs_tn_d_on',   ma:'1.1.6.5', t:'Chương sách trong sách dịch xuất bản trong nước — công bố trực tuyến', d:0.260, ct:'A'},
+  {id:'cs_tn_d_off',  ma:'1.1.6.5', t:'Chương sách trong sách dịch xuất bản trong nước — công bố không trực tuyến', d:0.135, ct:'A'},
 
-  {id:'s_tn_ck_on',   ma:'1.1.7',  t:'Sách chuyên khảo trong nước có ISBN — trực tuyến', d:3.751, ct:'B'},
-  {id:'s_tn_ck_off',  ma:'1.1.7',  t:'Sách chuyên khảo trong nước có ISBN — không trực tuyến', d:3.501, ct:'B'},
-  {id:'s_tn_gt_on',   ma:'1.1.8',  t:'Sách giáo trình trong nước có ISBN — trực tuyến', d:2.751, ct:'B'},
-  {id:'s_tn_gt_off',  ma:'1.1.8',  t:'Sách giáo trình trong nước có ISBN — không trực tuyến', d:2.501, ct:'B'},
-  {id:'s_tn_tk_on',   ma:'1.1.9',  t:'Sách tham khảo trong nước có ISBN — trực tuyến', d:2.251, ct:'B'},
-  {id:'s_tn_tk_off',  ma:'1.1.9',  t:'Sách tham khảo trong nước có ISBN — không trực tuyến', d:2.001, ct:'B'},
-  {id:'s_tn_hd_on',   ma:'1.1.10', t:'Sách hướng dẫn trong nước có ISBN — trực tuyến', d:1.750, ct:'B'},
-  {id:'s_tn_hd_off',  ma:'1.1.10', t:'Sách hướng dẫn trong nước có ISBN — không trực tuyến', d:1.500, ct:'B'},
-  {id:'s_tn_d_on',    ma:'1.1.11', t:'Sách dịch trong nước có ISBN — trực tuyến', d:1.453, ct:'B'},
-  {id:'s_tn_d_off',   ma:'1.1.11', t:'Sách dịch trong nước có ISBN — không trực tuyến', d:1.203, ct:'B'},
+  {id:'s_tn_ck_on',   ma:'1.1.7',  t:'Sách chuyên khảo xuất bản trong nước có mã ISBN — công bố trực tuyến', d:3.751, ct:'B'},
+  {id:'s_tn_ck_off',  ma:'1.1.7',  t:'Sách chuyên khảo xuất bản trong nước có mã ISBN — công bố không trực tuyến', d:3.501, ct:'B'},
+  {id:'s_tn_gt_on',   ma:'1.1.8',  t:'Sách giáo trình xuất bản trong nước có mã ISBN — công bố trực tuyến', d:2.751, ct:'B'},
+  {id:'s_tn_gt_off',  ma:'1.1.8',  t:'Sách giáo trình xuất bản trong nước có mã ISBN — công bố không trực tuyến', d:2.501, ct:'B'},
+  {id:'s_tn_tk_on',   ma:'1.1.9',  t:'Sách tham khảo xuất bản trong nước có mã ISBN — công bố trực tuyến', d:2.251, ct:'B'},
+  {id:'s_tn_tk_off',  ma:'1.1.9',  t:'Sách tham khảo xuất bản trong nước có mã ISBN — công bố không trực tuyến', d:2.001, ct:'B'},
+  {id:'s_tn_hd_on',   ma:'1.1.10', t:'Sách hướng dẫn xuất bản trong nước có mã ISBN — công bố trực tuyến', d:1.750, ct:'B'},
+  {id:'s_tn_hd_off',  ma:'1.1.10', t:'Sách hướng dẫn xuất bản trong nước có mã ISBN — công bố không trực tuyến', d:1.500, ct:'B'},
+  {id:'s_tn_d_on',    ma:'1.1.11', t:'Sách dịch xuất bản trong nước có mã ISBN — công bố trực tuyến', d:1.453, ct:'B'},
+  {id:'s_tn_d_off',   ma:'1.1.11', t:'Sách dịch xuất bản trong nước có mã ISBN — công bố không trực tuyến', d:1.203, ct:'B'},
 
-  {id:'bv_qt_a_on',   ma:'1.2.5.1', t:'Bài viết trong sách quốc tế nhóm A — trực tuyến', d:1.930, ct:'A'},
-  {id:'bv_qt_a_off',  ma:'1.2.5.1', t:'Bài viết trong sách quốc tế nhóm A — không trực tuyến', d:1.680, ct:'A'},
-  {id:'bv_qt_b_on',   ma:'1.2.5.2', t:'Bài viết trong sách quốc tế nhóm B — trực tuyến', d:1.480, ct:'A'},
-  {id:'bv_qt_b_off',  ma:'1.2.5.2', t:'Bài viết trong sách quốc tế nhóm B — không trực tuyến', d:1.230, ct:'A'},
-  {id:'bv_qt_k_on',   ma:'1.2.5.3', t:'Bài viết trong sách quốc tế nhóm khác — trực tuyến', d:1.255, ct:'A'},
-  {id:'bv_qt_k_off',  ma:'1.2.5.3', t:'Bài viết trong sách quốc tế nhóm khác — không trực tuyến', d:1.005, ct:'A'},
+  {id:'bv_qt_a_on',   ma:'1.2.5.1', t:'Bài viết trong sách xuất bản quốc tế thuộc nhóm A — công bố trực tuyến', d:1.930, ct:'A'},
+  {id:'bv_qt_a_off',  ma:'1.2.5.1', t:'Bài viết trong sách xuất bản quốc tế thuộc nhóm A — công bố không trực tuyến', d:1.680, ct:'A'},
+  {id:'bv_qt_b_on',   ma:'1.2.5.2', t:'Bài viết trong sách xuất bản quốc tế thuộc nhóm B — công bố trực tuyến', d:1.480, ct:'A'},
+  {id:'bv_qt_b_off',  ma:'1.2.5.2', t:'Bài viết trong sách xuất bản quốc tế thuộc nhóm B — công bố không trực tuyến', d:1.230, ct:'A'},
+  {id:'bv_qt_k_on',   ma:'1.2.5.3', t:'Bài viết trong sách xuất bản quốc tế thuộc các nhóm khác có mã ISBN — công bố trực tuyến', d:1.255, ct:'A'},
+  {id:'bv_qt_k_off',  ma:'1.2.5.3', t:'Bài viết trong sách xuất bản quốc tế thuộc các nhóm khác có mã ISBN — công bố không trực tuyến', d:1.005, ct:'A'},
 
-  {id:'cs_qt_a_on',   ma:'1.2.6.1', t:'Chương sách quốc tế nhóm A — trực tuyến', d:6.868, ct:'A'},
-  {id:'cs_qt_a_off',  ma:'1.2.6.1', t:'Chương sách quốc tế nhóm A — không trực tuyến', d:6.618, ct:'A'},
-  {id:'cs_qt_b_on',   ma:'1.2.6.2', t:'Chương sách quốc tế nhóm B — trực tuyến', d:4.948, ct:'A'},
-  {id:'cs_qt_b_off',  ma:'1.2.6.2', t:'Chương sách quốc tế nhóm B — không trực tuyến', d:4.698, ct:'A'},
-  {id:'cs_qt_k_on',   ma:'1.2.6.3', t:'Chương sách quốc tế nhóm khác — trực tuyến', d:3.613, ct:'A'},
-  {id:'cs_qt_k_off',  ma:'1.2.6.3', t:'Chương sách quốc tế nhóm khác — không trực tuyến', d:3.363, ct:'A'},
+  {id:'cs_qt_a_on',   ma:'1.2.6.1', t:'Chương sách trong sách xuất bản quốc tế thuộc nhóm A — công bố trực tuyến', d:6.868, ct:'A'},
+  {id:'cs_qt_a_off',  ma:'1.2.6.1', t:'Chương sách trong sách xuất bản quốc tế thuộc nhóm A — công bố không trực tuyến', d:6.618, ct:'A'},
+  {id:'cs_qt_b_on',   ma:'1.2.6.2', t:'Chương sách trong sách xuất bản quốc tế thuộc nhóm B — công bố trực tuyến', d:4.948, ct:'A'},
+  {id:'cs_qt_b_off',  ma:'1.2.6.2', t:'Chương sách trong sách xuất bản quốc tế thuộc nhóm B — công bố không trực tuyến', d:4.698, ct:'A'},
+  {id:'cs_qt_k_on',   ma:'1.2.6.3', t:'Chương sách trong sách xuất bản quốc tế thuộc các nhóm khác có mã ISBN — công bố trực tuyến', d:3.613, ct:'A'},
+  {id:'cs_qt_k_off',  ma:'1.2.6.3', t:'Chương sách trong sách xuất bản quốc tế thuộc các nhóm khác có mã ISBN — công bố không trực tuyến', d:3.363, ct:'A'},
 
-  {id:'s_qt_a_on',    ma:'1.2.7.1', t:'Sách quốc tế nhóm A — trực tuyến', d:9.957, ct:'B'},
-  {id:'s_qt_a_off',   ma:'1.2.7.1', t:'Sách quốc tế nhóm A — không trực tuyến', d:9.707, ct:'B'},
-  {id:'s_qt_b_on',    ma:'1.2.7.2', t:'Sách quốc tế nhóm B — trực tuyến', d:6.765, ct:'B'},
-  {id:'s_qt_b_off',   ma:'1.2.7.2', t:'Sách quốc tế nhóm B — không trực tuyến', d:6.515, ct:'B'},
-  {id:'s_qt_k_on',    ma:'1.2.7.3', t:'Sách quốc tế nhóm khác — trực tuyến', d:5.294, ct:'B'},
-  {id:'s_qt_k_off',   ma:'1.2.7.3', t:'Sách quốc tế nhóm khác — không trực tuyến', d:5.044, ct:'B'}
+  {id:'s_qt_a_on',    ma:'1.2.7.1', t:'Sách xuất bản quốc tế thuộc nhóm A — công bố trực tuyến', d:9.957, ct:'B'},
+  {id:'s_qt_a_off',   ma:'1.2.7.1', t:'Sách xuất bản quốc tế thuộc nhóm A — công bố không trực tuyến', d:9.707, ct:'B'},
+  {id:'s_qt_b_on',    ma:'1.2.7.2', t:'Sách xuất bản quốc tế thuộc nhóm B — công bố trực tuyến', d:6.765, ct:'B'},
+  {id:'s_qt_b_off',   ma:'1.2.7.2', t:'Sách xuất bản quốc tế thuộc nhóm B — công bố không trực tuyến', d:6.515, ct:'B'},
+  {id:'s_qt_k_on',    ma:'1.2.7.3', t:'Sách xuất bản quốc tế thuộc các nhóm khác có mã ISBN — công bố trực tuyến', d:5.294, ct:'B'},
+  {id:'s_qt_k_off',   ma:'1.2.7.3', t:'Sách xuất bản quốc tế thuộc các nhóm khác có mã ISBN — công bố không trực tuyến', d:5.044, ct:'B'}
 ];
 
 /* 1.3.1–1.3.18 — nhiệm vụ KH&CN đã nghiệm thu.
    mức điểm: [xuất sắc, khá, đạt, không đạt] đúng hạn; qh: [khá, đạt, không đạt] quá hạn */
 const NHIEM_VU = [
-  {id:'1.3.1',  t:'Nhiệm vụ Chương trình KH&CN trọng điểm cấp quốc gia', dh:[7.098,4.056,2.535,-4.056], qh:[null,-7.098,-13.182]},
-  {id:'1.3.2',  t:'Nhiệm vụ Chương trình KH&CN cấp quốc gia khác',        dh:[7.098,4.056,2.535,-4.056], qh:[null,-7.098,-13.182]},
-  {id:'1.3.3',  t:'Dự án KH&CN cấp quốc gia (độc lập)',                   dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
+  {id:'1.3.1',  t:'Nhiệm vụ Chương trình khoa học và công nghệ trọng điểm cấp quốc gia', dh:[7.098,4.056,2.535,-4.056], qh:[null,-7.098,-13.182]},
+  {id:'1.3.2',  t:'Nhiệm vụ Chương trình khoa học và công nghệ cấp quốc gia khác',dh:[7.098,4.056,2.535,-4.056], qh:[null,-7.098,-13.182]},
+  {id:'1.3.3',  t:'Dự án khoa học và công nghệ cấp quốc gia (độc lập)',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
   {id:'1.3.4',  t:'Đề án khoa học cấp quốc gia (độc lập)',                dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
-  {id:'1.3.5',  t:'Đề tài/nhiệm vụ KH&CN cấp quốc gia (độc lập)',         dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
-  {id:'1.3.6',  t:'Đề tài/nhiệm vụ Nghị định thư cấp quốc gia',           dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
+  {id:'1.3.5',  t:'Đề tài/nhiệm vụ khoa học và công nghệ cấp quốc gia (độc lập)',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
+  {id:'1.3.6',  t:'Đề tài/nhiệm vụ Nghị định thư cấp quốc gia',dh:[5.460,3.120,1.950,-3.120], qh:[null,-5.460,-10.140]},
   {id:'1.3.7',  t:'Chương trình khoa học trọng điểm cấp bộ',              dh:[7.098,4.056,2.535,-4.056], qh:[-5.577,-7.098,-13.182]},
   {id:'1.3.8',  t:'Chương trình khoa học cấp bộ độc lập',                 dh:[7.098,4.056,2.535,-4.056], qh:[-5.577,-7.098,-13.182]},
   {id:'1.3.9',  t:'Đề tài/nhiệm vụ Chương trình khoa học trọng điểm cấp bộ', dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.10', t:'Đề tài/nhiệm vụ Chương trình khoa học cấp bộ độc lập', dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.11', t:'Đề tài/nhiệm vụ khoa học cấp bộ',                      dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.12', t:'Đề tài/nhiệm vụ khoa học cấp bộ đột xuất',             dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
-  {id:'1.3.13', t:'Đề tài/nhiệm vụ Nghị định thư (song phương) cấp bộ',   dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
+  {id:'1.3.13', t:'Đề tài/nhiệm vụ Nghị định thư (song phương) cấp bộ',dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.14', t:'Dự án điều tra cơ bản kinh tế - xã hội',               dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.15', t:'Nhiệm vụ bảo vệ môi trường',                           dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.16', t:'Nhiệm vụ cấp Đề án (cấp bộ)',                          dh:[2.100,1.200,0.750,-1.200], qh:[-1.650,-2.100,-3.900]},
   {id:'1.3.17', t:'Đề tài cơ sở',                                         dh:[1.250,0.750,0.250,-0.250], qh:[-0.550,-0.700,-1.300]},
-  {id:'1.3.18', t:'Đề tài/nhiệm vụ KH&CN cấp tỉnh/thành phố (tài trợ 100%)', dh:[1.550,0.950,0.350,-0.250], qh:[-0.850,-1.450,-2.050]}
+  {id:'1.3.18', t:'Đề tài/nhiệm vụ khoa học và công nghệ cấp tỉnh/thành phố (tài trợ 100%)', dh:[1.550,0.950,0.350,-0.250], qh:[-0.850,-1.450,-2.050]}
 ];
-const MUC_DH = [['xs','Đúng hạn — Xuất sắc'],['kha','Đúng hạn — Khá'],['dat','Đúng hạn — Đạt'],['kdat','Đúng hạn — Không đạt'],
-                ['q_kha','Quá hạn — Khá'],['q_dat','Quá hạn — Đạt'],['q_kdat','Quá hạn — Không đạt']];
+const MUC_DH = [['xs','Bảo vệ đúng hạn — Xuất sắc'],['kha','Bảo vệ đúng hạn — Khá'],['dat','Bảo vệ đúng hạn — Đạt'],['kdat','Bảo vệ đúng hạn — Không đạt'],
+                ['q_kha','Bảo vệ quá hạn — Khá'],['q_dat','Bảo vệ quá hạn — Đạt'],['q_kdat','Bảo vệ quá hạn — Không đạt']];
+/* cột "Xếp loại" của Mẫu số 01 chỉ ghi mức xếp loại (Xuất sắc, Khá, Đạt, Không đạt) */
+const XEPLOAI_NV = {xs:'Xuất sắc', kha:'Khá', dat:'Đạt', kdat:'Không đạt',
+                    q_kha:'Khá (bảo vệ quá hạn)', q_dat:'Đạt (bảo vệ quá hạn)', q_kdat:'Không đạt (bảo vệ quá hạn)'};
 function diemNhiemVu(nv, muc){
   if(!nv) return null;
   const i = {xs:0, kha:1, dat:2, kdat:3}[muc];
@@ -450,17 +453,17 @@ function diemNhiemVu(nv, muc){
 /* Bài đăng toàn văn trong kỷ yếu hội thảo — kê cùng mục bài báo.
    loi = thuộc nhóm sản phẩm lõi theo Điều 5 (phải có mã ISBN) */
 const KY_YEU = [
-  {id:'ky_qt_tb_nn',  ma:'3.3.1.1', t:'Hội thảo quốc tế ở nước ngoài — có trình bày, bài toàn văn kỷ yếu ISBN', d:1.460, loi:true},
-  {id:'ky_qt_tb_td_nn',ma:'3.3.1.1',t:'Tọa đàm quốc tế ở nước ngoài — có trình bày, bài toàn văn kỷ yếu ISBN', d:1.235, loi:true},
-  {id:'ky_qt_tb_vn',  ma:'3.3.1.2', t:'Hội thảo quốc tế ở Việt Nam — có trình bày, bài toàn văn kỷ yếu ISBN', d:1.010, loi:true},
-  {id:'ky_qt_tb_td_vn',ma:'3.3.1.2',t:'Tọa đàm quốc tế ở Việt Nam — có trình bày, bài toàn văn kỷ yếu ISBN', d:0.618, loi:true},
-  {id:'ky_qt_kt_nn',  ma:'3.3.2.1', t:'Hội thảo quốc tế ở nước ngoài — không trình bày, bài toàn văn kỷ yếu ISBN', d:0.730, loi:true},
-  {id:'ky_qt_kt_td_nn',ma:'3.3.2.1',t:'Tọa đàm quốc tế ở nước ngoài — không trình bày, bài toàn văn kỷ yếu ISBN', d:0.425, loi:true},
-  {id:'ky_qt_kt_vn',  ma:'3.3.2.2', t:'Hội thảo quốc tế ở Việt Nam — không trình bày, bài toàn văn kỷ yếu ISBN', d:0.505, loi:true},
-  {id:'ky_qt_kt_td_vn',ma:'3.3.2.2',t:'Tọa đàm quốc tế ở Việt Nam — không trình bày, bài toàn văn kỷ yếu ISBN', d:0.257, loi:true},
-  {id:'ky_tn_tb',     ma:'2.4.4.1', t:'Hội thảo Đề tài/Nhiệm vụ cấp quốc gia, cấp bộ — có trình bày, bài toàn văn kỷ yếu ISBN', d:1.000, loi:true},
-  {id:'ky_tn_kt',     ma:'2.4.4.3', t:'Hội thảo Đề tài/Nhiệm vụ cấp quốc gia, cấp bộ — không trình bày, bài toàn văn kỷ yếu ISBN', d:0.500, loi:true},
-  {id:'ky_tn_noisbn', ma:'2.4.4.2', t:'Hội thảo Đề tài/Nhiệm vụ cấp quốc gia, cấp bộ — có trình bày, kỷ yếu không có ISBN', d:0.250, loi:false}
+  {id:'ky_qt_tb_nn',  ma:'3.3.1.1', t:'Hội thảo quốc tế được tổ chức ở nước ngoài — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:1.460, loi:true},
+  {id:'ky_qt_tb_td_nn',ma:'3.3.1.1',t:'Tọa đàm quốc tế được tổ chức ở nước ngoài — trình bày tại tọa đàm và có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:1.235, loi:true},
+  {id:'ky_qt_tb_vn',  ma:'3.3.1.2', t:'Hội thảo quốc tế được tổ chức ở Việt Nam — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:1.010, loi:true},
+  {id:'ky_qt_tb_td_vn',ma:'3.3.1.2',t:'Tọa đàm quốc tế được tổ chức ở Việt Nam — trình bày tại tọa đàm và có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.618, loi:true},
+  {id:'ky_qt_kt_nn',  ma:'3.3.2.1', t:'Hội thảo quốc tế được tổ chức ở nước ngoài — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.730, loi:true},
+  {id:'ky_qt_kt_td_nn',ma:'3.3.2.1',t:'Tọa đàm quốc tế được tổ chức ở nước ngoài — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.425, loi:true},
+  {id:'ky_qt_kt_vn',  ma:'3.3.2.2', t:'Hội thảo quốc tế được tổ chức ở Việt Nam — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.505, loi:true},
+  {id:'ky_qt_kt_td_vn',ma:'3.3.2.2',t:'Tọa đàm quốc tế được tổ chức ở Việt Nam — không trình bày, có bài đăng toàn văn trong kỷ yếu có mã ISBN', d:0.257, loi:true},
+  {id:'ky_tn_tb',     ma:'2.4.4.1', t:'Hội thảo Đề tài/Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', d:1.000, loi:true},
+  {id:'ky_tn_kt',     ma:'2.4.4.3', t:'Hội thảo Đề tài/Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — không trình bày nhưng có bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', d:0.500, loi:true},
+  {id:'ky_tn_noisbn', ma:'2.4.4.2', t:'Hội thảo Đề tài/Nhiệm vụ/Đề án của Chương trình cấp quốc gia/cấp bộ — trình bày tại hội thảo và có bài đăng toàn văn trong kỷ yếu hội thảo không có mã ISBN', d:0.250, loi:false}
 ];
 
 /* KRA 2–3–4: các mục gắn với cá nhân cán bộ. loi = thuộc nhóm sản phẩm lõi (Điều 5) */
@@ -471,16 +474,16 @@ const HOAT_DONG = [
     {ma:'2.1.1.4', t:'Gửi Chủ tịch nước', d:5.035},
     {ma:'2.1.1.2', t:'Gửi Chủ tịch Quốc hội', d:5.035},
     {ma:'2.1.1.6', t:'Gửi Thủ tướng', d:5.035},
-    {ma:'2.1.1.2', t:'Gửi Văn phòng Tổng Bí thư', d:3.935},
+    {ma:'2.1.1.2', t:'Gửi Văn phòng Tổng Bí thư Đảng Cộng sản Việt Nam', d:3.935},
     {ma:'2.1.1.3', t:'Gửi Ủy ban thường vụ Quốc hội', d:2.035},
     {ma:'2.1.1.5', t:'Gửi Văn phòng Chủ tịch nước', d:2.035},
     {ma:'2.1.1.7', t:'Gửi Văn phòng Chính phủ', d:2.035},
-    {ma:'2.1.2.1', t:'Gửi Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ', d:1.135},
+    {ma:'2.1.2.1', t:'Gửi các Bộ, cơ quan ngang Bộ, cơ quan thuộc Chính phủ', d:1.135},
     {ma:'2.1.2.2', t:'Gửi Tòa án nhân dân tối cao', d:1.135},
     {ma:'2.1.2.3', t:'Gửi Viện kiểm sát nhân dân tối cao', d:1.135},
     {ma:'2.1.2.4', t:'Gửi Kiểm toán Nhà nước', d:1.135},
     {ma:'2.1.2.5', t:'Gửi các ngành cấp 1 trong nền kinh tế', d:0.568},
-    {ma:'2.1.3',   t:'Gửi tỉnh, thành phố trực thuộc Trung ương', d:0.568},
+    {ma:'2.1.3',   t:'Gửi các tỉnh và thành phố trực thuộc Trung ương', d:0.568},
     {ma:'2.1.4.1', t:'Gửi tổ chức phát triển quốc tế đa phương', d:0.202},
     {ma:'2.1.4.2', t:'Gửi tổ chức phát triển quốc tế song phương', d:0.101}
   ]},
@@ -492,70 +495,70 @@ const HOAT_DONG = [
     {ma:'2.1.2.6', t:'Báo Nhân Dân điện tử', d:0.984},
     {ma:'2.1.2.6', t:'Báo Điện tử Chính phủ', d:0.509},
     {ma:'2.1.2.6', t:'Tạp chí Tòa án Nhân dân điện tử', d:0.255},
-    {ma:'2.1.2.6', t:'Trang Thông tin Điện tử Ban Nội chính Trung ương', d:0.255},
+    {ma:'2.1.2.6', t:'Trang Thông tin Điện tử tổng hợp Ban Nội chính Trung ương', d:0.255},
     {ma:'2.1.2.6', t:'Báo Điện tử Đại biểu Nhân dân', d:0.127},
     {ma:'2.1.2.6', t:'Báo Bảo vệ Pháp luật', d:0.127},
     {ma:'2.1.2.6', t:'Báo Cáo viên (Ban Tuyên giáo và Dân vận Trung ương)', d:0.127},
-    {ma:'2.1.2.6', t:'Trang Thông tin Điện tử Ban Chính sách, Chiến lược Trung ương', d:0.127},
-    {ma:'2.1.2.6', t:'Mục Tin tức của Viện Hàn lâm KHXH Việt Nam', d:0.016}
+    {ma:'2.1.2.6', t:'Trang Thông tin Điện tử tổng hợp Ban Chính sách, Chiến lược Trung ương', d:0.127},
+    {ma:'2.1.2.6', t:'Đóng góp ý kiến văn kiện Đảng cấp trên tại mục Tin tức của Viện Hàn lâm KHXH Việt Nam', d:0.016}
   ]},
   {g:'KRA 2 — Thu nhập nghiên cứu ròng ngoài VASS', items:[
-    {ma:'2.2.1', t:'Hợp đồng Viện ký với cơ quan TW, Bộ, Ban, Ngành hoặc đề tài Quỹ Nafosted', d:2.500, dv:'100 triệu đồng', tien:true},
-    {ma:'2.2.2', t:'Hợp đồng Viện ký với chính quyền địa phương, doanh nghiệp, tổ chức, cá nhân khác', d:2.500, dv:'100 triệu đồng', tien:true},
-    {ma:'2.2.3', t:'Hợp đồng Viện ký với tổ chức phát triển quốc tế hoặc quỹ nghiên cứu quốc tế', d:2.000, dv:'100 triệu đồng', tien:true}
+    {ma:'2.2.1', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ Viện) từ hợp đồng nghiên cứu của Viện ký với cơ quan TW, Bộ, Ban, Ngành, đề tài Quỹ Phát triển khoa học và công nghệ Quốc gia (Nafosted)', d:2.500, dv:'100 triệu đồng', tien:true},
+    {ma:'2.2.2', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ của Viện) từ hợp đồng nghiên cứu của Viện ký với chính quyền địa phương (đề tài cấp tỉnh), doanh nghiệp, tổ chức, và các cá nhân khác', d:2.500, dv:'100 triệu đồng', tien:true},
+    {ma:'2.2.3', t:'Thu nhập sau thuế trong năm (đã giải ngân cho cán bộ Viện) từ hợp đồng nghiên cứu của Viện ký với các tổ chức phát triển quốc tế và từ nguồn tài trợ của các quỹ nghiên cứu khoa học quốc tế', d:2.000, dv:'100 triệu đồng', tien:true}
   ]},
   {g:'KRA 2 — Hội thảo trong nước', items:[
-    {ma:'2.4.1.1', t:'Chủ trì hội thảo Nhiệm vụ Chương trình KH&CN cấp quốc gia', d:2.650},
-    {ma:'2.4.1.2', t:'Đồng chủ trì hội thảo Nhiệm vụ Chương trình KH&CN cấp quốc gia', d:1.325},
-    {ma:'2.4.2.1', t:'Chủ trì hội thảo Chương trình trọng điểm/độc lập cấp bộ', d:1.750},
-    {ma:'2.4.2.2', t:'Đồng chủ trì hội thảo Chương trình trọng điểm/độc lập cấp bộ', d:0.875},
-    {ma:'2.4.3.1', t:'Chủ trì hội thảo khoa học cấp quốc gia', d:1.300},
-    {ma:'2.4.3.2', t:'Đồng chủ trì hội thảo khoa học cấp quốc gia', d:0.650}
+    {ma:'2.4.1.1', t:'Là chủ trì hội thảo Nhiệm vụ Chương trình khoa học và công nghệ cấp quốc gia', d:2.650},
+    {ma:'2.4.1.2', t:'Là đồng chủ trì hội thảo Nhiệm vụ Chương trình khoa học và công nghệ cấp quốc gia', d:1.325},
+    {ma:'2.4.2.1', t:'Là chủ trì hội thảo Chương trình trọng điểm cấp bộ/chương trình cấp bộ độc lập', d:1.750},
+    {ma:'2.4.2.2', t:'Là đồng chủ trì hội thảo Chương trình trọng điểm cấp bộ/chương trình cấp bộ độc lập', d:0.875},
+    {ma:'2.4.3.1', t:'Là chủ trì hội thảo khoa học cấp quốc gia', d:1.300},
+    {ma:'2.4.3.2', t:'Là đồng chủ trì hội thảo khoa học cấp quốc gia', d:0.650}
   ]},
   {g:'KRA 3 — Chủ trì hội thảo, tọa đàm quốc tế', items:[
-    {ma:'3.2.1.1', t:'Chủ trì hội thảo quốc tế tổ chức ở nước ngoài', d:2.610},
-    {ma:'3.2.1.1', t:'Chủ trì tọa đàm quốc tế tổ chức ở nước ngoài', d:1.958},
-    {ma:'3.2.1.2', t:'Đồng chủ trì hội thảo quốc tế ở nước ngoài', d:1.305},
-    {ma:'3.2.1.2', t:'Đồng chủ trì tọa đàm quốc tế ở nước ngoài', d:0.979},
-    {ma:'3.2.2.1', t:'Chủ trì hội thảo quốc tế tổ chức ở Việt Nam', d:1.260},
-    {ma:'3.2.2.1', t:'Chủ trì tọa đàm quốc tế tổ chức ở Việt Nam', d:0.945},
-    {ma:'3.2.2.2', t:'Đồng chủ trì hội thảo quốc tế ở Việt Nam', d:0.630},
-    {ma:'3.2.2.2', t:'Đồng chủ trì tọa đàm quốc tế ở Việt Nam', d:0.473}
+    {ma:'3.2.1.1', t:'Là chủ trì hội thảo quốc tế được tổ chức ở nước ngoài', d:2.610},
+    {ma:'3.2.1.1', t:'Là chủ trì tọa đàm quốc tế được tổ chức ở nước ngoài', d:1.958},
+    {ma:'3.2.1.2', t:'Là đồng chủ trì hội thảo quốc tế được tổ chức ở nước ngoài', d:1.305},
+    {ma:'3.2.1.2', t:'Là đồng chủ trì tọa đàm quốc tế được tổ chức ở nước ngoài', d:0.979},
+    {ma:'3.2.2.1', t:'Là chủ trì hội thảo quốc tế được tổ chức ở Việt Nam', d:1.260},
+    {ma:'3.2.2.1', t:'Là chủ trì tọa đàm quốc tế được tổ chức ở Việt Nam', d:0.945},
+    {ma:'3.2.2.2', t:'Là đồng chủ trì hội thảo quốc tế được tổ chức ở Việt Nam', d:0.630},
+    {ma:'3.2.2.2', t:'Là đồng chủ trì tọa đàm quốc tế được tổ chức ở Việt Nam', d:0.473}
   ]},
   {g:'KRA 3 — Trình bày tại hội thảo, tọa đàm quốc tế (không có bài kỷ yếu)', items:[
-    {ma:'3.3.3.1', t:'Trình bày bằng slides tiếng nước ngoài — hội thảo ở nước ngoài', d:0.630},
-    {ma:'3.3.3.1', t:'Trình bày bằng slides tiếng nước ngoài — tọa đàm ở nước ngoài', d:0.315},
-    {ma:'3.3.3.2', t:'Trình bày bằng slides tiếng nước ngoài — hội thảo ở Việt Nam', d:0.405},
-    {ma:'3.3.3.2', t:'Trình bày bằng slides tiếng nước ngoài — tọa đàm ở Việt Nam', d:0.157}
+    {ma:'3.3.3.1', t:'Trình bày với Slides tiếng nước ngoài — hội thảo quốc tế được tổ chức ở nước ngoài', d:0.630},
+    {ma:'3.3.3.1', t:'Trình bày với Slides tiếng nước ngoài — tọa đàm quốc tế được tổ chức ở nước ngoài', d:0.315},
+    {ma:'3.3.3.2', t:'Trình bày với Slides tiếng nước ngoài — hội thảo quốc tế được tổ chức ở Việt Nam', d:0.405},
+    {ma:'3.3.3.2', t:'Trình bày với Slides tiếng nước ngoài — tọa đàm quốc tế được tổ chức ở Việt Nam', d:0.157}
   ]},
   {g:'KRA 3 — Đoàn trao đổi hợp tác', items:[
-    {ma:'3.4.1.1', t:'Đoàn ra trong kế hoạch đối ngoại được VASS duyệt', d:0.160},
-    {ma:'3.4.1.2', t:'Đoàn ra phát sinh ngoài kế hoạch, được VASS duyệt', d:0.097},
-    {ma:'3.4.2.1', t:'Đoàn vào trong kế hoạch đối ngoại được VASS duyệt', d:0.102},
-    {ma:'3.4.2.2', t:'Đoàn vào phát sinh ngoài kế hoạch, được VASS duyệt', d:0.052}
+    {ma:'3.4.1.1', t:'Đoàn ra trong kế hoạch hoạt động đối ngoại hàng năm của Viện được duyệt bởi VASS', d:0.160},
+    {ma:'3.4.1.2', t:'Đoàn ra phát sinh ngoài kế hoạch đối ngoại hàng năm của Viện được duyệt bởi VASS', d:0.097},
+    {ma:'3.4.2.1', t:'Đoàn vào trong kế hoạch hoạt động đối ngoại hàng năm của Viện được duyệt bởi VASS', d:0.102},
+    {ma:'3.4.2.2', t:'Đoàn vào phát sinh ngoài kế hoạch đối ngoại hàng năm của Viện được duyệt bởi VASS', d:0.052}
   ]},
   {g:'KRA 4 — Phát triển nguồn nhân lực', items:[
     {ma:'4.3.1',   t:'Được bổ nhiệm chức danh Giáo sư', d:9.750},
     {ma:'4.2.1',   t:'Tốt nghiệp tiến sĩ ở nước ngoài', d:6.500},
     {ma:'4.3.2',   t:'Được bổ nhiệm chức danh Phó giáo sư', d:6.500},
     {ma:'4.2.2',   t:'Tốt nghiệp tiến sĩ ở trong nước', d:3.250},
-    {ma:'4.3.3',   t:'Được bổ nhiệm nghiên cứu viên cao cấp / tương đương', d:2.625},
-    {ma:'4.1.1',   t:'Tốt nghiệp thạc sĩ ở nước ngoài', d:2.250},
+    {ma:'4.3.3',   t:'Được bổ nhiệm Nghiên cứu viên cao cấp/Chuyên viên cao cấp/Kế toán viên cao cấp/Biên tập viên cao cấp', d:2.625},
+    {ma:'4.1.1',   t:'Tốt nghiệp thạc sĩ nước ngoài', d:2.250},
     {ma:'4.4.1.1', t:'Văn bằng cao cấp lý luận chính trị', d:2.075},
-    {ma:'4.5.2.1', t:'Hướng dẫn chính nghiên cứu sinh bảo vệ thành công luận án tiến sĩ', d:1.409},
-    {ma:'4.4.2.2', t:'Chứng chỉ ngoại ngữ từ bậc 4/6 trở lên', d:1.350},
-    {ma:'4.4.2.3', t:'Chứng chỉ ứng dụng công nghệ thông tin (IC3, MOS trở lên)', d:1.350},
+    {ma:'4.5.2.1', t:'Là hướng dẫn chính của Nghiên cứu sinh bảo vệ thành công luận án tiến sĩ', d:1.409},
+    {ma:'4.4.2.2', t:'Chứng chỉ về ngoại ngữ (tối thiểu từ bậc 4/6 trong Khung năng lực ngoại ngữ 6 bậc)', d:1.350},
+    {ma:'4.4.2.3', t:'Chứng chỉ về ứng dụng công nghệ thông tin (tối thiểu từ IC3, MOS)', d:1.350},
     {ma:'4.1.2',   t:'Tốt nghiệp thạc sĩ ở trong nước', d:1.125},
     {ma:'4.4.1.2', t:'Văn bằng trung cấp lý luận chính trị', d:1.038},
     {ma:'4.5.1',   t:'Hướng dẫn học viên cao học bảo vệ thành công luận văn thạc sĩ', d:0.750},
-    {ma:'4.5.2.2', t:'Hướng dẫn phụ nghiên cứu sinh bảo vệ thành công luận án tiến sĩ', d:0.542},
+    {ma:'4.5.2.2', t:'Là hướng dẫn phụ của Nghiên cứu sinh bảo vệ thành công luận án tiến sĩ', d:0.542},
     {ma:'4.4.2.1', t:'Chứng chỉ về chuyên môn', d:0.404},
     {ma:'4.4.1.3', t:'Chứng chỉ bồi dưỡng ngạch nghiên cứu viên/chính/cao cấp', d:0.346},
     {ma:'4.4.1.4', t:'Chứng chỉ quản lý nhà nước ngạch chuyên viên/chính/cao cấp', d:0.346},
     {ma:'4.4.1.5', t:'Chứng chỉ bồi dưỡng ngạch kế toán viên/chính/cao cấp', d:0.346},
     {ma:'4.4.1.6', t:'Chứng chỉ bồi dưỡng ngạch biên tập viên/chính/cao cấp', d:0.346},
     {ma:'4.4.1.7', t:'Chứng chỉ quản lý nhà nước về báo chí', d:0.346},
-    {ma:'4.4.1.8', t:'Chứng chỉ bồi dưỡng lãnh đạo, quản lý cấp vụ/cấp phòng', d:0.346}
+    {ma:'4.4.1.8', t:'Chứng chỉ bồi dưỡng lãnh đạo, quản lý cấp vụ/cấp phòng và tương đương', d:0.346}
   ]}
 ];
 
@@ -579,12 +582,12 @@ const DON_VI = [
 ];
 const GIAMTRU = [
   {id:'',    t:'Không thuộc diện giảm trừ', p:0, thang:false},
-  {id:'g10', t:'Lãnh đạo, quản lý cấp phòng; kiêm nhiệm công tác đảng, đoàn thể', p:0.10, thang:false},
-  {id:'g20', t:'Nuôi con nhỏ dưới 12 tháng; nuôi con hoàn cảnh đặc biệt, khuyết tật, bệnh hiểm nghèo', p:0.20, thang:false},
-  {id:'g30a',t:'Lãnh đạo, quản lý cấp viện; kiêm nhiệm giảng dạy tại Học viện Khoa học xã hội', p:0.30, thang:false},
-  {id:'g30b',t:'Ốm đau dài ngày, bệnh hiểm nghèo; bị ảnh hưởng do tai nạn, thiên tai', p:0.30, thang:false},
-  {id:'g50', t:'Nghỉ thai sản; nghỉ việc riêng không hưởng lương từ 3 tháng; đang tập sự', p:0.50, thang:true},
-  {id:'g100',t:'Được cử đi học tập trung, dài hạn từ 3 tháng trở lên', p:1.00, thang:true}
+  {id:'g10', t:'Viên chức giữ chức vụ lãnh đạo, quản lý cấp phòng; viên chức, người lao động kiêm nhiệm công tác đảng, đoàn thể', p:0.10, thang:false, gc:''},
+  {id:'g20', t:'Viên chức, người lao động nuôi con nhỏ dưới 12 tháng tuổi; trực tiếp nuôi con có hoàn cảnh đặc biệt, khuyết tật, mắc bệnh hiểm nghèo', p:0.20, thang:false, gc:'Tính tại thời điểm đánh giá.'},
+  {id:'g30a',t:'Viên chức giữ chức vụ lãnh đạo, quản lý cấp viện; viên chức kiêm nhiệm công tác giảng dạy tại Học viện Khoa học xã hội', p:0.30, thang:false, gc:'Viên chức được tính là đồng biên chế của Học viện Khoa học xã hội phải có Quyết định giao nhiệm vụ của Viện Hàn lâm, thực hiện định mức lao động của vị trí việc làm nghiên cứu và giảng dạy.'},
+  {id:'g30b',t:'Viên chức, người lao động ốm đau dài ngày, mắc bệnh hiểm nghèo; bị ảnh hưởng do tai nạn, thiên tai', p:0.30, thang:false, gc:'Có giấy xác nhận của cơ sở y tế hoặc xác nhận của cơ quan có thẩm quyền.'},
+  {id:'g50', t:'Viên chức, người lao động nghỉ thai sản theo chế độ; nghỉ vì việc riêng không hưởng lương từ 03 tháng trở lên; viên chức trong thời gian tập sự', p:0.50, thang:true, gc:'Giảm trừ tương ứng với số tháng nghỉ. Mỗi tháng nghỉ được giảm 1/12 định mức năm.'},
+  {id:'g100',t:'Viên chức được cử đi học tập trung, dài hạn theo quyết định của cơ quan có thẩm quyền từ 03 tháng trở lên', p:1.00, thang:true, gc:'Giảm trừ tương ứng với số tháng tạm vắng. Mỗi tháng tạm vắng được giảm 1/12 định mức năm.'}
 ];
 
 /* ===================== Tiện ích ===================== */
@@ -690,7 +693,7 @@ function heSo(vai, n){
 }
 const VAITRO = [
   ['chinh','Tác giả chính'],
-  ['dong','Tác giả còn lại']
+  ['dong','Đồng tác giả']
 ];
 /* vai trò trong nhiệm vụ KH&CN đã nghiệm thu: chủ nhiệm là tác giả chính,
    thư ký khoa học, thành viên chính và thành viên chia đều phần còn lại */
@@ -837,7 +840,7 @@ const PHAN_HD = [
    mc:'Minh chứng: file scan công văn'},
   {id:'thunhap',  t:'b) Thu nhập nghiên cứu ròng ngoài VASS',
    g:['KRA 2 — Thu nhập nghiên cứu ròng ngoài VASS'],
-   mc:'Minh chứng: file scan ủy nhiệm chi'},
+   mc:'Minh chứng: file scan ủy nhiệm chi hoặc danh sách chuyển khoản'},
   {id:'chutri',   t:'c) Chủ trì hội thảo, tọa đàm',
    g:['KRA 2 — Hội thảo trong nước', 'KRA 3 — Chủ trì hội thảo, tọa đàm quốc tế'],
    mc:'Minh chứng: giấy mời, chương trình hội thảo/tọa đàm'},
@@ -847,7 +850,7 @@ const PHAN_HD = [
   {id:'nhanluc',  t:'đ) Phát triển nguồn nhân lực',
    g:['KRA 4 — Phát triển nguồn nhân lực'],
    mc:'Minh chứng: scan văn bằng, chứng chỉ, QĐ cử đi học (nếu có)'},
-  {id:'website',  t:'e) Đóng góp ý kiến trên website chính thống (KRA 2)',
+  {id:'website',  t:'e) Đóng góp ý kiến trên website có uy tín của Đảng, Nhà nước, Chính phủ và Quốc hội',
    g:['KRA 2 — Đóng góp ý kiến trên website chính thống'],
    mc:'Minh chứng: đường dẫn bài đăng, ảnh chụp màn hình có ngày đăng'},
   {id:'doan',     t:'g) Đoàn trao đổi hợp tác (KRA 3)',
@@ -876,7 +879,7 @@ function timHD(key){
 function initSelects(){
   syncDonVi();
   const sg = $('#f-giamtru');
-  GIAMTRU.forEach(g => sg.add(new Option(g.p ? `${g.t} — tối đa ${Math.round(g.p*100)}%` : g.t, g.id)));
+  GIAMTRU.forEach(g => sg.add(new Option(g.p ? `${g.t} — tỷ lệ giảm tối đa ${Math.round(g.p*100)}%` : g.t, g.id)));
   syncHsl();
 }
 function syncDonVi(){
@@ -1114,10 +1117,10 @@ function oTacGia(r){
     g.append(field('Vai trò của người kê khai','',
       sel(r.vaitro, VAITRO, v=>{r.vaitro=v; renderAll();})));
   }
-  g.append(field('Mã DOI (nếu có)','',inp(r.link, v=>r.link=v, '10.xxxx/xxxxx')));
+  g.append(field('Đường link (nếu có)','',inp(r.link, v=>r.link=v, 'https://…')));
   return g;
 }
-/* ô chia điểm cho NHIỆM VỤ KH&CN: đếm người tham gia thay vì tác giả, không có DOI */
+/* ô chia điểm cho NHIỆM VỤ KH&CN: đếm người tham gia thay vì tác giả, không có đường link */
 function oTacGiaNV(r){
   const g = el('div','grid');
   const n = Math.max(1, parseInt(r.sotg,10)||1);
@@ -1161,7 +1164,7 @@ function dongQuyDoi(q, r, loai){
     thay = `1/3 + (2/3) ÷ ${n} = ${h}`;
   } else {
     vai = nv ? tenVaiNV(r)
-             : (sach ? 'Tác giả (không phải chủ biên)' : 'Tác giả còn lại');
+             : (sach ? 'Tác giả (không phải chủ biên)' : 'Đồng tác giả');
     cthuc = `(2/3) ÷ số ${ai}`;
     thay = `(2/3) ÷ ${n} = ${h}`;
   }
@@ -1171,9 +1174,11 @@ function dongQuyDoi(q, r, loai){
     + `<div class="buoc"><i>Điểm sản phẩm:</i> ${fmt(q.tds,3)} (${nguon})</div>`
     + `<div class="buoc"><i>Hệ số chia điểm — ${esc(vai)}${n > 1 ? `, ${n} ${ai}` : ''}:</i> `
     + (n > 1 ? `${cthuc} = ${thay}` : `${cthuc}, ${thay}`) + `</div>`
-    + (n > 1 ? `<div class="buoc"><i>Căn cứ:</i> Điều 4 khoản 4 Quy chế 1020 — tác giả chính hưởng 1/3 tổng điểm, `
-      + `2/3 còn lại chia đều cho tất cả ${n} ${ai} (kể cả tác giả chính)`
-      + (n === 2 ? '; với 2 người, tác giả chính được 2/3, người còn lại 1/3' : '') + `.</div>` : '')
+    + (n > 1 ? `<div class="buoc"><i>Căn cứ:</i> Điều 4 khoản 4 Quy chế 1020 — `
+      + (n === 2
+          ? 'trường hợp chỉ có 02 tác giả, tác giả chính được hưởng 2/3 tổng điểm quy đổi, đồng tác giả được hưởng 1/3 tổng điểm'
+          : `tác giả chính được hưởng 1/3 số điểm, số điểm còn lại được chia đều cho các thành viên tham gia (bảng tính chia cho cả ${n} ${ai}, kể cả tác giả chính)`)
+      + `.</div>` : '')
     + (q.canh ? `<div class="buoc"><b>${esc(q.canh)}</b></div>` : '');
   return v;
 }
@@ -1459,7 +1464,7 @@ function renderKY(){
     d.append(g1);
     const g2 = el('div','grid'); g2.style.marginTop='13px';
     g2.append(
-      field('Loại kỷ yếu','mã 2.4.4 và 3.3 trong Biểu mẫu 609',
+      field('Loại kỷ yếu','mã 2.4.4 và 3.3.1–3.3.2 trong Biểu mẫu 609',
         sel(r.loai, [['','— Chọn —'], ...KY_YEU.map(o=>[o.id, `${o.ma} · ${o.t} — ${fmt(o.d,3)}`])], v=>{
           r.loai=v; r.suaTay=false; r.diem=null; renderAll();
         })),
@@ -1471,7 +1476,7 @@ function renderKY(){
     const v = el('div','verdict ' + (o ? (o.loi && !r.isbn ? 'miss' : 'found') : 'miss'));
     v.innerHTML = !o ? '<b>Chưa chọn loại kỷ yếu.</b>'
       : `<span class="code">${esc(o.ma)}</span> ${esc(o.t)} → <b>${fmt(o.d,3)}</b> điểm`
-        + (o.loi ? ' <span class="flag">tính vào nhóm lõi</span>' : '')
+        + (o.loi ? ' <span class="flag">tính vào điều kiện bắt buộc Điều 5</span>' : '')
         + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '')
         + (o.loi && !r.isbn ? '<br><b>Mức điểm này yêu cầu kỷ yếu có mã ISBN.</b> Nhập mã ISBN, hoặc chọn lại mức không ISBN.' : '');
     d.append(v);
@@ -1526,7 +1531,7 @@ function oTacGiaSach(r){
         inpNguyen(r.sochubien, v=>{r.sochubien=v; renderAll();}, '1')));
     }
   }
-  g.append(field('Mã DOI (nếu có)','',inp(r.link, v=>r.link=v, '10.xxxx/xxxxx')));
+  g.append(field('Đường link (nếu có)','',inp(r.link, v=>r.link=v, 'https://…')));
   return g;
 }
 
@@ -1579,7 +1584,7 @@ function theHD(r, p){
     const g = el('div','grid');
     g.append(rong(field('Mô tả cụ thể','', inpDai(r.noidung, v=>{r.noidung=v;}, goiYHD(it, q.tien)))));
     if(q.kieu === 'tien'){
-      g.append(field('Thu nhập ròng sau thuế (triệu đồng)','đã trừ 10% thuế TNCN; dấu phẩy là thập phân, ví dụ 30,5',
+      g.append(field('Thu nhập ròng sau thuế (triệu đồng)','đã khấu trừ 10% thuế thu nhập cá nhân; dấu phẩy là thập phân, ví dụ 30,5',
         inpSo(r.tien, v=>{r.tien=v; renderAll();}, 'ví dụ 30,5')));
     } else if(q.kieu === 'chutoa'){
       g.append(field('Thời gian tổ chức','tháng/năm hoặc ngày tháng',
@@ -1618,9 +1623,9 @@ function theHD(r, p){
       ? `<span class="code">${esc(it.ma)}</span> ${esc(it.t)}<br>Điểm quy đổi = ${fmt(q.tds,3)} điểm`
         + ((q.kieu === 'sl' && p.id !== 'tuvan') || q.kieu === 'tien' ? ` / ${esc(q.dv)}` : '')
         + ` × ${esc(moTaHeSoHD(r))} = <b>${fmt(q.d,3)}</b>`
-        + (it.loi ? ' <span class="flag">tính vào nhóm lõi</span>' : '')
+        + (it.loi ? ' <span class="flag">tính vào điều kiện bắt buộc Điều 5</span>' : '')
         + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '')
-        + (q.tien ? '<br>Chỉ tính hợp đồng do Viện ký, không tính hợp đồng cá nhân tự ký làm ngoài.' : '')
+        + (q.tien ? '<br>Viện là tổ chức chủ trì; chỉ tính hợp đồng của Viện, không tính hợp đồng cá nhân tự ký riêng làm ngoài. Chỉ tính phần thu nhập ròng sau thuế (đã khấu trừ 10% thuế thu nhập cá nhân) được giải ngân trong năm tính KPI.' : '')
       : '<b>Chưa chọn mục trong Biểu mẫu 609.</b>';
     d.append(v);
     return d;
@@ -1678,8 +1683,8 @@ const TEN_XEPLOAI = {
 function chuoiTyLe(c){
   if(c.datMuc === null || c.datMuc === undefined) return '—';
   const v = c.vuot;
-  const phan = v >= 0 ? `vượt ${fmt(v,1)}%` : `thiếu ${fmt(-v,1)}%`;
-  return `${fmt(c.datMuc,1)}% định mức (${phan})`;
+  if(v >= 0) return `${fmt(v,1)}% (tổng điểm KPI bằng ${fmt(c.datMuc,1)}% định mức tối thiểu)`;
+  return `không vượt — tổng điểm KPI bằng ${fmt(c.datMuc,1)}% định mức tối thiểu, còn thiếu ${fmt(-v,1)}%`;
 }
 
 function renderSum(){
@@ -1696,9 +1701,9 @@ function renderSum(){
   datNote('#note-sach', c.tSach);
   datNote('#note-hd',   c.tHD);
   $('#bar-tong').textContent    = fmt(c.tong,2);
-  $('#bar-dinhmuc').textContent = c.sauGiam === null ? '—' : fmt(c.sauGiam,2);
-  $('#bar-vuot').textContent     = c.datMuc === null ? '—' : fmt(c.datMuc,1) + '%';
-  $('#bar-vuot-sub').textContent = c.vuot === null ? '' : (c.vuot>=0 ? `vượt ${fmt(c.vuot,1)}%` : `thiếu ${fmt(-c.vuot,1)}%`);
+  $('#bar-dinhmuc').textContent = c.sauGiam === null ? '—' : fmt(c.sauGiam,3);
+  $('#bar-vuot').textContent     = c.vuot === null ? '—' : (c.vuot >= 0 ? fmt(c.vuot,1) + '%' : 'Chưa đạt');
+  $('#bar-vuot-sub').textContent = c.datMuc === null ? '' : `tổng điểm bằng ${fmt(c.datMuc,1)}% định mức`;
   const pill = $('#bar-xeploai');
   pill.className = 'pill ' + (c.xeploai==='khong' ? 'no' : c.xeploai==='ht' ? 'mid' : c.xeploai ? 'ok' : 'no');
   pill.textContent = c.xeploai ? TEN_XEPLOAI[c.xeploai] : 'Chưa chọn chức danh và hệ số lương';
@@ -1707,14 +1712,14 @@ function renderSum(){
     ['Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', fmt(c.tKH,3)],
     ['Bài báo đăng trên tạp chí', fmt(c.tBB,3)],
     ['Bài đăng toàn văn trong kỷ yếu hội thảo', fmt(c.tKY,3)],
-    ['Sách, chương sách, bài viết có ISBN', fmt(c.tSach,3)],
+    ['Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', fmt(c.tSach,3)],
     ['Hoạt động khác (KRA 2, 3, 4)', fmt(c.tHD,3)],
-    ['Định mức tối thiểu theo chức danh và hệ số lương', c.chuan===null?'chưa xác định':fmt(c.chuan,2)],
-    ['Tỷ lệ giảm trừ áp dụng', c.tyLeGiam ? Math.round(c.tyLeGiam*100)+'%' : '0%'],
-    ['Định mức tối thiểu sau giảm trừ', c.sauGiam===null?'chưa xác định':fmt(c.sauGiam,2)],
-    ['Tỷ lệ đạt định mức tối thiểu', chuoiTyLe(c)],
-    ['Điểm sản phẩm lõi', fmt(c.loiCot,3)],
-    ['Mức lõi phải đạt — một nửa định mức gốc, không tính giảm trừ', c.loiCan===null?'chưa xác định':fmt(c.loiCan,2)]
+    ['Tổng điểm KPI tối thiểu/năm theo chức danh và hệ số lương (Điều 5)', c.chuan===null?'chưa xác định':fmt(c.chuan,2)],
+    ['Tỷ lệ giảm trừ (Điều 9)', c.tyLeGiam ? Math.round(c.tyLeGiam*100)+'%' : '0%'],
+    ['Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ', c.sauGiam===null?'chưa xác định':fmt(c.sauGiam,3)],
+    ['Tỷ lệ vượt định mức tối thiểu', chuoiTyLe(c)],
+    ['Điểm bài báo khoa học, sách, nhiệm vụ KH,CN&ĐMST, bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN', fmt(c.loiCot,3)],
+    ['Mức phải đạt theo điều kiện bắt buộc (Điều 5): ít nhất ½ tổng điểm KPI tối thiểu', c.loiCan===null?'chưa xác định':fmt(c.loiCan,2)]
   ];
   const box = $('#sum'); box.innerHTML='';
   rows.forEach(([l,v]) => {
@@ -1737,10 +1742,10 @@ function renderSum(){
       ? `Hệ số lương ${String(S.hsl).trim()} không khớp bậc nào của ${TEN_CHUCDANH[S.chucdanh]}, nên chưa xác định được định mức. Xem lại mục A.`
       : 'Chọn chức danh nghề nghiệp và điền hệ số lương ở mục A để hệ thống xác định định mức.');
   } else {
-    them(c.tong + 1e-9 >= c.sauGiam, `Tổng điểm ${fmt(c.tong,2)} so với định mức phải đạt ${fmt(c.sauGiam,2)}.`);
+    them(c.tong + 1e-9 >= c.sauGiam, `Tổng điểm KPI ${fmt(c.tong,2)} so với tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ ${fmt(c.sauGiam,3)}.`);
     them(c.loiCot + 1e-9 >= c.loiCan,
-      `Điểm sản phẩm lõi (bài báo, sách, nhiệm vụ KH&CN và bài kỷ yếu có ISBN) đạt ${fmt(c.loiCot,2)}, cần ít nhất ${fmt(c.loiCan,2)} `
-      + `= một nửa định mức gốc ${fmt(c.chuan,2)}, không tính giảm trừ (Điều 5).`);
+      `Điều kiện bắt buộc (Điều 5): điểm bài báo khoa học, sách, nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo, bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN đạt ${fmt(c.loiCot,2)}, `
+      + `cần chiếm ít nhất ½ tổng điểm KPI tối thiểu (${fmt(c.chuan,2)} ÷ 2 = ${fmt(c.loiCan,2)}).`);
   }
   const thieuCanCu = S.bb.filter(r => r.loai==='qt' && r.qt && !r.cankcu).length;
   if(thieuCanCu) them(false, `${thieuCanCu} bài quốc tế chưa ghi căn cứ xếp hạng. Người giám sát sẽ không đối chiếu được.`);
@@ -1752,6 +1757,25 @@ function renderSum(){
   if(amDiem) them(null, `${amDiem} nhiệm vụ có điểm âm do nghiệm thu quá hạn hoặc không đạt.`);
   const sachTrung = S.sach.some(r=>r.kieu.startsWith('s_')) && S.sach.some(r=>r.kieu.startsWith('cs_')||r.kieu.startsWith('bv_'));
   if(sachTrung) them(null, 'Có cả sách và chương sách trong danh sách. Kiểm tra không tính trùng chương sách nằm trong cuốn sách đã kê.');
+  /* Điều 4 khoản 7 Quy chế 1020: tính trong năm công bố, hoặc năm liền kề nếu chưa kê khai/chưa tính */
+  const namCB = [...S.bb, ...S.ky, ...S.sach].map(r => parseInt(r.nam,10)).filter(n => n > 0);
+  const quaHan = namCB.filter(n => n < NAM_NAY - 1).length;
+  const lienKe = namCB.filter(n => n === NAM_NAY - 1).length;
+  if(quaHan) them(false, `${quaHan} sản phẩm công bố trước năm ${NAM_NAY - 1}. Sản phẩm khoa học được tính điểm KPI trong năm công bố hoặc năm liền kề tiếp theo sau năm công bố (Điều 4 khoản 7) — kiểm tra lại năm công bố.`);
+  if(lienKe) them(null, `${lienKe} sản phẩm công bố năm ${NAM_NAY - 1}: chỉ được tính nếu chưa được kê khai hoặc chưa được tính KPI trong năm công bố (Điều 4 khoản 7).`);
+  /* Điều 3 khoản 5: nâng bậc lương, thăng hạng trong năm */
+  const nb = String(S.nangbac || '').match(/(\d{1,2})\s*[\/.-]\s*(\d{4})/);
+  if(nb && parseInt(nb[2],10) === NAM_NAY){
+    const th = parseInt(nb[1],10);
+    if(th >= 1 && th <= 12){
+      if(12 - th >= 6) them(null, `Nâng bậc lương tháng ${th}/${NAM_NAY}: thời gian còn lại của năm công tác từ 6 tháng trở lên, áp dụng định mức mới kể từ tháng liền kề sau khi có quyết định (Điều 3 khoản 5 điểm a).`);
+      else them(false, `Nâng bậc lương tháng ${th}/${NAM_NAY}: thời gian còn lại dưới 6 tháng, tiếp tục thực hiện định mức cũ đến hết năm (Điều 3 khoản 5 điểm b). Chọn hệ số lương trước khi nâng bậc ở mục A để tính đúng định mức.`);
+    }
+  }
+  /* Điều 9, Điều 10: hồ sơ giảm trừ */
+  const gt = GIAMTRU.find(x => x.id === S.giamtru);
+  if(gt && gt.id) them(null, `Định mức giảm trừ ${Math.round(gt.p*100)}% (Điều 9). ${gt.gc ? gt.gc + ' ' : ''}`
+    + 'Phải có đơn đề nghị gửi Thủ trưởng đơn vị kèm hồ sơ, tài liệu chứng minh; quyết định giảm định mức lao động lập thành văn bản (Điều 10).');
 }
 
 /* Mỗi lần gõ, các danh sách được dựng lại nên ô đang nhập bị thay bằng ô mới và mất con trỏ.
@@ -1796,34 +1820,69 @@ function napNhap(){
   catch(e){ return false; }
 }
 
-/* ===================== Xuất Word (.docx) ===================== */
+/* ===================== Xuất Word (.docx) — đúng bố cục Mẫu số 01 =====================
+   Mẫu số 01 kèm Quy chế định mức lao động (Quyết định số 1020-QĐ/KHXH ngày 29/5/2026):
+   khổ A4, Times New Roman; khối tiêu đề hai cột không kẻ khung; các dòng thông tin
+   cá nhân có dòng chấm chạy tới lề phải; bảng kẻ khung, tiêu đề cột in đậm, căn giữa;
+   số trang ở giữa đầu trang, không đánh số trang đầu. */
 const XMLESC = s => (s===null||s===undefined?'':String(s))
   .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-function runs(text, o={}){
+const W_FONT = 'Times New Roman';
+const W_TEXT = 9072;          /* bề rộng vùng chữ: 11907 − lề trái 1701 − lề phải 1134 */
+const W_SZ = 28;              /* cỡ chữ thân văn bản 14 */
+const W_SZ_BANG = 26;         /* cỡ chữ trong bảng 13 */
+function R(text, o={}){
+  const sz = o.sz || W_SZ;
+  const f = o.font || W_FONT;
   return String(text===null||text===undefined?'':text).split('\n').map((t,i) =>
-    `<w:r><w:rPr>${o.b?'<w:b/>':''}${o.i?'<w:i/>':''}`
-    + `<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/>`
-    + `<w:sz w:val="${o.sz||26}"/><w:szCs w:val="${o.sz||26}"/></w:rPr>`
+    `<w:r><w:rPr><w:rFonts w:ascii="${f}" w:hAnsi="${f}" w:cs="${f}" w:eastAsia="${f}"/>`
+    + (o.b?'<w:b/><w:bCs/>':'') + (o.i?'<w:i/><w:iCs/>':'') + (o.u?'<w:u w:val="single"/>':'')
+    + `<w:sz w:val="${sz}"/><w:szCs w:val="${sz}"/></w:rPr>`
     + (i?'<w:br/>':'') + `<w:t xml:space="preserve">${XMLESC(t)}</w:t></w:r>`).join('');
 }
-function P(text, o={}){
-  return `<w:p><w:pPr>${o.align?`<w:jc w:val="${o.align}"/>`:''}`
-    + `<w:spacing w:before="${o.before||0}" w:after="${o.after===undefined?80:o.after}" w:line="300" w:lineRule="auto"/>`
-    + `</w:pPr>${runs(text,o)}</w:p>`;
+const W_TAB = (o={}) => `<w:r><w:rPr><w:rFonts w:ascii="${W_FONT}" w:hAnsi="${W_FONT}" w:cs="${W_FONT}"/>`
+  + `${o.b?'<w:b/>':''}<w:sz w:val="${o.sz||W_SZ}"/><w:szCs w:val="${o.sz||W_SZ}"/></w:rPr><w:tab/></w:r>`;
+function PX(inner, o={}){
+  const tabs = o.tabs ? `<w:tabs>${o.tabs.map(t =>
+    `<w:tab w:val="${t.val||'left'}" w:leader="${t.leader||'none'}" w:pos="${t.pos}"/>`).join('')}</w:tabs>` : '';
+  return `<w:p><w:pPr>${o.keep?'<w:keepNext/>':''}${tabs}`
+    + `<w:spacing w:before="${o.before||0}" w:after="${o.after===undefined?120:o.after}" w:line="${o.line||276}" w:lineRule="auto"/>`
+    + (o.align?`<w:jc w:val="${o.align}"/>`:'')
+    + `<w:rPr><w:sz w:val="${o.sz||W_SZ}"/><w:szCs w:val="${o.sz||W_SZ}"/></w:rPr>`
+    + `</w:pPr>${inner}</w:p>`;
 }
-function TC(text, o={}){
-  return `<w:tc><w:tcPr><w:tcW w:w="${o.w||0}" w:type="dxa"/><w:vAlign w:val="center"/>`
-    + `${o.shade?`<w:shd w:val="clear" w:fill="${o.shade}"/>`:''}</w:tcPr>`
-    + P(text, {align:o.align, b:o.b, sz:o.sz||22, after:0}) + `</w:tc>`;
+const PT = (text, o={}) => PX(R(text, o), o);
+/* dòng thông tin có dòng chấm chạy tới lề phải, như "1. Họ và tên: ......" của mẫu */
+function dongCham(nhan, giaTri, o={}){
+  const t = nhan + (giaTri ? ' ' + giaTri : '');
+  return PX(R(t, o) + W_TAB(o), Object.assign({after:100, line:288,
+    tabs:[{val:'right', leader:'dot', pos:W_TEXT}]}, o));
 }
-function TBL(rows, widths){
+/* ô bảng: c.t là chữ (xuống dòng bằng \n), hoặc c.ps là danh sách đoạn {t,b,i,u} */
+function W_CELL(c, w, o){
+  const ps = c.ps || [{t:c.t, b:c.b, i:c.i, u:c.u}];
+  const sz = c.sz || o.sz || W_SZ_BANG;
+  const body = ps.map(p => PX(R(p.t, {b:p.b, i:p.i, u:p.u, sz: p.sz || sz}),
+    {align: p.align || c.align, after: o.vien ? 20 : 0, before: o.vien ? 20 : 0, line: o.vien ? 252 : 264, sz})).join('');
+  return `<w:tc><w:tcPr><w:tcW w:w="${w}" w:type="dxa"/><w:vAlign w:val="${o.vien ? 'center' : 'top'}"/></w:tcPr>${body}</w:tc>`;
+}
+/* bảng: o.vien = có kẻ khung (bảng số liệu); không có thì là khối trình bày (tiêu đề, chữ ký) */
+function W_TBL(rows, widths, o={}){
+  const vien = o.vien !== false;
+  const bd = ['top','left','bottom','right','insideH','insideV']
+    .map(s => vien ? `<w:${s} w:val="single" w:sz="4" w:space="0" w:color="000000"/>` : `<w:${s} w:val="nil"/>`).join('');
   const grid = widths.map(w => `<w:gridCol w:w="${w}"/>`).join('');
-  const body = rows.map(r => `<w:tr>${r.map((c,i) => TC(c.t, {w:widths[i], align:c.align, b:c.b, shade:c.shade, sz:c.sz})).join('')}</w:tr>`).join('');
-  return `<w:tbl><w:tblPr><w:tblW w:w="${widths.reduce((a,b)=>a+b,0)}" w:type="dxa"/><w:tblBorders>`
-    + ['top','left','bottom','right','insideH','insideV'].map(s => `<w:${s} w:val="single" w:sz="6" w:space="0" w:color="000000"/>`).join('')
-    + `</w:tblBorders><w:tblLayout w:type="fixed"/></w:tblPr><w:tblGrid>${grid}</w:tblGrid>${body}</w:tbl>`;
+  const body = rows.map((r, ri) =>
+    `<w:tr>${vien ? `<w:trPr><w:cantSplit/>${ri === 0 ? '<w:tblHeader/>' : ''}</w:trPr>` : ''}`
+    + r.map((c, i) => W_CELL(c, widths[i], {vien, sz:o.sz})).join('') + `</w:tr>`).join('');
+  return `<w:tbl><w:tblPr><w:tblW w:w="${widths.reduce((a,b)=>a+b,0)}" w:type="dxa"/>`
+    + `${o.jc ? `<w:jc w:val="${o.jc}"/>` : ''}<w:tblBorders>${bd}</w:tblBorders><w:tblLayout w:type="fixed"/>`
+    + `<w:tblCellMar><w:left w:w="${vien?85:0}" w:type="dxa"/><w:right w:w="${vien?85:0}" w:type="dxa"/></w:tblCellMar>`
+    + `<w:tblLook w:val="0000" w:firstRow="0" w:lastRow="0" w:firstColumn="0" w:lastColumn="0" w:noHBand="1" w:noVBand="1"/>`
+    + `</w:tblPr><w:tblGrid>${grid}</w:tblGrid>${body}</w:tbl>`;
 }
-const HEAD = t => ({t, b:true, align:'center', shade:'EDEDED'});
+const HEAD = t => ({t, b:true, align:'center'});
+const GIUA = t => ({t, align:'center'});
 /* mô tả cho sách (có trường vaisach) khác bài báo: nêu chủ biên/đồng chủ biên */
 function moTaSach(r){
   const n = Math.max(1, parseInt(r.sotg,10)||1);
@@ -1846,99 +1905,112 @@ function moTaTacGia(r){
   const n = Math.max(1, parseInt(r.sotg,10)||1);
   if(n === 1) return 'Tác giả duy nhất';
   if(r.vaitro === 'chinh') return `Tác giả chính, ${n} tác giả`;
-  return `Tác giả còn lại, ${n} tác giả`;
+  return `Đồng tác giả, ${n} tác giả`;
+}
+/* cột "Đường link (nếu có)": nếu người dùng dán mã DOI thì đổi thành đường dẫn doi.org */
+function duongLink(s){
+  s = String(s || '').trim();
+  if(!s) return '';
+  if(/^https?:\/\//i.test(s)) return s;
+  if(/^10\.\d{4,}\//.test(s)) return 'https://doi.org/' + s;
+  return s;
+}
+function xepHangBB(r){
+  if(r.loai === 'tn'){
+    return r.nhom === null || r.nhom === undefined ? 'Danh mục HĐGSNN'
+      : `Danh mục HĐGSNN, khung 0–${fmt(r.nhom,2)} điểm`;
+  }
+  const o = BAO_QT.find(x => x.id === r.qt);
+  return o ? o.t.replace(' — nhóm ', ' ') : '';
 }
 
 function buildDocXml(){
   const c = tinhToan();
   const hom = new Date();
   const out = [];
+  const trong = n => Array.from({length:n}, () => ({t:''}));   /* dòng trống giữ khung bảng của mẫu */
 
-  out.push(TBL([[
-    {t:'VIỆN HÀN LÂM\nKHOA HỌC XÃ HỘI VIỆT NAM\nVIỆN ĐỊA LÝ NHÂN VĂN\nVÀ PHÁT TRIỂN BỀN VỮNG\n*', b:true, align:'center', sz:24},
-    {t:`ĐẢNG CỘNG SẢN VIỆT NAM\n\nHà Nội, ngày ${hom.getDate()} tháng ${hom.getMonth()+1} năm ${hom.getFullYear()}`, b:true, align:'center', sz:24}
-  ]], [4400, 4960]));
-  out.push(P(''));
-  out.push(P('BÁO CÁO KẾT QUẢ THỰC HIỆN', {b:true, align:'center', sz:28, after:0}));
-  out.push(P('ĐỊNH MỨC LAO ĐỘNG NĂM 2026', {b:true, align:'center', sz:28, after:240}));
+  out.push(PT('Mẫu số 01', {b:true, align:'right', after:120}));
+  out.push(W_TBL([[
+    {ps:[{t:'VIỆN HÀN LÂM', align:'center'},
+         {t:'KHOA HỌC XÃ HỘI VIỆT NAM', align:'center'},
+         {t:'VIỆN ĐỊA LÝ NHÂN VĂN', b:true, align:'center'},
+         {t:'VÀ PHÁT TRIỂN BỀN VỮNG', b:true, align:'center'},
+         {t:'*', align:'center'}]},
+    {ps:[{t:'ĐẢNG CỘNG SẢN VIỆT NAM', b:true, u:true, align:'center', sz:30},
+         {t:'', align:'center'},
+         {t:'', align:'center'},
+         {t:`Hà Nội, ngày ${hom.getDate()} tháng ${hom.getMonth()+1} năm ${hom.getFullYear()}`, i:true, align:'center', sz:W_SZ}]}
+  ]], [4100, 4972], {vien:false, sz:W_SZ_BANG}));
 
-  out.push(P(`1. Họ và tên: ${S.hoten || '.....................................'}`));
-  out.push(P(`2. Chức vụ/Chức danh kiêm nhiệm (nếu có): ${S.chucvu || '.....................'}`));
-  out.push(P(`3. Chức danh nghề nghiệp: ${TEN_CHUCDANH[S.chucdanh] || '.....................'}`));
-  out.push(P(`4. Hệ số lương hiện hưởng: ${S.hsl || '..........'}    Thời gian nâng bậc lương: ${S.nangbac || '..........'}`));
-  out.push(P(`5. Đơn vị công tác${laLanhDaoVien() ? '' : ' (Phòng)'}: ${S.phong || '.....................'}`, {after:200}));
+  out.push(PT('BÁO CÁO KẾT QUẢ THỰC HIỆN', {b:true, align:'center', before:360, after:0}));
+  out.push(PT('ĐỊNH MỨC LAO ĐỘNG NĂM ' + NAM_NAY, {b:true, align:'center', after:200}));
 
-  /* mục chưa kê gì: in một dòng trống để giữ khung bảng của mẫu, không tính điểm mẫu */
-  const dongTrong = n => Array.from({length:n}, () => ({t:''}));
-  out.push(P('I. NHIỆM VỤ ĐƯỢC GIAO', {b:true, after:100}));
-  const rNV = [[HEAD('STT'),HEAD('Nhiệm vụ'),HEAD('Vai trò'),HEAD('Tiến độ thực hiện'),HEAD('Ghi chú')]];
-  S.nv.forEach((r,i) => rNV.push([
-    {t:String(i+1), align:'center'}, {t:r.ten}, {t:r.vaitro, align:'center'}, {t:r.tiendo, align:'center'}, {t:r.ghichu}]));
-  if(!S.nv.length) rNV.push(dongTrong(5));
-  out.push(TBL(rNV, [700, 3400, 1700, 2100, 1460]));
-  out.push(P(''));
+  out.push(dongCham('1. Họ và tên:', S.hoten));
+  out.push(dongCham('2. Chức vụ/Chức danh kiêm nhiệm (nếu có)', S.chucvu));
+  out.push(dongCham('3. Chức danh nghề nghiệp:', TEN_CHUCDANH[S.chucdanh] || ''));
+  out.push(PX(R('4. Hệ số lương hiện hưởng' + (S.hsl ? ' ' + S.hsl : '')) + W_TAB()
+      + R('Thời gian nâng bậc lương' + (S.nangbac ? ' ' + S.nangbac : '')) + W_TAB(),
+    {after:100, line:288, tabs:[{val:'left', leader:'dot', pos:4560}, {val:'right', leader:'dot', pos:W_TEXT}]}));
+  out.push(dongCham('5. Đơn vị công tác:', S.phong));
 
-  out.push(P('II. SẢN PHẨM KHOA HỌC', {b:true, after:100}));
-  out.push(P('1. Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', {b:true, after:80}));
-  const rKH = [[HEAD('STT'),HEAD('Tên công trình/sản phẩm'),HEAD('Thời gian hoàn thành'),HEAD('Xếp loại'),HEAD('Tính điểm'),HEAD('Ghi chú')]];
+  /* I. Nhiệm vụ được giao */
+  out.push(PT('I. NHIỆM VỤ ĐƯỢC GIAO', {b:true, before:200, after:120, keep:true}));
+  const rNV = [[HEAD('STT'), HEAD('Nhiệm vụ'), HEAD('Vai trò'), HEAD('Tiến độ thực hiện'), HEAD('Ghi chú')]];
+  S.nv.forEach((r,i) => rNV.push([GIUA(String(i+1)), {t:r.ten}, {t:r.vaitro}, {t:r.tiendo}, {t:r.ghichu}]));
+  if(!S.nv.length) rNV.push(trong(5));
+  out.push(W_TBL(rNV, [700, 3500, 1900, 2000, 972]));
+
+  /* II. Sản phẩm khoa học */
+  out.push(PT('II. SẢN PHẨM KHOA HỌC', {b:true, before:240, after:120, keep:true}));
+
+  out.push(PT('1. Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', {b:true, after:120, keep:true}));
+  const rKH = [[HEAD('STT'), HEAD('Tên công trình/sản phẩm'), HEAD('Thời gian hoàn thành'),
+                HEAD('Xếp loại'), HEAD('Tính điểm'), HEAD('Ghi chú')]];
   S.kh.forEach((r,i) => {
-    const nv = NHIEM_VU.find(x=>x.id===r.loai);
-    rKH.push([
-      {t:String(i+1), align:'center'}, {t:r.ten}, {t:r.thoigian, align:'center'},
-      {t:(MUC_DH.find(m=>m[0]===r.muc)||['',''])[1], align:'center'},
-      {t:fmt(quyDoiNV(r).d), align:'center'},
-      {t:(nv ? nv.t : '') + (Math.max(1, parseInt(r.sotg,10)||1) > 1 ? ' · ' + moTaNV(r) : '')}]);
+    const nv = NHIEM_VU.find(x => x.id === r.loai);
+    rKH.push([GIUA(String(i+1)), {t:r.ten}, GIUA(r.thoigian), GIUA(XEPLOAI_NV[r.muc] || ''),
+      GIUA(fmt(quyDoiNV(r).d)),
+      {t:(nv ? `${nv.t} (mục ${nv.id})` : '') + '\n' + moTaNV(r)}]);
   });
-  if(!S.kh.length) rKH.push(dongTrong(6));
-  out.push(TBL(rKH, [620, 2700, 1300, 1500, 1000, 2240]));
-  out.push(P(''));
+  if(!S.kh.length) rKH.push(trong(6));
+  out.push(W_TBL(rKH, [700, 2500, 1300, 1150, 950, 2472]));
 
-  out.push(P('2. Bài báo khoa học', {b:true, after:80}));
-  out.push(P('a) Bài báo đăng trên tạp chí', {b:true, sz:24, after:60}));
-  const rBB = [[HEAD('STT'),HEAD('Tiêu đề bài báo'),HEAD('Tên tạp chí'),HEAD('Xếp hạng'),HEAD('Năm công bố'),HEAD('Tác giả/đồng tác giả'),HEAD('Đường link / DOI (nếu có)'),HEAD('Tính điểm')]];
-  S.bb.forEach((r,i) => {
-    let xh = '';
-    if(r.loai === 'tn'){ const nh = nhomTuKhung(r.nhom); xh = nh ? `${nh.ma} · nhóm loại ${nh.nhom} (HĐGSNN)` : ''; }
-    else { const o = BAO_QT.find(x=>x.id===r.qt); xh = o ? `${o.ma} · ${o.t}` : ''; }
-    const tenTC = r.tapchi + (r.issn ? `\nISSN: ${r.issn}` : '');
+  /* Mẫu số 01 có một bảng chung cho bài báo; bài đăng toàn văn trong kỷ yếu hội thảo
+     có mã ISBN (cùng nhóm điều kiện bắt buộc Điều 5) kê tiếp trong bảng này */
+  out.push(PT('2. Bài báo khoa học', {b:true, before:240, after:120, keep:true}));
+  const rBB = [[HEAD('STT'), HEAD('Tiêu đề bài báo/tạp chí'), HEAD('Tên tạp chí'), HEAD('Xếp hạng'),
+                HEAD('Năm công bố'), HEAD('Tác giả/đồng tác giả'), HEAD('Đường link (nếu có)'), HEAD('Tính điểm')]];
+  let stt = 0;
+  S.bb.forEach(r => rBB.push([
+    GIUA(String(++stt)), {t:r.tieude}, GIUA((r.tapchi || '') + (r.issn ? `\nISSN: ${r.issn}` : '')),
+    GIUA(xepHangBB(r)), GIUA(thoiGianCB(r)), GIUA(moTaTacGia(r)), {t:duongLink(r.link)},
+    GIUA(fmt(quyDoiBaiBao(r).d))]));
+  S.ky.forEach(r => {
+    const o = KY_YEU.find(x => x.id === r.loai);
     rBB.push([
-      {t:String(i+1), align:'center'}, {t:r.tieude}, {t:tenTC}, {t:xh, align:'center'},
-      {t:thoiGianCB(r), align:'center'}, {t:moTaTacGia(r), align:'center'}, {t:r.link},
-      {t:fmt(quyDoiBaiBao(r).d), align:'center'}]);
+      GIUA(String(++stt)), {t:r.tieude},
+      GIUA('Kỷ yếu hội thảo: ' + (r.hoithao || '') + (r.isbn ? `\nISBN: ${r.isbn}` : '')),
+      GIUA(o ? `Bài đăng toàn văn trong kỷ yếu ${o.loi ? 'có' : 'không có'} mã ISBN (mục ${o.ma})` : ''),
+      GIUA(thoiGianCB(r)), GIUA(moTaTacGia(r)), {t:duongLink(r.link)},
+      GIUA(fmt(quyDoiKY(r).d))]);
   });
-  if(!S.bb.length) rBB.push(dongTrong(8));
-  out.push(TBL(rBB, [520, 1800, 1400, 1550, 760, 1300, 1180, 850]));
-  out.push(P(''));
+  if(!stt) rBB.push(trong(8));
+  out.push(W_TBL(rBB, [700, 1700, 1450, 1250, 850, 1150, 1100, 872]));
 
-  out.push(P('b) Bài đăng toàn văn trong kỷ yếu hội thảo', {b:true, sz:24, after:60}));
-  const rKY = [[HEAD('STT'),HEAD('Tiêu đề bài viết'),HEAD('Tên hội thảo'),HEAD('Loại kỷ yếu'),HEAD('Mã ISBN'),HEAD('Năm công bố'),HEAD('Tác giả/đồng tác giả'),HEAD('Đường link / DOI (nếu có)'),HEAD('Tính điểm')]];
-  S.ky.forEach((r,i) => {
-    const o = KY_YEU.find(x=>x.id===r.loai);
-    rKY.push([
-      {t:String(i+1), align:'center'}, {t:r.tieude}, {t:r.hoithao},
-      {t:o ? `${o.ma} · ${o.t}` : '', align:'center'}, {t:r.isbn, align:'center'},
-      {t:thoiGianCB(r), align:'center'}, {t:moTaTacGia(r), align:'center'}, {t:r.link},
-      {t:fmt(quyDoiKY(r).d), align:'center'}]);
-  });
-  if(!S.ky.length) rKY.push(dongTrong(9));
-  out.push(TBL(rKY, [480, 1500, 1350, 1700, 900, 700, 1180, 700, 850]));
-  out.push(P(''));
-
-  out.push(P('3. Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', {b:true, after:80}));
-  const rS = [[HEAD('STT'),HEAD('Tên sách/Chương sách'),HEAD('Nhà xuất bản'),HEAD('Mã ISBN'),HEAD('Năm công bố'),HEAD('Tác giả/đồng tác giả'),HEAD('Đường link / DOI (nếu có)'),HEAD('Tính điểm')]];
+  out.push(PT('3. Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', {b:true, before:240, after:120, keep:true}));
+  const rS = [[HEAD('STT'), HEAD('Tên sách/Chương sách'), HEAD('Nhà xuất bản'), HEAD('Mã ISBN'),
+               HEAD('Năm công bố'), HEAD('Tác giả/đồng tác giả'), HEAD('Đường link (nếu có)'), HEAD('Tính điểm')]];
   S.sach.forEach((r,i) => {
-    const o = AN_PHAM.find(x=>x.id===r.kieu);
-    rS.push([
-      {t:String(i+1), align:'center'}, {t:(o?o.ma+' · ':'') + r.ten}, {t:r.nxb}, {t:r.isbn, align:'center'},
-      {t:thoiGianCB(r), align:'center'}, {t:moTaTacGia(r), align:'center'}, {t:r.link},
-      {t:fmt(quyDoiSach(r).d), align:'center'}]);
+    const o = AN_PHAM.find(x => x.id === r.kieu);
+    rS.push([GIUA(String(i+1)), {t:(r.ten || '') + (o ? `\n(${o.t}, mục ${o.ma})` : '')}, GIUA(r.nxb), GIUA(r.isbn),
+      GIUA(thoiGianCB(r)), GIUA(moTaTacGia(r)), {t:duongLink(r.link)}, GIUA(fmt(quyDoiSach(r).d))]);
   });
-  if(!S.sach.length) rS.push(dongTrong(8));
-  out.push(TBL(rS, [520, 1900, 1400, 1300, 760, 1300, 1330, 850]));
-  out.push(P(''));
+  if(!S.sach.length) rS.push(trong(8));
+  out.push(W_TBL(rS, [700, 1700, 1450, 1250, 850, 1150, 1100, 872]));
 
-  out.push(P('4. Hoạt động khác', {b:true, after:80}));
-  const rH = [[HEAD('STT'),HEAD('Nội dung'),HEAD('Tính điểm')]];
+  out.push(PT('4. Hoạt động khác', {b:true, before:240, after:120, keep:true}));
+  const rH = [[HEAD('STT'), HEAD('Nội dung'), HEAD('Tính điểm')]];
   S.hd.forEach((r,i) => {
     const it = timHD(r.ma); const q = quyDoiHD(r);
     const phu = [];
@@ -1948,73 +2020,105 @@ function buildDocXml(){
     if(q.kieu === 'tien') phu.push(`thu nhập ròng sau thuế ${tienVN(docSo(r.tien))} triệu đồng`);
     else if(q.kieu === 'sl' && q.sl > 1) phu.push(`số lượng ${fmt(q.sl,0)}`);
     else if(q.kieu === 'chutoa' && q.hs !== 1) phu.push(moTaHeSoHD(r));
-    const nd = (it ? `${it.ma} · ${it.t}` : '') + (r.noidung ? ` — ${r.noidung}` : '')
+    const nd = (it ? `${it.t} (mục ${it.ma})` : '') + (r.noidung ? ` — ${r.noidung}` : '')
       + (phu.length ? ` (${phu.join('; ')})` : '');
-    rH.push([{t:String(i+1), align:'center'}, {t:nd}, {t:fmt(q.d), align:'center'}]);
+    rH.push([GIUA(String(i+1)), {t:nd}, GIUA(fmt(q.d))]);
   });
-  if(!S.hd.length) rH.push(dongTrong(3));
-  out.push(TBL(rH, [700, 7260, 1400]));
-  out.push(P(''));
+  if(!S.hd.length) rH.push(trong(3));
+  out.push(W_TBL(rH, [700, 6172, 2200]));
 
-  out.push(P(`5. Tổng điểm KPI: ${fmt(c.tong,3)}`, {b:true, after:80}));
-  out.push(P('Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ (nếu có): '
-    + (c.sauGiam===null ? '.....................' : fmt(c.sauGiam,2))));
-  out.push(P('Tỷ lệ vượt định mức tối thiểu: '
-    + (c.datMuc===null ? '.....................' : chuoiTyLe(c)), {after:200}));
+  out.push(dongCham('5. Tổng điểm KPI:', fmt(c.tong,3), {b:true, before:240, after:120}));
+  out.push(dongCham('Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ (nếu có):',
+    c.sauGiam === null ? '' : fmt(c.sauGiam,3), {after:120}));
+  out.push(dongCham('Tỷ lệ vượt định mức tối thiểu:',
+    c.datMuc === null ? '' : chuoiTyLe(c), {after:120}));
 
-  out.push(P('III. ĐÁNH GIÁ MỨC ĐỘ HOÀN THÀNH ĐỊNH MỨC LAO ĐỘNG', {b:true, after:100}));
-  const bx = k => (c.xeploai === k ? '☒' : '☐');
-  out.push(P(`${bx('ht')} Hoàn thành`));
-  out.push(P(`${bx('vuot30')} Hoàn thành vượt mức từ 30% đến dưới 50%`));
-  out.push(P(`${bx('vuot50')} Hoàn thành vượt mức từ 50% trở lên`));
-  out.push(P(`${bx('khong')} Không hoàn thành`, {after:300}));
+  out.push(PT('III. ĐÁNH GIÁ MỨC ĐỘ HOÀN THÀNH ĐỊNH MỨC LAO ĐỘNG', {b:true, before:240, after:160, keep:true}));
+  const hop = (k, ten) => PX(R(c.xeploai === k ? '☒' : '☐', {font:'Segoe UI Symbol'}) + R(' ' + ten), {after:160, keep:true});
+  out.push(hop('ht', TEN_XEPLOAI.ht));
+  out.push(hop('vuot30', TEN_XEPLOAI.vuot30));
+  out.push(hop('vuot50', TEN_XEPLOAI.vuot50));
+  out.push(hop('khong', TEN_XEPLOAI.khong));
 
-  out.push(TBL([[
-    {t:(laLanhDaoVien() ? 'XÁC NHẬN CỦA LÃNH ĐẠO VIỆN' : 'XÁC NHẬN CỦA LÃNH ĐẠO PHÒNG') + '\n(Ký và ghi rõ họ, tên)', b:true, align:'center'},
-    {t:'NGƯỜI BÁO CÁO\n(Ký và ghi rõ họ, tên)', b:true, align:'center'}
-  ],[
-    {t:'\n\n\n', align:'center'}, {t:'\n\n\n' + (S.hoten||''), align:'center'}
-  ]], [4680, 4680]));
+  /* khối chữ ký đúng mẫu; người kê khai thuộc Lãnh đạo Viện thì Lãnh đạo Viện xác nhận */
+  const capXN = laLanhDaoVien() ? 'VIỆN' : 'PHÒNG/TRUNG TÂM';
+  out.push(W_TBL([[
+    {ps:[{t:'XÁC NHẬN CỦA LÃNH ĐẠO', b:true, align:'center'},
+         {t:capXN, b:true, align:'center'},
+         {t:'(Ký và ghi rõ họ, tên)', i:true, align:'center'}]},
+    {ps:[{t:'NGƯỜI BÁO CÁO', b:true, align:'center'},
+         {t:'(Ký và ghi rõ họ, tên)', i:true, align:'center'},
+         {t:'', align:'center'}, {t:'', align:'center'}, {t:'', align:'center'}, {t:'', align:'center'},
+         {t:S.hoten || '', b:true, align:'center'}]}
+  ]], [4536, 4536], {vien:false, sz:W_SZ}));
 
   return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+<w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
 <w:body>${out.join('')}
-<w:sectPr><w:pgSz w:w="11907" w:h="16840"/>
-<w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1701" w:header="709" w:footer="709"/>
+<w:sectPr><w:headerReference w:type="default" r:id="rId2"/><w:headerReference w:type="first" r:id="rId3"/>
+<w:pgSz w:w="11907" w:h="16840"/>
+<w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1701" w:header="567" w:footer="567" w:gutter="0"/>
+<w:titlePg/>
 </w:sectPr></w:body></w:document>`;
 }
 
-async function taoDocx(){
-  const zip = new JSZip();
-  zip.file('[Content_Types].xml',
+/* đầu trang: số trang ở giữa từ trang 2, trang đầu để trống như mẫu */
+const W_HDR_SO = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:p><w:pPr><w:jc w:val="center"/></w:pPr>`
+  + `<w:r><w:rPr><w:rFonts w:ascii="${W_FONT}" w:hAnsi="${W_FONT}"/><w:sz w:val="26"/></w:rPr><w:fldChar w:fldCharType="begin"/></w:r>`
+  + `<w:r><w:rPr><w:rFonts w:ascii="${W_FONT}" w:hAnsi="${W_FONT}"/><w:sz w:val="26"/></w:rPr><w:instrText xml:space="preserve"> PAGE </w:instrText></w:r>`
+  + `<w:r><w:rPr><w:rFonts w:ascii="${W_FONT}" w:hAnsi="${W_FONT}"/><w:sz w:val="26"/></w:rPr><w:fldChar w:fldCharType="separate"/></w:r>`
+  + `<w:r><w:rPr><w:rFonts w:ascii="${W_FONT}" w:hAnsi="${W_FONT}"/><w:sz w:val="26"/></w:rPr><w:t>2</w:t></w:r>`
+  + `<w:r><w:rPr><w:rFonts w:ascii="${W_FONT}" w:hAnsi="${W_FONT}"/><w:sz w:val="26"/></w:rPr><w:fldChar w:fldCharType="end"/></w:r>`
+  + `</w:p></w:hdr>`;
+const W_HDR_TRONG = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:hdr xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:p/></w:hdr>`;
+
+/* các phần của gói .docx; tách riêng để kiểm thử được ngoài trình duyệt */
+function cacPhanDocx(){
+  return {
+    '[Content_Types].xml':
 `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
 <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
 <Default Extension="xml" ContentType="application/xml"/>
 <Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/>
 <Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/>
-</Types>`);
-  zip.folder('_rels').file('.rels',
+<Override PartName="/word/header1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>
+<Override PartName="/word/header2.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.header+xml"/>
+</Types>`,
+    '_rels/.rels':
 `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
 <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/>
-</Relationships>`);
-  const w = zip.folder('word');
-  w.folder('_rels').file('document.xml.rels',
+</Relationships>`,
+    'word/_rels/document.xml.rels':
 `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
 <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
-</Relationships>`);
-  w.file('styles.xml',
+<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header1.xml"/>
+<Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/header" Target="header2.xml"/>
+</Relationships>`,
+    'word/styles.xml':
 `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
 <w:docDefaults><w:rPrDefault><w:rPr>
-<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/>
-<w:sz w:val="26"/><w:szCs w:val="26"/><w:lang w:val="vi-VN"/>
-</w:rPr></w:rPrDefault></w:docDefaults>
-<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style>
-</w:styles>`);
-  w.file('document.xml', buildDocXml());
+<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman" w:eastAsia="Times New Roman"/>
+<w:sz w:val="28"/><w:szCs w:val="28"/><w:lang w:val="vi-VN"/>
+</w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="0" w:line="240" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>
+<w:style w:type="table" w:default="1" w:styleId="TableNormal"><w:name w:val="Normal Table"/><w:tblPr><w:tblInd w:w="0" w:type="dxa"/>
+<w:tblCellMar><w:top w:w="0" w:type="dxa"/><w:left w:w="108" w:type="dxa"/><w:bottom w:w="0" w:type="dxa"/><w:right w:w="108" w:type="dxa"/></w:tblCellMar></w:tblPr></w:style>
+</w:styles>`,
+    'word/header1.xml': W_HDR_SO,
+    'word/header2.xml': W_HDR_TRONG,
+    'word/document.xml': buildDocXml()
+  };
+}
+async function taoDocx(){
+  const zip = new JSZip();
+  const ph = cacPhanDocx();
+  Object.keys(ph).forEach(k => zip.file(k, ph[k]));
   return await zip.generateAsync({type:'blob',
     mimeType:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'});
 }
@@ -2218,7 +2322,7 @@ function moTaTacGiaH(r){
   const n = Math.max(1, parseInt(r.sotg,10) || 1);
   if(n === 1) return 'Tác giả duy nhất';
   if(r.vaitro === 'chinh') return `Tác giả chính, ${n} tác giả`;
-  return `Tác giả còn lại, ${n} tác giả`;
+  return `Đồng tác giả, ${n} tác giả`;
 }
 function thoiGianCBh(r){
   const nam = String(r.nam || '').trim();
@@ -2260,7 +2364,7 @@ function dungBangTinh(){
   dongDai('4. Hệ số lương hiện hưởng: ' + (S.hsl || '') + '    Thời gian nâng bậc lương: ' + (S.nangbac || ''));
   dongDai('5. Đơn vị công tác' + (laLanhDaoVien() ? '' : ' (Phòng)') + ': ' + (S.phong || ''));
   dongDai('Lập lúc ' + nhanThoiGian(new Date().toISOString())
-    + ' · Điểm sản phẩm theo Biểu mẫu QĐ 609/QĐ-KHXH · Định mức theo QĐ 1020/QĐ-KHXH', 13);
+    + ' · Điểm sản phẩm theo Biểu mẫu kèm Quyết định số 609/QĐ-KHXH · Định mức lao động theo Quy chế kèm Quyết định số 1020-QĐ/KHXH', 13);
   dong([]);
 
   /* dựng một bảng sản phẩm, trả về ô chứa tổng điểm quy đổi của bảng */
@@ -2269,7 +2373,7 @@ function dungBangTinh(){
     const cLoi = coLoi ? cQD + 1 : -1;
     const head = dau.slice();
     head[cTDS] = 'Điểm sản phẩm'; head[cHS] = nhanHS || 'Hệ số tác giả'; head[cQD] = 'Điểm quy đổi';
-    if (coLoi) head[cLoi] = 'Nhóm lõi';
+    if (coLoi) head[cLoi] = 'Tính vào ĐK Điều 5';
     dong(head.map(x => T(x === undefined ? '' : x, 2)));
     const dau1 = r0();
     dsDong.forEach(d => {
@@ -2323,7 +2427,7 @@ function dungBangTinh(){
 
   tieuDe('2. Bài báo khoa học');
   tieuDe('a) Bài báo đăng trên tạp chí');
-  const bBB = bangSP(['STT', 'Tiêu đề bài báo', 'Tên tạp chí', 'Xếp hạng', 'Năm công bố', 'Mã DOI', 'Tác giả/đồng tác giả'],
+  const bBB = bangSP(['STT', 'Tiêu đề bài báo', 'Tên tạp chí', 'Xếp hạng', 'Năm công bố', 'Đường link (nếu có)', 'Tác giả/đồng tác giả'],
     S.bb.map((x, i) => {
       let xh = '';
       if (x.loai === 'tn') { const nh = nhomTuKhung(x.nhom); xh = nh ? `${nh.ma} · nhóm loại ${nh.nhom}` : ''; }
@@ -2331,31 +2435,31 @@ function dungBangTinh(){
       return {
         tds: tdsBaiBao(x), hs: heSoCua(x, 'A'), loi: true,
         cells: [T(i + 1, 4), T(x.tieude || '', 1), T((x.tapchi || '') + (x.issn ? `\nISSN: ${x.issn}` : ''), 1),
-          T(xh, 1), T(thoiGianCBh(x), 4), T(x.link || '', 1), T(moTaTacGiaH(x), 1)]
+          T(xh, 1), T(thoiGianCBh(x), 4), T(duongLink(x.link), 1), T(moTaTacGiaH(x), 1)]
       };
     }), 7, false);
   dong([]);
 
   tieuDe('b) Bài đăng toàn văn trong kỷ yếu hội thảo');
-  const bKY = bangSP(['STT', 'Tiêu đề bài viết', 'Tên hội thảo', 'Loại kỷ yếu', 'Mã ISBN', 'Năm công bố', 'Mã DOI', 'Tác giả/đồng tác giả'],
+  const bKY = bangSP(['STT', 'Tiêu đề bài viết', 'Tên hội thảo', 'Loại kỷ yếu', 'Mã ISBN', 'Năm công bố', 'Đường link (nếu có)', 'Tác giả/đồng tác giả'],
     S.ky.map((x, i) => {
       const q = KY_YEU.find(y => y.id === x.loai);
       return {
         tds: tdsKyYeu(x), hs: heSoCua(x, 'A'), loi: q ? !!q.loi : false,
         cells: [T(i + 1, 4), T(x.tieude || '', 1), T(x.hoithao || '', 1), T(q ? `${q.ma} · ${q.t}` : '', 1),
-          T(x.isbn || '', 4), T(thoiGianCBh(x), 4), T(x.link || '', 1), T(moTaTacGiaH(x), 1)]
+          T(x.isbn || '', 4), T(thoiGianCBh(x), 4), T(duongLink(x.link), 1), T(moTaTacGiaH(x), 1)]
       };
     }), 8, true);
   dong([]);
 
-  tieuDe('3. Sách, chương sách và bài viết trong sách có mã ISBN');
-  const bSach = bangSP(['STT', 'Tên sách/Chương sách', 'Nhà xuất bản', 'Mã ISBN', 'Năm công bố', 'Mã DOI', 'Tác giả/đồng tác giả'],
+  tieuDe('3. Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch');
+  const bSach = bangSP(['STT', 'Tên sách/Chương sách', 'Nhà xuất bản', 'Mã ISBN', 'Năm công bố', 'Đường link (nếu có)', 'Tác giả/đồng tác giả'],
     S.sach.map((x, i) => {
       const q = AN_PHAM.find(y => y.id === x.kieu);
       return {
         tds: tdsSach(x), hs: heSoSach(x).h, loi: true,
         cells: [T(i + 1, 4), T((q ? q.ma + ' · ' : '') + (x.ten || ''), 1), T(x.nxb || '', 1),
-          T(x.isbn || '', 4), T(thoiGianCBh(x), 4), T(x.link || '', 1), T(moTaTacGiaH(x), 1)]
+          T(x.isbn || '', 4), T(thoiGianCBh(x), 4), T(duongLink(x.link), 1), T(moTaTacGiaH(x), 1)]
       };
     }), 7, false);
   dong([]);
@@ -2390,37 +2494,37 @@ function dungBangTinh(){
   const oKH   = nhanTong('Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo', bKH.oTong, c.tKH);
   const oBB   = nhanTong('Bài báo đăng trên tạp chí', bBB.oTong, c.tBB);
   const oKY   = nhanTong('Bài đăng toàn văn trong kỷ yếu hội thảo', bKY.oTong, c.tKY);
-  const oSach = nhanTong('Sách, chương sách, bài viết có ISBN', bSach.oTong, c.tSach);
+  const oSach = nhanTong('Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', bSach.oTong, c.tSach);
   const oHD   = nhanTong('Hoạt động khác (KRA 2, 3, 4)', bHD.oTong, c.tHD);
   const oTong = nhanTong('TỔNG ĐIỂM KPI', `${oKH}+${oBB}+${oKY}+${oSach}+${oHD}`, c.tong, 14);
 
   dong([]);
   const bacHS = timBac(S.chucdanh, S.hsl);
-  const oChuan = nhanTong('Định mức tối thiểu theo chức danh và hệ số lương'
+  const oChuan = nhanTong('Tổng điểm KPI tối thiểu/năm (Điều 5)'
     + (bacHS ? ` (hệ số ${String(S.hsl).trim()}, bậc ${bacHS.hs})` : ''), null, c.chuan);
-  const oGiam  = nhanTong('Tỷ lệ giảm trừ áp dụng' + (c.tyLeGiam ? ' — ' + c.tenGiam : ''), null, c.tyLeGiam || 0);
-  const oSau   = nhanTong('Định mức tối thiểu sau giảm trừ', `${oChuan}*(1-${oGiam})`, c.sauGiam);
-  const oDat   = nhanTong('Tỷ lệ đạt định mức tối thiểu (%) = Tổng / Định mức × 100',
+  const oGiam  = nhanTong('Tỷ lệ giảm trừ (Điều 9)' + (c.tyLeGiam ? ' — ' + c.tenGiam : ''), null, c.tyLeGiam || 0);
+  const oSau   = nhanTong('Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ', `${oChuan}*(1-${oGiam})`, c.sauGiam);
+  const oDat   = nhanTong('Tổng điểm KPI so với định mức tối thiểu (%) = Tổng điểm KPI / Tổng điểm KPI tối thiểu × 100',
     `IF(${oSau}=0,"",${oTong}/${oSau}*100)`, c.datMuc, 12, 9);
-  const oVuot  = nhanTong('Trong đó, tỷ lệ vượt định mức (%) = Tỷ lệ đạt − 100',
+  const oVuot  = nhanTong('Tỷ lệ vượt định mức tối thiểu (%)',
     `IF(${oSau}=0,"",${oDat}-100)`, c.vuot, 12, 9);
-  const oLoi = nhanTong('Điểm nhóm sản phẩm lõi (Điều 5)',
+  const oLoi = nhanTong('Điểm bài báo, sách, nhiệm vụ KH,CN&ĐMST, bài kỷ yếu có mã ISBN (Điều 5)',
     `${oKH}+${oBB}+${oSach}` + (bKY.oLoi ? `+${bKY.oLoi}` : '') + (bHD.oLoi ? `+${bHD.oLoi}` : ''),
     c.loiCot);
-  const oLoiCan = nhanTong('Mức lõi phải đạt — một nửa định mức gốc, không tính giảm trừ', `${oChuan}/2`, c.loiCan);
+  const oLoiCan = nhanTong('Mức phải đạt: ít nhất ½ tổng điểm KPI tối thiểu (Điều 5)', `${oChuan}/2`, c.loiCan);
 
   dong([]);
   const xl = `IF(${oSau}=0,"",IF(${oTong}<${oSau},"${TEN_XEPLOAI.khong}",`
     + `IF(${oVuot}>=50,"${TEN_XEPLOAI.vuot50}",IF(${oVuot}>=30,"${TEN_XEPLOAI.vuot30}","${TEN_XEPLOAI.ht}"))))`;
   const rXL = r0();
   const cXL = new Array(8).fill(null);
-  cXL[0] = T('Xếp loại mức độ hoàn thành', 14);
+  cXL[0] = T('Mức độ hoàn thành định mức lao động', 14);
   cXL[7] = { v: c.xeploai ? TEN_XEPLOAI[c.xeploai] : '', k: 'f', f: xl, s: 11 };
   dong(cXL); gop(rXL, 0, 6);
   const oXL = `${o(7)}${rXL + 1}`;
   const rD5 = r0();
   const cD5 = new Array(8).fill(null);
-  cD5[0] = T('Điều 5 — điểm nhóm lõi đạt tối thiểu một nửa định mức gốc (không tính giảm trừ)', 12);
+  cD5[0] = T('Điều kiện bắt buộc (Điều 5) — chiếm ít nhất ½ tổng điểm KPI tối thiểu', 12);
   cD5[7] = { v: (c.loiCan !== null && c.loiCot + 1e-9 >= c.loiCan) ? 'Đạt' : 'Chưa đạt',
              k: 'f', f: `IF(${oChuan}=0,"",IF(${oLoi}>=${oLoiCan},"Đạt","Chưa đạt"))`, s: 11 };
   dong(cD5); gop(rD5, 0, 6);
@@ -2464,6 +2568,7 @@ function bind(){
     const e = $(s); e.value = S[k] || '';
     e.oninput = () => { S[k] = e.value; luuNhap(); };
   });
+  $('#f-nangbac').onchange = () => renderAll();   // Điều 3 khoản 5: kiểm tra lại khi đổi thời gian nâng bậc
   $('#f-phong').value = S.phong || '';
   $('#f-phong').onchange = e => { S.phong = e.target.value; renderAll(); };
   $('#f-chucdanh').value = S.chucdanh;
