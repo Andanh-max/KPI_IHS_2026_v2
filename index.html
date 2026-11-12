@@ -53,6 +53,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .crest-2{color:var(--accent);font-weight:700;margin-top:2px}
 h1{font-family:var(--font-head);font-size:clamp(24px,4.4vw,32px);line-height:1.2;font-weight:700;letter-spacing:-.015em;margin:10px 0 8px;text-wrap:balance}
 .sub{color:var(--ink-2);font-size:14.5px;margin:0;max-width:70ch}
+ul.sub{padding-left:18px}
+ul.sub li{margin:2px 0}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
      margin-top:8px;padding:14px 18px;display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;box-shadow:0 4px 14px rgba(16,24,40,.07)}
@@ -210,7 +212,11 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
     <div class="crest">Viện Hàn lâm Khoa học xã hội Việt Nam</div>
     <div class="crest crest-2">Viện Địa lý nhân văn và Phát triển bền vững</div>
     <h1>Kê khai và tính điểm KPI cá nhân năm 2026</h1>
-    <p class="sub">Điểm sản phẩm theo Biểu mẫu bảng tính Chỉ số đo lường hiệu quả hoạt động (KPI) ở cấp độ Viện Nghiên cứu ban hành kèm Quyết định số 609/QĐ-KHXH ngày 26/4/2025. Định mức lao động, định mức giảm trừ và mức độ hoàn thành theo Quy chế định mức lao động ban hành kèm Quyết định số 1020-QĐ/KHXH ngày 29/5/2026.</p>
+    <ul class="sub">
+      <li><b>Kỳ tính KPI: từ tháng 12/2025 đến tháng 11/2026.</b></li>
+      <li>Điểm sản phẩm tính theo Biểu mẫu bảng tính Chỉ số đo lường hiệu quả hoạt động (KPI) ở cấp độ Viện Nghiên cứu ban hành kèm Quyết định số 609/QĐ-KHXH ngày 26/4/2025.</li>
+      <li>Định mức lao động, định mức giảm trừ và mức độ hoàn thành theo Quy chế định mức lao động ban hành kèm Quyết định số 1020-QĐ/KHXH ngày 29/5/2026.</li>
+    </ul>
   </header>
 
   <div class="bar">
@@ -218,6 +224,7 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
     <div class="stat"><span class="k">Tổng điểm KPI tối thiểu sau giảm trừ</span><span class="v" id="bar-dinhmuc">—</span></div>
     <div class="stat"><span class="k">Tỷ lệ vượt định mức tối thiểu</span><span class="v" id="bar-vuot">—</span><span class="sub" id="bar-vuot-sub"></span></div>
     <div class="spacer"></div>
+    <span class="pill no" id="bar-loi" hidden></span>
     <span class="pill no" id="bar-xeploai">Chưa đủ dữ liệu</span>
     <button class="primary" id="btn-xlsx">Xuất file Excel</button>
   </div>
@@ -238,7 +245,7 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
           </select></label>
         <label><span>Hệ số lương hiện hưởng <span class="hint">bậc đang hưởng; có nâng bậc, thăng hạng trong kỳ thì ghi hệ số sau khi có quyết định</span></span>
           <select id="f-hsl"><option value="">— Chọn chức danh trước —</option></select></label>
-        <label><span>Thời gian nâng bậc lương <span class="hint">tháng/năm; nâng bậc trong năm xem Điều 3 khoản 5</span></span><input id="f-nangbac" placeholder="01/2025"></label>
+        <label><span>Thời gian nâng bậc lương <span class="hint">tháng/năm; nâng bậc trong kỳ xem Điều 3 khoản 5</span></span><input id="f-nangbac" placeholder="12/2025"></label>
         <label><span>Nâng bậc lương, thăng hạng trong kỳ đánh giá <span class="hint">Điều 3 khoản 5: trong kỳ giữ hai ngạch hoặc hai hệ số lương khác nhau</span></span>
           <select id="f-doingach">
             <option value="">Không — giữ nguyên một ngạch và một hệ số lương</option>
@@ -253,8 +260,8 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
           </select></label>
         <label id="w-hsl-cu" hidden><span>Hệ số lương trước khi có quyết định</span>
           <select id="f-hsl-cu"><option value="">— Chọn chức danh trước —</option></select></label>
-        <label id="w-thang-moi" hidden><span>Số tháng còn lại của kỳ sau khi có quyết định <span class="hint">tính từ tháng liền kề sau tháng có quyết định đến hết kỳ 12 tháng</span></span>
-          <input id="f-thang-moi" type="number" min="0" max="12" step="1" value="0"></label>
+        <label id="w-thang-qd" hidden><span>Tháng có quyết định nâng bậc lương, thăng hạng <span class="hint">ghi tháng/năm, ví dụ 6/2026; hệ thống tự đếm thời gian còn lại của năm công tác theo kỳ 12/2025 – 11/2026</span></span>
+          <input id="f-thang-qd" placeholder="6/2026"></label>
         <label><span>Đối tượng giảm trừ định mức <span class="hint">Điều 9; tỷ lệ giảm trừ không cộng dồn, áp dụng mức giảm cao nhất</span></span>
           <select id="f-giamtru"></select></label>
         <label><span>Số tháng nghỉ/tạm vắng <span class="hint">chỉ với nhóm 5 và 6 Điều 9: mỗi tháng được giảm 1/12 định mức năm</span></span>
@@ -323,10 +330,14 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
     </div>
   </section>
 
-  <p class="foot">
-    <b>Bài báo trong nước.</b> Nhóm loại 1 đến 4 suy từ khung điểm công trình trong danh mục Hội đồng Giáo sư Nhà nước: 1,0 là nhóm 1, 0,75 nhóm 2, 0,5 nhóm 3, 0,25 nhóm 4, tương ứng các mã 1.1.1 đến 1.1.4 trong Biểu mẫu 609. Khung điểm đổi theo năm công bố và theo lĩnh vực, hệ thống chọn đúng khung rồi hiển thị nguyên văn điều kiện để đối chiếu.<br>
-    <b>Chống tính trùng.</b> Khi đã tính điểm cho cả cuốn sách thì không tính thêm chương sách hay bài viết của chính mình trong cuốn đó. Mỗi sản phẩm khoa học chỉ được tính điểm một lần duy nhất trong cùng một chu kỳ đánh giá, xếp loại (Điều 4 khoản 1). Bài báo khoa học, báo cáo khoa học tại hội nghị khoa học, sách chuyên khảo, giáo trình đã công bố có nội dung trùng lặp từ 30% trở lên với công trình khác của cùng tác giả chỉ được tính điểm quy đổi một lần (Điều 4 khoản 2). Không tính điểm quy đổi đối với kết quả hoạt động chuyên môn được hình thành từ kết quả thực hiện nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã được tính điểm quy đổi (Điều 4 khoản 3). Chỉ tính điểm đối với các sản phẩm có đầy đủ minh chứng kèm theo (Điều 4 khoản 5). Danh mục tạp chí tra cứu theo danh mục tính điểm năm 2025 của các Hội đồng Giáo sư ngành, liên ngành — danh mục mới nhất của Hội đồng Giáo sư Nhà nước; danh mục chỉ là gợi ý, tạp chí chưa có trong danh mục thì tự nhập khung điểm kèm căn cứ. Sản phẩm khoa học được tính điểm KPI trong năm công bố; chưa kê khai hoặc chưa được tính trong năm công bố thì được tính cho năm liền kề tiếp theo (Điều 4 khoản 7).
-  </p>
+  <div class="foot">
+    <b>Lưu ý:</b>
+    <ul style="margin:6px 0 0;padding-left:20px">
+      <li><b>Chống tính trùng.</b> Khi đã tính điểm cho cả cuốn sách thì không tính thêm chương sách hay bài viết của chính mình trong cuốn đó. Mỗi sản phẩm khoa học chỉ được tính điểm một lần duy nhất trong cùng một chu kỳ đánh giá, xếp loại (Điều 4 khoản 1). Bài báo khoa học, báo cáo khoa học tại hội nghị khoa học, sách chuyên khảo, giáo trình đã công bố có nội dung trùng lặp từ 30% trở lên với công trình khác của cùng tác giả chỉ được tính điểm quy đổi một lần (Điều 4 khoản 2). Không tính điểm quy đổi đối với kết quả hoạt động chuyên môn được hình thành từ kết quả thực hiện nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã được tính điểm quy đổi (Điều 4 khoản 3) — bài báo, sách, báo cáo là sản phẩm của một nhiệm vụ đã kê ở mục II.1 thì không kê thêm ở các mục sau.</li>
+      <li>Danh mục tạp chí tra cứu theo danh mục tính điểm năm 2025 của các Hội đồng Giáo sư ngành, liên ngành — danh mục mới nhất của Hội đồng Giáo sư Nhà nước; danh mục chỉ là gợi ý, tạp chí chưa có trong danh mục thì tự nhập điểm.</li>
+      <li>Sản phẩm khoa học được tính điểm KPI trong năm công bố; chưa kê khai hoặc chưa được tính trong năm công bố thì được tính cho năm liền kề tiếp theo (Điều 4 khoản 7).</li>
+    </ul>
+  </div>
 </div>
 
 <script>
@@ -652,12 +663,40 @@ function tienVN(n){
   return (am ? '−' : '') + ng.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (le ? ',' + le : '');
 }
 const NAM_NAY = 2026;
+
+/* ===================== Kỳ tính KPI =====================
+   Kỳ đánh giá kéo dài 12 tháng, từ tháng 12/2025 đến hết tháng 11/2026.
+   Mọi phép đếm tháng của Điều 3 khoản 5 đều quy về kỳ này, không quy về năm dương lịch. */
+const KY = {tBatDau:12, nBatDau:2025, tKetThuc:11, nKetThuc:2026};
+const KY_TEN = `từ tháng ${KY.tBatDau}/${KY.nBatDau} đến tháng ${KY.tKetThuc}/${KY.nKetThuc}`;
+const chiSoThang = (t, n) => n*12 + (t - 1);
+const KY_I_BD = chiSoThang(KY.tBatDau, KY.nBatDau);
+const KY_I_KT = chiSoThang(KY.tKetThuc, KY.nKetThuc);
+const KY_SO_THANG = KY_I_KT - KY_I_BD + 1;
+/* đọc chuỗi "6/2026", "06-2026", "6.2026" thành {t, n} */
+function docThangNam(s){
+  const m = String(s === null || s === undefined ? '' : s).match(/(\d{1,2})\s*[\/.-]\s*(\d{4})/);
+  if(!m) return null;
+  const t = parseInt(m[1],10), n = parseInt(m[2],10);
+  return (t >= 1 && t <= 12) ? {t, n} : null;
+}
+const trongKy = tn => { const i = chiSoThang(tn.t, tn.n); return i >= KY_I_BD && i <= KY_I_KT; };
+/* Điều 3 khoản 5: "thời gian còn lại của năm công tác" tính từ tháng có quyết định
+   đến hết kỳ, kể cả tháng có quyết định. Quyết định trước kỳ thì cả kỳ đã hưởng ngạch
+   mới nên trả về trọn kỳ; quyết định sau kỳ thì không còn tháng nào thuộc kỳ này. */
+function conLaiTuThang(tn){
+  if(!tn) return null;
+  const i = chiSoThang(tn.t, tn.n);
+  if(i < KY_I_BD) return KY_SO_THANG;
+  if(i > KY_I_KT) return 0;
+  return KY_I_KT - i + 1;
+}
 const uid = () => Math.random().toString(36).slice(2,9);
 
 /* ===================== Trạng thái ===================== */
 const S = {
   hoten:'', chucvu:'', phong:'', chucdanh:'', hsl:'', nangbac:'',
-  doingach:'', chucdanhCu:'', hslCu:'', thangMoi:0,
+  doingach:'', chucdanhCu:'', hslCu:'', thangQD:'',
   giamtru:'', thang:0,
   nv:[], kh:[], bb:[], ky:[], sach:[], hd:[]
 };
@@ -1089,7 +1128,7 @@ const BAC_LUONG = {
 /* Hiện/ẩn và nạp danh sách bậc lương cho ngạch trước khi có quyết định (Điều 3 khoản 5) */
 function syncNgachCu(){
   const co = S.doingach === 'co';
-  ['#w-chucdanh-cu','#w-hsl-cu','#w-thang-moi'].forEach(k => { $(k).hidden = !co; });
+  ['#w-chucdanh-cu','#w-hsl-cu','#w-thang-qd'].forEach(k => { $(k).hidden = !co; });
   const s = $('#f-hsl-cu'); if(!s) return;
   s.innerHTML = '';
   if(!S.chucdanhCu){ s.add(new Option('— Chọn chức danh trước —','')); S.hslCu=''; return; }
@@ -1170,8 +1209,10 @@ function renderDinhMuc(){
 }
 
 /* Công thức định mức khi trong kỳ có nâng bậc lương hoặc thăng hạng chức danh nghề nghiệp
-   (Điều 3 khoản 5 Quy chế 1020). Hiện ngay tại mục A để người kê khai thấy định mức thực tế
-   được ghép từ hai mức của hai ngạch, hai hệ số lương khác nhau. */
+   (Điều 3 khoản 5 Quy chế 1020). Nguyên văn chỉ có hai vế, không chia nhỏ định mức theo
+   tháng: còn từ 6 tháng trở lên thì áp dụng định mức mới, còn dưới 6 tháng thì giữ định
+   mức cũ đến hết năm. Cơ chế 1/12 chỉ có ở Điều 9 cho nhóm 5 và nhóm 6, không dùng ở đây.
+   Kết quả vì vậy luôn là một giá trị có trong bảng Điều 5. */
 function congThucDinhMuc(bacMoi){
   if(S.doingach !== 'co') return '';
   const nhac = t => `<div class="buoc" style="margin-top:7px"><b>Nâng bậc lương, thăng hạng trong kỳ (Điều 3 khoản 5):</b> ${t}</div>`;
@@ -1180,25 +1221,28 @@ function congThucDinhMuc(bacMoi){
   const bacCu = timBac(S.chucdanhCu, S.hslCu);
   if(!bacCu)
     return nhac(`hệ số ${esc(String(S.hslCu).trim())} không có trong bảng định mức của ${esc(TEN_CHUCDANH[S.chucdanhCu])} — kiểm tra lại ô chức danh và hệ số lương trước khi có quyết định.`);
-  const m = Math.min(12, Math.max(0, parseInt(S.thangMoi,10)||0));
+  const tn = docThangNam(S.thangQD);
+  if(!tn)
+    return nhac(`ghi tháng có quyết định theo dạng tháng/năm (ví dụ 6/2026) để hệ thống đếm thời gian còn lại của năm công tác trong kỳ ${KY_TEN}.`);
+  const m = conLaiTuThang(tn);
   const cu = bacCu.min, moi = bacMoi.min;
   const dong = (nhan, noi) => `<div class="buoc"><i>${nhan}</i> ${noi}</div>`;
   let r = `<div class="buoc" style="margin-top:7px"><b>Định mức cả kỳ theo Điều 3 khoản 5 — trong kỳ giữ hai ngạch, hai hệ số lương:</b></div>`
     + dong('Định mức cũ:', `${esc(TEN_CHUCDANH[S.chucdanhCu])}, hệ số ${esc(String(S.hslCu).trim())} (bậc ${esc(bacCu.hs)}) → <b>${fmt(cu,2)}</b> điểm/năm`)
     + dong('Định mức mới:', `${esc(TEN_CHUCDANH[S.chucdanh])}, hệ số ${esc(String(S.hsl).trim())} (bậc ${esc(bacMoi.hs)}) → <b>${fmt(moi,2)}</b> điểm/năm`)
-    + dong('Thời gian còn lại của năm công tác:', `${m} tháng (hưởng định mức mới), ${12-m} tháng hưởng định mức cũ`);
+    + dong('Thời gian còn lại của năm công tác:',
+        `quyết định tháng ${tn.t}/${tn.n}, kỳ kết thúc tháng ${KY.tKetThuc}/${KY.nKetThuc} → <b>${m}</b> tháng (tính cả tháng có quyết định)`);
+  if(m === 0)
+    return r + dong('Ngoài kỳ:', `tháng có quyết định nằm sau kỳ ${KY_TEN}, nên kỳ này vẫn thực hiện định mức cũ; kiểm tra lại tháng có quyết định.`)
+      + `<div class="kq" style="margin-top:6px">Định mức cả kỳ = Định mức cũ = <b>${fmt(cu,2)}</b> điểm</div>`;
   if(m >= 6){
-    const kq = (cu*(12-m) + moi*m)/12;
     r += dong('Điểm a — còn từ 6 tháng trở lên:',
-        'áp dụng định mức mới kể từ tháng liền kề sau khi có quyết định, mỗi tháng tính 1/12 định mức năm')
-      + `<div class="kq" style="margin-top:6px">Định mức cả kỳ = (Định mức cũ × số tháng cũ + Định mức mới × số tháng mới) ÷ 12`
-      + `<br>= (${fmt(cu,2)} × ${12-m} + ${fmt(moi,2)} × ${m}) ÷ 12`
-      + ` = (${fmt(cu*(12-m),2)} + ${fmt(moi*m,2)}) ÷ 12 = <b>${fmt(kq,3)}</b> điểm</div>`
-      + dong('Lưu ý:', `kết quả ${fmt(kq,3)} không trùng với mức nào trong bảng Điều 5 vì là định mức ghép của hai ngạch trong cùng một kỳ.`);
+        'áp dụng định mức mới kể từ tháng liền kề sau khi có quyết định')
+      + `<div class="kq" style="margin-top:6px">Định mức cả kỳ = Định mức mới = <b>${fmt(moi,2)}</b> điểm</div>`;
   } else {
     r += dong('Điểm b — còn dưới 6 tháng:',
         'tiếp tục thực hiện định mức cũ đến hết năm; định mức mới áp dụng từ kỳ sau')
-      + `<div class="kq" style="margin-top:6px">Định mức cả kỳ = Định mức cũ = <b>${fmt(cu,3)}</b> điểm</div>`;
+      + `<div class="kq" style="margin-top:6px">Định mức cả kỳ = Định mức cũ = <b>${fmt(cu,2)}</b> điểm</div>`;
   }
   return r;
 }
@@ -2077,10 +2121,12 @@ function tinhToan(){
 
   /* Điều 3 khoản 5: trong kỳ được nâng bậc lương hoặc thăng hạng chức danh nghề nghiệp.
      a) thời gian còn lại của năm công tác từ 6 tháng trở lên thì áp dụng định mức mới kể từ
-        tháng liền kề sau khi có quyết định, nên định mức cả kỳ gồm hai phần: số tháng còn
-        hưởng định mức cũ và số tháng hưởng định mức mới, mỗi tháng tính 1/12 định mức năm;
-     b) thời gian còn lại dưới 6 tháng thì tiếp tục thực hiện định mức cũ đến hết năm. */
-  let chuan = null, dmCu = null, dmMoi = null, thangMoi = 0, apDung = '';
+        tháng liền kề sau khi có quyết định;
+     b) thời gian còn lại dưới 6 tháng thì tiếp tục thực hiện định mức cũ đến hết năm.
+     Văn bản không chia nhỏ định mức theo tháng, nên định mức cả kỳ luôn là một trong hai
+     mức của bảng Điều 5, không phải mức ghép. Thời gian còn lại đếm từ tháng có quyết định
+     đến hết kỳ, tính cả tháng có quyết định; chưa ghi tháng thì chưa xác định được định mức. */
+  let chuan = null, dmCu = null, dmMoi = null, thangConLai = null, thangQD = null, apDung = '';
   if(S.chucdanh && S.hsl){
     const dd = timBac(S.chucdanh, S.hsl);
     if(dd) dmMoi = dd.min;
@@ -2090,10 +2136,11 @@ function tinhToan(){
       const dc = timBac(S.chucdanhCu, S.hslCu);
       if(dc) dmCu = dc.min;
     }
-    thangMoi = Math.min(12, Math.max(0, parseInt(S.thangMoi,10)||0));
-    if(dmCu !== null && dmMoi !== null){
-      if(thangMoi >= 6){ chuan = (dmCu*(12-thangMoi) + dmMoi*thangMoi)/12; apDung = 'a'; }
-      else { chuan = dmCu; apDung = 'b'; }
+    thangQD = docThangNam(S.thangQD);
+    thangConLai = conLaiTuThang(thangQD);
+    if(dmCu !== null && dmMoi !== null && thangConLai !== null){
+      if(thangConLai >= 6){ chuan = dmMoi; apDung = 'a'; }
+      else { chuan = dmCu; apDung = thangConLai === 0 ? 'ngoaiky' : 'b'; }
     }
   } else {
     chuan = dmMoi;
@@ -2123,8 +2170,11 @@ function tinhToan(){
   /* Điều 5: điểm nhóm sản phẩm lõi phải đạt ít nhất một nửa định mức GỐC theo chức danh
      và hệ số lương, không áp dụng giảm trừ (định mức 1 điểm → lõi tối thiểu 0,5). */
   const loiCan = chuan === null ? null : chuan / 2;
-  return {tKH,tBB,tKY,tSach,tHD,kyLoi,hdLoi,tong,loiCot,loiCan,chuan,tyLeGiam,sauGiam,vuot,datMuc,xeploai,tenGiam:g.t,
-          dmCu,dmMoi,thangMoi,apDung};
+  /* Điều 5 ghi đây là điều kiện bắt buộc, nên khi chưa đạt thì phải cảnh báo rõ kèm
+     xếp loại, dù tổng điểm đã vượt định mức. */
+  const loiDat = loiCan === null ? null : (loiCot + 1e-9 >= loiCan);
+  return {tKH,tBB,tKY,tSach,tHD,kyLoi,hdLoi,tong,loiCot,loiCan,loiDat,chuan,tyLeGiam,sauGiam,vuot,datMuc,xeploai,tenGiam:g.t,
+          dmCu,dmMoi,thangConLai,thangQD,apDung};
 }
 const TEN_XEPLOAI = {
   ht:'Hoàn thành', vuot30:'Hoàn thành vượt mức từ 30% đến dưới 50%',
@@ -2158,6 +2208,15 @@ function renderSum(){
   const pill = $('#bar-xeploai');
   pill.className = 'pill ' + (c.xeploai==='khong' ? 'no' : c.xeploai==='ht' ? 'mid' : c.xeploai ? 'ok' : 'no');
   pill.textContent = c.xeploai ? TEN_XEPLOAI[c.xeploai] : 'Chưa chọn chức danh và hệ số lương';
+  /* Điều 5 — điều kiện bắt buộc: báo ngay trên thanh tổng hợp khi điểm nhóm sản phẩm
+     khoa học lõi chưa đạt một nửa định mức, kể cả khi tổng điểm đã vượt. */
+  const pillLoi = $('#bar-loi');
+  if(pillLoi){
+    const chuaDat = c.loiDat === false;
+    pillLoi.hidden = !chuaDat;
+    if(chuaDat) pillLoi.textContent =
+      `Chưa đạt định mức KPI khoa học (Điều 5): ${fmt(c.loiCot,2)}/${fmt(c.loiCan,2)}`;
+  }
 
   const rows = [
     ['Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu', fmt(c.tKH,3)],
@@ -2166,9 +2225,10 @@ function renderSum(){
     ['Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', fmt(c.tSach,3)],
     ['Hoạt động khác (KRA 2, 3, 4)', fmt(c.tHD,3)],
     ['Tổng điểm KPI tối thiểu/năm theo chức danh và hệ số lương (Điều 5)',
-      c.chuan===null?'chưa xác định':fmt(c.chuan,3)
-        + (c.apDung==='a' ? ` (gộp hai mức theo Điều 3 khoản 5: ${fmt(c.dmCu,2)} cho ${12-c.thangMoi} tháng và ${fmt(c.dmMoi,2)} cho ${c.thangMoi} tháng)`
-          : c.apDung==='b' ? ' (giữ định mức cũ cả kỳ theo Điều 3 khoản 5 điểm b)' : '')],
+      c.chuan===null?'chưa xác định':fmt(c.chuan,2)
+        + (c.apDung==='a' ? ` (áp dụng định mức mới theo Điều 3 khoản 5 điểm a, còn ${c.thangConLai} tháng của năm công tác)`
+          : c.apDung==='b' ? ` (giữ định mức cũ cả kỳ theo Điều 3 khoản 5 điểm b, còn ${c.thangConLai} tháng của năm công tác)`
+          : c.apDung==='ngoaiky' ? ' (quyết định nằm ngoài kỳ, kỳ này giữ định mức cũ)' : '')],
     ['Tỷ lệ giảm trừ (Điều 9)', c.tyLeGiam ? Math.round(c.tyLeGiam*100)+'%' : '0%'],
     ['Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ', c.sauGiam===null?'chưa xác định':fmt(c.sauGiam,3)],
     ['Tỷ lệ vượt định mức tối thiểu', chuoiTyLe(c)],
@@ -2197,9 +2257,14 @@ function renderSum(){
       : 'Chọn chức danh nghề nghiệp và điền hệ số lương ở mục A để hệ thống xác định định mức.');
   } else {
     them(c.tong + 1e-9 >= c.sauGiam, `Tổng điểm KPI ${fmt(c.tong,2)} so với tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ ${fmt(c.sauGiam,3)}.`);
-    them(c.loiCot + 1e-9 >= c.loiCan,
+    them(c.loiDat,
       `Điều kiện bắt buộc (Điều 5): điểm bài báo khoa học, sách, nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo, bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN đạt ${fmt(c.loiCot,2)}, `
       + `cần chiếm ít nhất ½ tổng điểm KPI tối thiểu (${fmt(c.chuan,2)} ÷ 2 = ${fmt(c.loiCan,2)}).`);
+    if(c.loiDat === false)
+      them(false, `<b>Chưa đạt định mức KPI khoa học.</b> Còn thiếu ${fmt(c.loiCan - c.loiCot, 2)} điểm ở nhóm bài báo khoa học, sách, `
+        + `nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo và bài đăng toàn văn trong kỷ yếu hội thảo có mã ISBN. `
+        + `Đây là điều kiện bắt buộc của Điều 5, không bù được bằng điểm của các hoạt động khác, kể cả khi tổng điểm KPI đã vượt định mức. `
+        + `Hội đồng đánh giá sẽ căn cứ điều kiện này khi xét mức độ hoàn thành.`);
   }
   const thieuCanCu = S.bb.filter(r => r.loai==='qt' && r.qt && !r.cankcu).length;
   if(thieuCanCu) them(false, `${thieuCanCu} bài quốc tế chưa ghi căn cứ xếp hạng. Người giám sát sẽ không đối chiếu được.`);
@@ -2221,16 +2286,20 @@ function renderSum(){
   if(S.doingach === 'co'){
     if(c.dmCu === null || c.dmMoi === null){
       them(false, 'Đã chọn có nâng bậc lương hoặc thăng hạng trong kỳ nhưng chưa đủ thông tin: cần chức danh và hệ số lương trước khi có quyết định, cùng chức danh và hệ số lương sau khi có quyết định.');
+    } else if(!c.thangQD){
+      them(false, `Đã chọn có nâng bậc lương hoặc thăng hạng trong kỳ nhưng chưa ghi tháng có quyết định. Ghi theo dạng tháng/năm để hệ thống đếm thời gian còn lại của năm công tác trong kỳ ${KY_TEN}.`);
     } else if(c.apDung === 'a'){
-      them(true, `Điều 3 khoản 5 điểm a: thời gian còn lại của năm công tác là ${c.thangMoi} tháng, từ 6 tháng trở lên nên áp dụng định mức mới kể từ tháng liền kề sau khi có quyết định. `
-        + `Định mức cả kỳ = (${fmt(c.dmCu,2)} × ${12-c.thangMoi} tháng + ${fmt(c.dmMoi,2)} × ${c.thangMoi} tháng) ÷ 12 = ${fmt(c.chuan,3)}.`);
+      them(true, `Điều 3 khoản 5 điểm a: quyết định tháng ${c.thangQD.t}/${c.thangQD.n}, thời gian còn lại của năm công tác là ${c.thangConLai} tháng (đến hết tháng ${KY.tKetThuc}/${KY.nKetThuc}), từ 6 tháng trở lên nên áp dụng định mức mới kể từ tháng liền kề sau khi có quyết định. `
+        + `Định mức cả kỳ = định mức mới = ${fmt(c.dmMoi,2)}.`);
     } else if(c.apDung === 'b'){
-      them(null, `Điều 3 khoản 5 điểm b: thời gian còn lại của năm công tác là ${c.thangMoi} tháng, dưới 6 tháng nên tiếp tục thực hiện định mức cũ ${fmt(c.dmCu,2)} đến hết năm. Định mức mới ${fmt(c.dmMoi,2)} sẽ áp dụng từ kỳ sau.`);
+      them(null, `Điều 3 khoản 5 điểm b: quyết định tháng ${c.thangQD.t}/${c.thangQD.n}, thời gian còn lại của năm công tác là ${c.thangConLai} tháng, dưới 6 tháng nên tiếp tục thực hiện định mức cũ ${fmt(c.dmCu,2)} đến hết năm. Định mức mới ${fmt(c.dmMoi,2)} sẽ áp dụng từ kỳ sau.`);
+    } else if(c.apDung === 'ngoaiky'){
+      them(false, `Tháng có quyết định (${c.thangQD.t}/${c.thangQD.n}) nằm ngoài kỳ ${KY_TEN}, nên kỳ này vẫn thực hiện định mức cũ ${fmt(c.dmCu,2)}. Kiểm tra lại tháng có quyết định.`);
     }
   } else {
-    const nb = String(S.nangbac || '').match(/(\d{1,2})\s*[\/.-]\s*(\d{4})/);
-    if(nb && parseInt(nb[2],10) === NAM_NAY)
-      them(null, `Thời gian nâng bậc lương ghi tháng ${parseInt(nb[1],10)}/${NAM_NAY}, nằm trong kỳ đánh giá. Nếu đúng là được nâng bậc lương hoặc thăng hạng trong kỳ, chọn "Có" ở ô "Nâng bậc lương, thăng hạng trong kỳ đánh giá" tại mục A để tính định mức theo Điều 3 khoản 5.`);
+    const nb = docThangNam(S.nangbac);
+    if(nb && trongKy(nb))
+      them(null, `Thời gian nâng bậc lương ghi tháng ${nb.t}/${nb.n}, nằm trong kỳ đánh giá (${KY_TEN}). Nếu đúng là được nâng bậc lương hoặc thăng hạng trong kỳ, chọn "Có" ở ô "Nâng bậc lương, thăng hạng trong kỳ đánh giá" tại mục A để tính định mức theo Điều 3 khoản 5.`);
   }
 }
 
@@ -2973,8 +3042,9 @@ function dungBangTinh(){
   const bacHS = timBac(S.chucdanh, S.hsl);
   const oChuan = nhanTong('Tổng điểm KPI tối thiểu/năm (Điều 5)'
     + (bacHS ? ` (hệ số ${String(S.hsl).trim()}, bậc ${bacHS.hs})` : '')
-    + (c.apDung === 'a' ? ` — Điều 3 khoản 5 điểm a: (${fmt(c.dmCu,2)} × ${12-c.thangMoi} tháng + ${fmt(c.dmMoi,2)} × ${c.thangMoi} tháng) ÷ 12`
-      : c.apDung === 'b' ? ` — Điều 3 khoản 5 điểm b: giữ định mức cũ ${fmt(c.dmCu,2)} đến hết kỳ` : ''), null, c.chuan);
+    + (c.apDung === 'a' ? ` — Điều 3 khoản 5 điểm a: còn ${c.thangConLai} tháng của năm công tác nên áp dụng định mức mới ${fmt(c.dmMoi,2)}`
+      : c.apDung === 'b' ? ` — Điều 3 khoản 5 điểm b: còn ${c.thangConLai} tháng của năm công tác nên giữ định mức cũ ${fmt(c.dmCu,2)} đến hết kỳ`
+      : c.apDung === 'ngoaiky' ? ` — quyết định ngoài kỳ, giữ định mức cũ ${fmt(c.dmCu,2)}` : ''), null, c.chuan);
   const oGiam  = nhanTong('Tỷ lệ giảm trừ (Điều 9)' + (c.tyLeGiam ? ' — ' + c.tenGiam : ''), null, c.tyLeGiam || 0);
   const oSau   = nhanTong('Tổng điểm KPI tối thiểu sau khi áp dụng mức giảm trừ', `${oChuan}*(1-${oGiam})`, c.sauGiam);
   const oDat   = nhanTong('Tổng điểm KPI so với định mức tối thiểu (%) = Tổng điểm KPI / Tổng điểm KPI tối thiểu × 100',
@@ -3034,6 +3104,14 @@ async function xuatXlsx(){
   }
 }
 
+/* Chưa ghi tháng có quyết định thì lấy sẵn "Thời gian nâng bậc lương" nếu tháng đó nằm
+   trong kỳ, để khỏi phải gõ lại; người dùng vẫn sửa được. */
+function goiYThangQD(){
+  if(S.thangQD) return;
+  const nb = docThangNam(S.nangbac);
+  if(nb && trongKy(nb)) S.thangQD = `${nb.t}/${nb.n}`;
+}
+
 /* ===================== Sự kiện ===================== */
 function bind(){
   const map = {'#f-hoten':'hoten','#f-chucvu':'chucvu','#f-nangbac':'nangbac'};
@@ -3051,15 +3129,22 @@ function bind(){
   ehs.onchange = () => { S.hsl = ehs.value; renderAll(); };
   const edn = $('#f-doingach');
   edn.value = S.doingach || '';
-  edn.onchange = () => { S.doingach = edn.value; if(!S.doingach){ S.chucdanhCu=''; S.hslCu=''; S.thangMoi=0; } syncNgachCu(); renderAll(); };
+  edn.onchange = () => {
+    S.doingach = edn.value;
+    if(!S.doingach){ S.chucdanhCu=''; S.hslCu=''; S.thangQD=''; }
+    else goiYThangQD();
+    $('#f-thang-qd').value = S.thangQD || '';
+    syncNgachCu(); renderAll();
+  };
   const ecc = $('#f-chucdanh-cu');
   ecc.value = S.chucdanhCu || '';
   ecc.onchange = () => { S.chucdanhCu = ecc.value; S.hslCu = ''; syncNgachCu(); renderAll(); };
   const ehc = $('#f-hsl-cu');
   ehc.onchange = () => { S.hslCu = ehc.value; renderAll(); };
-  const etm = $('#f-thang-moi');
-  etm.value = S.thangMoi || 0;
-  etm.oninput = () => { S.thangMoi = etm.value; renderAll(); };
+  const etm = $('#f-thang-qd');
+  goiYThangQD();
+  etm.value = S.thangQD || '';
+  etm.oninput = () => { S.thangQD = etm.value; renderAll(); };
   syncNgachCu();
   $('#f-giamtru').value = S.giamtru;
   $('#f-giamtru').onchange = e => { S.giamtru = e.target.value; renderAll(); };
@@ -3097,7 +3182,9 @@ function chuanHoa(){
     }
   });
   S.kh.forEach(r => { if(r.thoathuan !== 'co'){ r.thoathuan=''; delete r.tyledonggop; } });
-  if(S.doingach !== 'co'){ S.doingach=''; S.chucdanhCu=''; S.hslCu=''; S.thangMoi=0; }
+  if(S.doingach !== 'co'){ S.doingach=''; S.chucdanhCu=''; S.hslCu=''; S.thangQD=''; }
+  /* bản nháp lưu trước khi bỏ công thức ghép 1/12: bỏ ô số tháng cũ, chuyển sang tháng có quyết định */
+  if('thangMoi' in S) delete S.thangMoi;
   [...S.bb, ...S.ky, ...S.sach].forEach(r => { if(!r.cachchia) r.cachchia = 'q1020'; });
   const lvCu = S.linhvuc || 'triet';
 
