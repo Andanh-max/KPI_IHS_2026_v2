@@ -2146,10 +2146,6 @@ function renderSum(){
     if(nb && parseInt(nb[2],10) === NAM_NAY)
       them(null, `Thời gian nâng bậc lương ghi tháng ${parseInt(nb[1],10)}/${NAM_NAY}, nằm trong kỳ đánh giá. Nếu đúng là được nâng bậc lương hoặc thăng hạng trong kỳ, chọn "Có" ở ô "Nâng bậc lương, thăng hạng trong kỳ đánh giá" tại mục A để tính định mức theo Điều 3 khoản 5.`);
   }
-  /* Điều 9, Điều 10: hồ sơ giảm trừ */
-  const gt = GIAMTRU.find(x => x.id === S.giamtru);
-  if(gt && gt.id) them(null, `Định mức giảm trừ ${Math.round(gt.p*100)}% (Điều 9). ${gt.gc ? gt.gc + ' ' : ''}`
-    + 'Phải có đơn đề nghị gửi Thủ trưởng đơn vị kèm hồ sơ, tài liệu chứng minh; quyết định giảm định mức lao động lập thành văn bản (Điều 10).');
 }
 
 /* Mỗi lần gõ, các danh sách được dựng lại nên ô đang nhập bị thay bằng ô mới và mất con trỏ.
