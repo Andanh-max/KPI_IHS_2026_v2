@@ -781,13 +781,16 @@ const TEN_VAI_SACH = {cb:'Chủ biên', tg:'Tác giả'};
 /* ===================== Mẫu bản ghi ===================== */
 const MAU = {
   nv:   () => ({id:uid(), ten:'', vaitro:'Chủ nhiệm', tiendo:'Đang thực hiện', cap:''}),
-  kh:   () => ({id:uid(), ten:'', loai:'1.3.17', muc:'dat', thoigian:'',
+  /* Không chọn sẵn loại nhiệm vụ hay loại sách: mọi lựa chọn mặc định đều kèm một mức
+     điểm của Biểu mẫu 609, nên dòng vừa thêm sẽ cộng điểm khi người kê khai chưa khai gì.
+     Để trống thì điểm bằng 0 cho đến khi người kê khai tự chọn. */
+  kh:   () => ({id:uid(), ten:'', loai:'', muc:'', thoigian:'',
                 vaitro:'chinh', sotg:1, diem:null, suaTay:false, thoathuan:''}),
   bb:   () => ({id:uid(), loai:'tn', tieude:'', linhvuc:'', tapchi:'', issn:'', nhom:null, dieukien:'', tenRieng:'',
                 thang:'', nam:NAM_NAY, qt:'', goiyQt:'', diem:null, suaTay:false, vaitro:'chinh', sotg:1, link:'', cankcu:'', cachchia:'q1020', vai609:'', lhcDau:'khac'}),
   ky:   () => ({id:uid(), tieude:'', hoithao:'', loai:'', isbn:'', thang:'', nam:NAM_NAY,
                 vaitro:'chinh', sotg:1, diem:null, suaTay:false, link:'', cachchia:'q1020', vai609:'', lhcDau:'khac'}),
-  sach: () => ({id:uid(), ten:'', kieu:'s_tn_ck_off', nxb:'', isbn:'', thang:'', nam:NAM_NAY,
+  sach: () => ({id:uid(), ten:'', phan:'sach', kieu:'', nxb:'', isbn:'', thang:'', nam:NAM_NAY,
                 vaitro:'chinh', vaisach:'cb', sochubien:1, sotg:1, cachchia:'q1020',
                 diem:null, suaTay:false, link:''}),
   hd:   (pn) => ({id:uid(), pn:pn||'tuvan', ma:'', noidung:'', soluong:1, tien:'',
@@ -833,8 +836,14 @@ const VAI_S609 = {
   kcb:  [['cbk','Chủ biên không phải là tác giả'], ['dau','Tác giả chính đứng đầu danh sách'], ['khac','Tác giả đứng từ thứ 2 trở đi']],
   nhieu:[['dau','Tác giả chính đứng đầu danh sách'], ['khac','Tác giả đứng từ thứ 2 trở đi']]
 };
-/* bản ghi mục II.3 là sách nguyên cuốn (mã s_…), không phải bài viết hay chương sách */
-function laCaCuon(r){ return ('vaisach' in r) && String(r.kieu || '').startsWith('s_'); }
+/* Bản ghi mục II.3 là sách nguyên cuốn hay chương sách, bài viết. Trước đây suy từ mã
+   loại (s_…), nhưng nay loại để trống cho đến khi người kê khai tự chọn, nên phải ghi
+   nhớ bằng trường riêng; bản nháp cũ chưa có trường này thì vẫn suy từ mã loại. */
+function laCaCuon(r){
+  if(!('vaisach' in r)) return false;
+  if(r.phan === 'sach' || r.phan === 'chuong') return r.phan === 'sach';
+  return String(r.kieu || '').startsWith('s_');
+}
 function dsCachChia(r){ return laCaCuon(r) ? CACH_CHIA_SACH : CACH_CHIA; }
 function vaiS609(r){
   const ds = VAI_S609[cachChia(r)]; if(!ds) return '';
@@ -1254,8 +1263,13 @@ function recShell(i, title, onDel, score){
   t.title = title;   /* trỏ chuột vào hiện đầy đủ tên nếu quá dài so với ô */
   top.append(n,t);
   if(score !== undefined){
-    const s = el('span','score' + (score && score !== '0,00' ? ' co' : ''));
-    s.textContent = score; top.append(s);
+    /* dòng chưa khai đủ thì chưa có điểm; hiện dấu gạch để không bị đọc nhầm là
+       đã tính ra 0 điểm */
+    const co = score && score !== '0,00';
+    const s = el('span','score' + (co ? ' co' : ''));
+    s.textContent = co ? score : '—';
+    if(!co) s.title = 'Chưa đủ thông tin để tính điểm cho dòng này';
+    top.append(s);
   }
   const b = el('button','del'); b.type='button'; b.textContent='×';
   b.setAttribute('aria-label','Xoá dòng này'); b.onclick = onDel;
@@ -1645,8 +1659,8 @@ function renderKH(){
     g.append(
       rong(field('Tên công trình / sản phẩm','',oTen)),
       field('Loại nhiệm vụ','mã 1.3 trong Biểu mẫu 609',
-        sel(r.loai, NHIEM_VU.map(n=>[n.id, `${n.id} — ${n.t}`]), v=>{r.loai=v; r.suaTay=false; r.diem=null; renderAll();})),
-      field('Kết quả nghiệm thu','',sel(r.muc, MUC_DH, v=>{r.muc=v; r.suaTay=false; r.diem=null; renderAll();})),
+        sel(r.loai, [['','— Chọn —'], ...NHIEM_VU.map(n=>[n.id, `${n.id} — ${n.t}`])], v=>{r.loai=v; r.suaTay=false; r.diem=null; renderAll();})),
+      field('Kết quả nghiệm thu','',sel(r.muc, [['','— Chọn —'], ...MUC_DH], v=>{r.muc=v; r.suaTay=false; r.diem=null; renderAll();})),
       field('Thời gian hoàn thành','',inp(r.thoigian, v=>r.thoigian=v, '12/2026')),
       oDiem(r, tdsNhiemVu(r))
     );
@@ -1898,7 +1912,7 @@ function renderSach(){
       rong(field(ca ? 'Tên sách' : 'Tên chương sách / bài viết','',inpDai(r.ten, v=>{r.ten=v;}))),
       field(ca ? 'Loại sách' : 'Loại chương sách, bài viết',
         ca ? 'mã 1.1.7 – 1.1.11 và 1.2.7 trong Biểu mẫu 609' : 'mã 1.1.5, 1.1.6, 1.2.5, 1.2.6 trong Biểu mẫu 609',
-        sel(r.kieu, ds.map(a=>[a.id, `${a.ma} · ${a.t} — ${fmt(a.d,3)}`]), v=>{r.kieu=v; r.suaTay=false; r.diem=null; renderAll();})),
+        sel(r.kieu, [['','— Chọn —'], ...ds.map(a=>[a.id, `${a.ma} · ${a.t} — ${fmt(a.d,3)}`])], v=>{r.kieu=v; r.suaTay=false; r.diem=null; renderAll();})),
       field('Nhà xuất bản','',inpDai(r.nxb, v=>r.nxb=v)),
       field('Mã ISBN','',inp(r.isbn, v=>r.isbn=v)),
       field('Năm công bố','',inp(r.nam, v=>{r.nam=v; renderAll();}, '2026','number')),
@@ -1907,9 +1921,11 @@ function renderSach(){
     );
     d.append(g);
     const o = AN_PHAM.find(x=>x.id===r.kieu);
-    const v = el('div','verdict found');
-    v.innerHTML = `<span class="code">${esc(o.ma)}</span> ${esc(o.t)} → <b>${fmt(o.d,3)}</b> điểm`
-      + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '');
+    const v = el('div','verdict ' + (o ? 'found' : 'miss'));
+    v.innerHTML = o
+      ? `<span class="code">${esc(o.ma)}</span> ${esc(o.t)} → <b>${fmt(o.d,3)}</b> điểm`
+        + (r.suaTay ? ' <span class="flag">điểm sửa tay</span>' : '')
+      : `<b>Chưa chọn ${ca ? 'loại sách' : 'loại chương sách, bài viết'}.</b> Dòng này chưa được tính điểm.`;
     d.append(v);
     d.append(oTacGiaSach(r));
     d.append(dongQuyDoi(q, r, 'sach'));
@@ -3154,7 +3170,7 @@ function bind(){
   $('#add-sach').type = 'button';
   $('#add-sach').onclick = () => { S.sach.push(MAU.sach()); renderAll(); };
   $('#add-chuong').type = 'button';
-  $('#add-chuong').onclick = () => { S.sach.push(Object.assign(MAU.sach(), {kieu:'cs_tn_ck_off', vaisach:'tg'})); renderAll(); };
+  $('#add-chuong').onclick = () => { S.sach.push(Object.assign(MAU.sach(), {phan:'chuong', vaisach:'tg'})); renderAll(); };
   document.querySelectorAll('[data-add]').forEach(b => {
     b.type = 'button';
     b.onclick = () => { const k = b.dataset.add; S[k].push(MAU[k]()); renderAll(); };
@@ -3232,6 +3248,12 @@ function chuanHoa(){
   });
   /* sách của bản nháp cũ chưa có vai trò chủ biên: suy từ vaitro cũ */
   S.sach.forEach(r => { if(!r.vaisach) r.vaisach = (r.vaitro === 'dong') ? 'tg' : 'cb'; });
+  /* bản nháp cũ chưa ghi bản ghi thuộc phần sách hay phần chương sách: suy từ mã loại,
+     vì khi đó loại luôn được chọn sẵn nên mã loại còn phân biệt được hai phần */
+  S.sach.forEach(r => {
+    if(r.phan !== 'sach' && r.phan !== 'chuong')
+      r.phan = String(r.kieu || '').startsWith('s_') ? 'sach' : 'chuong';
+  });
   /* bản nháp lập trước khi chuyển sang cách chia của Quy chế 1020: gộp "đồng chủ biên"
      vào "chủ biên" kèm số chủ biên; bản ghi "chủ biên" cũ vốn không dùng ô số chủ biên
      (luôn lưu sẵn 2) nên đặt lại về 1. Chỉ chạy một lần, sau đó người dùng tự chỉnh. */
