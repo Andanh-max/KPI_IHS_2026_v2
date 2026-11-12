@@ -271,7 +271,10 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
 
   <section>
     <div class="sechead"><span class="secnum">II.1</span><h2>Nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã nghiệm thu</h2><span class="note" id="note-kh">0,00</span></div>
-    <div class="secbody"><div id="list-kh"></div><button class="ghost" data-add="kh">+ Thêm nhiệm vụ đã nghiệm thu</button></div>
+    <div class="secbody">
+      <div class="mc">Minh chứng: file scan danh sách thành viên tham gia và biên bản nghiệm thu cấp cuối cùng</div>
+      <div id="list-kh"></div><button class="ghost" data-add="kh">+ Thêm nhiệm vụ đã nghiệm thu</button>
+    </div>
   </section>
 
   <section>
@@ -291,7 +294,13 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
     <div class="sechead"><span class="secnum">II.3</span><h2>Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch</h2><span class="note" id="note-sach">0,00</span></div>
     <div class="secbody">
       <div class="mc">Minh chứng: file scan bìa, danh sách tác giả, mục lục, mã ISBN</div>
-      <div id="list-sach"></div><button class="ghost" data-add="sach">+ Thêm ấn phẩm có ISBN</button>
+      <div class="subhead"><span class="sublbl">a) Sách <span class="phu">(mục 1.1.7 – 1.1.11 và 1.2.7)</span></span><span class="subnum" id="note-sach-a">0,00</span></div>
+      <div id="list-sach"></div>
+      <button class="ghost" id="add-sach">+ Thêm sách</button>
+      <div class="subhead" style="margin-top:22px"><span class="sublbl">b) Chương sách, bài viết trong sách <span class="phu">(mục 1.1.5, 1.1.6, 1.2.5 và 1.2.6)</span></span><span class="subnum" id="note-sach-b">0,00</span></div>
+      <div class="mc">Đã tính điểm cho cả cuốn sách ở phần a) thì không tính thêm chương sách, bài viết của chính cuốn sách đó.</div>
+      <div id="list-chuong"></div>
+      <button class="ghost" id="add-chuong">+ Thêm chương sách, bài viết</button>
     </div>
   </section>
 
@@ -316,7 +325,6 @@ input[readonly],select:disabled{background:var(--sunk);color:var(--ink-2);cursor
 
   <p class="foot">
     <b>Bài báo trong nước.</b> Nhóm loại 1 đến 4 suy từ khung điểm công trình trong danh mục Hội đồng Giáo sư Nhà nước: 1,0 là nhóm 1, 0,75 nhóm 2, 0,5 nhóm 3, 0,25 nhóm 4, tương ứng các mã 1.1.1 đến 1.1.4 trong Biểu mẫu 609. Khung điểm đổi theo năm công bố và theo lĩnh vực, hệ thống chọn đúng khung rồi hiển thị nguyên văn điều kiện để đối chiếu.<br>
-    <b>Chia điểm giữa các tác giả.</b> Mọi kết quả hoạt động chuyên môn quy đổi đều chia theo Điều 4 khoản 4 Quy chế 1020: có nhiều hơn 02 tác giả tham gia thì tác giả chính được hưởng 1/3 số điểm, số điểm còn lại được chia theo giá trị đóng góp của từng thành viên tham gia, không xác định được thì chia đều cho các thành viên tham gia; trường hợp chỉ có 02 tác giả, tác giả chính được hưởng 2/3 tổng điểm quy đổi, đồng tác giả được hưởng 1/3 tổng điểm. Với nhiệm vụ khoa học đã nghiệm thu, chủ nhiệm là tác giả chính, còn thư ký khoa học, thành viên chính và thành viên hưởng phần bằng nhau; điểm âm do nghiệm thu quá hạn hoặc không đạt cũng chia theo đúng hệ số đó. Với sách, chủ biên là tác giả chính; có từ hai chủ biên trở lên thì phần 1/3 của tác giả chính được chia đều cho các đồng chủ biên. Quy chế cho phép chia phần còn lại theo giá trị đóng góp của từng người; khi không xác định được cụ thể thì chia đều, và đây là cách bảng tính áp dụng. Quy chế 1020 không còn cách chia theo thoả thuận riêng của nhóm tác giả.<br>
     <b>Chống tính trùng.</b> Khi đã tính điểm cho cả cuốn sách thì không tính thêm chương sách hay bài viết của chính mình trong cuốn đó. Mỗi sản phẩm khoa học chỉ được tính điểm một lần duy nhất trong cùng một chu kỳ đánh giá, xếp loại (Điều 4 khoản 1). Bài báo khoa học, báo cáo khoa học tại hội nghị khoa học, sách chuyên khảo, giáo trình đã công bố có nội dung trùng lặp từ 30% trở lên với công trình khác của cùng tác giả chỉ được tính điểm quy đổi một lần (Điều 4 khoản 2). Không tính điểm quy đổi đối với kết quả hoạt động chuyên môn được hình thành từ kết quả thực hiện nhiệm vụ khoa học, công nghệ và đổi mới sáng tạo đã được tính điểm quy đổi (Điều 4 khoản 3). Chỉ tính điểm đối với các sản phẩm có đầy đủ minh chứng kèm theo (Điều 4 khoản 5). Danh mục tạp chí tra cứu theo danh mục tính điểm năm 2025 của các Hội đồng Giáo sư ngành, liên ngành — danh mục mới nhất của Hội đồng Giáo sư Nhà nước; danh mục chỉ là gợi ý, tạp chí chưa có trong danh mục thì tự nhập khung điểm kèm căn cứ. Sản phẩm khoa học được tính điểm KPI trong năm công bố; chưa kê khai hoặc chưa được tính trong năm công bố thì được tính cho năm liền kề tiếp theo (Điều 4 khoản 7).
   </p>
 </div>
@@ -768,11 +776,31 @@ const CACH_CHIA = [
   ['c','Có chú thích — (c) không ghi rõ tác giả chính và tác giả liên hệ chính, tác giả đứng đầu là tác giả chính'],
   ['d','Có chú thích — (d) chỉ ghi tác giả liên hệ chính (Corresponding author)']
 ];
+/* Sách nguyên cuốn (mục 1.1.7–1.1.11 và 1.2.7): đúng các trường hợp Sổ tay 609 phân loại.
+   Bài viết trong sách và chương sách (1.1.5, 1.1.6, 1.2.5, 1.2.6) thì Sổ tay dẫn về cách
+   phân loại tác giả của Mục 1.1.1, nên dùng danh sách CACH_CHIA của bài báo. */
 const CACH_CHIA_SACH = [
   ['q1020','Không có chú thích — tính theo QĐ 1020 (Điều 4 khoản 4)'],
-  ['a','Có chú thích — ghi rõ đồng tác giả, chia đều cho các tác giả'],
-  ['c','Có chú thích — ghi rõ chủ biên hoặc tác giả đứng đầu, hưởng hệ số (30 − n × 1,05)/30']
+  ['dong','Có chú thích — sách của đồng tác giả: chia đều cho các tác giả'],
+  ['cb','Có chú thích — chủ biên cũng là tác giả: tính như tác giả chính đứng đầu danh sách'],
+  ['dcb','Có chú thích — có đồng chủ biên là các tác giả (gồm m chủ biên)'],
+  ['dcbdeu','Có chú thích — chỉ có đồng chủ biên đồng thời là tác giả: chia đều'],
+  ['kcb','Có chú thích — chủ biên không phải là một trong các tác giả'],
+  ['nhieu','Có chú thích — sách của nhiều tác giả: tác giả chính đứng đầu và tác giả từ thứ 2 trở đi']
 ];
+const VAI_S609 = {
+  cb:   [['cb','Chủ biên (cũng là tác giả)'], ['khac','Tác giả khác']],
+  dcb:  [['cb','Đồng chủ biên (là tác giả)'], ['khac','Tác giả khác']],
+  kcb:  [['cbk','Chủ biên không phải là tác giả'], ['dau','Tác giả chính đứng đầu danh sách'], ['khac','Tác giả đứng từ thứ 2 trở đi']],
+  nhieu:[['dau','Tác giả chính đứng đầu danh sách'], ['khac','Tác giả đứng từ thứ 2 trở đi']]
+};
+/* bản ghi mục II.3 là sách nguyên cuốn (mã s_…), không phải bài viết hay chương sách */
+function laCaCuon(r){ return ('vaisach' in r) && String(r.kieu || '').startsWith('s_'); }
+function dsCachChia(r){ return laCaCuon(r) ? CACH_CHIA_SACH : CACH_CHIA; }
+function vaiS609(r){
+  const ds = VAI_S609[cachChia(r)]; if(!ds) return '';
+  return ds.some(x => x[0] === r.vaiS) ? r.vaiS : ds[0][0];
+}
 const VI_TRI_LHC = [
   ['khac','Tác giả liên hệ chính KHÔNG đứng đầu danh sách'],
   ['dau','Tác giả liên hệ chính đứng đầu danh sách (kiêm tác giả chính)']
@@ -787,7 +815,7 @@ const VAI_609_GON = [
   ['khac','Tác giả khác trong danh sách']
 ];
 function cachChia(r){
-  const ds = ('vaisach' in r) ? CACH_CHIA_SACH : CACH_CHIA;
+  const ds = dsCachChia(r);
   const v = r.cachchia || 'q1020';
   return ds.some(x => x[0] === v) ? v : 'q1020';
 }
@@ -807,25 +835,38 @@ function heSo609(r, kieu){
   const n = Math.max(1, parseInt(r.sotg,10)||1);
   const c = cachChia(r);
   if(n === 1) return {h:1, ct:'hưởng toàn bộ điểm', vai:'Tác giả duy nhất'};
-  if(c === 'a') return {h:1/n, ct:`TĐS ÷ n = 1 ÷ ${n}`, vai:'Đồng tác giả (chia đều)'};
+  if(c === 'a' || c === 'dong') return {h:1/n, ct:`TĐS ÷ n = 1 ÷ ${n}`, vai:'Đồng tác giả (chia đều)'};
+  if(c === 'dcbdeu') return {h:1/n, ct:`TĐS ÷ n = 1 ÷ ${n}`, vai:'Đồng chủ biên đồng thời là tác giả (chia đều)'};
   const sach = kieu === 'sach';
   const moc = sach ? 30 : 10, buoc = sach ? 1.05 : 1.25;
   const hTgc = (moc - n*buoc)/moc;
   const ctTgc = `(${moc} − n × ${sach ? '1,05' : '1,25'}) ÷ ${moc} = (${moc} − ${n} × ${sach ? '1,05' : '1,25'}) ÷ ${moc}`;
+  if(sach && c === 'kcb' && vaiS609(r) === 'cbk')
+    return {h:0, ct:'chủ biên không phải là một trong các tác giả thì không tính điểm', vai:'Chủ biên không phải là tác giả'};
   if(hTgc <= 0) return {h:1/n, ct:`TĐS ÷ n = 1 ÷ ${n}`, vai:'Chia đều (công thức 609 không dùng được)',
     canh:`Công thức tác giả chính của Biểu mẫu 609 chỉ dùng được khi số tác giả dưới ${Math.ceil(moc/buoc)}; `
       + `với ${n} tác giả hệ số tác giả chính bằng ${fmt(hTgc,3)}. Bảng tính tạm chia đều — chọn lại cách chia theo Quy chế 1020.`};
   const v = vai609(r);
   if(sach){
-    /* Sách: chủ biên đồng thời là tác giả giữ vai trò tác giả chính đứng đầu;
-       có m đồng chủ biên thì phần của tác giả chính chia đều cho m người. */
-    const laCB = (r.vaisach || 'cb') === 'cb';
-    const m = Math.min(n, Math.max(1, parseInt(r.sochubien,10)||1));
-    if(laCB) return m > 1
-      ? {h:hTgc/m, ct:`[${ctTgc}] ÷ số chủ biên = ${fmt(hTgc,4)} ÷ ${m}`, vai:`Đồng chủ biên (${m} chủ biên)`}
-      : {h:hTgc, ct:ctTgc, vai:'Chủ biên — tác giả chính đứng đầu danh sách'};
-    return {h:(1 - hTgc)/(n-1), ct:`(1 − hệ số tác giả chính) ÷ (n − 1) = (1 − ${fmt(hTgc,4)}) ÷ ${n-1}`,
-      vai:'Tác giả không phải chủ biên'};
+    const vs = vaiS609(r);
+    const ctKhac = k => `(TĐS − điểm tác giả chính) ÷ (n − ${k}) = (1 − ${fmt(hTgc,4)}) ÷ ${n-k}`;
+    if(c === 'cb'){
+      /* chủ biên cũng là tác giả: tính điểm là tác giả chính đứng đầu danh sách */
+      if(vs === 'cb') return {h:hTgc, ct:ctTgc, vai:'Chủ biên cũng là tác giả — tác giả chính đứng đầu danh sách'};
+      return {h:(1 - hTgc)/(n-1), ct:ctKhac(1), vai:'Tác giả khác (đứng từ thứ 2 trở đi)'};
+    }
+    if(c === 'dcb'){
+      /* m đồng chủ biên là các tác giả: mỗi chủ biên nhận [(30 − n × 1,05) × TĐS/30] ÷ m */
+      const m = Math.min(n, Math.max(2, parseInt(r.sochubien,10)||2));
+      if(vs === 'cb') return {h:hTgc/m, ct:`[${ctTgc}] ÷ m = ${fmt(hTgc,4)} ÷ ${m}`, vai:`Đồng chủ biên là tác giả (${m} chủ biên)`};
+      if(n - m <= 0) return {h:0, ct:'mọi tác giả đều là chủ biên nên không còn tác giả khác', vai:'Tác giả khác',
+        canh:'Số chủ biên bằng số tác giả. Chọn trường hợp "chỉ có đồng chủ biên đồng thời là tác giả".'};
+      return {h:(1 - hTgc)/(n-m), ct:`(TĐS − điểm của các chủ biên) ÷ (n − m) = (1 − ${fmt(hTgc,4)}) ÷ ${n-m}`,
+        vai:'Tác giả không phải chủ biên'};
+    }
+    /* 'nhieu' và phần tác giả của 'kcb': tác giả chính đứng đầu, tác giả từ thứ 2 trở đi */
+    if(vs === 'dau') return {h:hTgc, ct:ctTgc, vai:'Tác giả chính đứng đầu danh sách'};
+    return {h:(1 - hTgc)/(n-1), ct:ctKhac(1), vai:'Tác giả đứng từ thứ 2 trở đi'};
   }
   if(c === 'c' || r.lhcDau === 'dau'){
     /* (c) tác giả đứng đầu là tác giả chính; (b)(d) khi tác giả liên hệ chính đứng đầu
@@ -894,7 +935,7 @@ function heSoSach(r){
 /* Chọn cách chia điểm: mặc định theo Điều 4 khoản 4 Quy chế 1020, hoặc theo một trong
    các trường hợp của Biểu mẫu 609 nếu người kê khai chọn. */
 function heSoChung(r, kieu){
-  if(cachChia(r) !== 'q1020') return heSo609(r, kieu === 'sach' ? 'sach' : 'bb');
+  if(cachChia(r) !== 'q1020') return heSo609(r, laCaCuon(r) ? 'sach' : 'bb');
   return kieu === 'sach' ? heSoSach(r) : heSo(r.vaitro, r.sotg);
 }
 function quyDoiSach(r){ const t = tdsSach(r); const h = heSoChung(r, 'sach'); return {tds:t, h:h.h, canh:h.canh, d:t*h.h}; }
@@ -1330,7 +1371,7 @@ function oTacGia(r){
 /* Ô chọn cách chia điểm, dùng chung cho bài báo, bài kỷ yếu và sách. */
 function oCachChia(r, sach){
   const f = rong(field('Cách chia điểm giữa các tác giả', '',
-    sel(cachChia(r), sach ? CACH_CHIA_SACH : CACH_CHIA, v=>{r.cachchia=v; renderAll();})));
+    sel(cachChia(r), dsCachChia(r), v=>{r.cachchia=v; renderAll();})));
   /* chú giải hai dòng ngay dưới nhãn */
   const h = el('span','hint'); h.style.display = 'block';
   h.innerHTML = '– Nếu không có chú thích trong ấn phẩm: tính theo QĐ 1020<br>– Nếu có chú thích trong ấn phẩm: tính theo QĐ 609';
@@ -1375,13 +1416,13 @@ function dongQuyDoi(q, r, loai){
   let vai, cthuc, thay;
   /* Chia theo một trong các trường hợp của Biểu mẫu 609 */
   if(n > 1 && !nv && cachChia(r) !== 'q1020'){
-    const k = heSo609(r, sach ? 'sach' : 'bb');
-    const ten = (sach ? CACH_CHIA_SACH : CACH_CHIA).find(x => x[0] === cachChia(r));
+    const k = heSo609(r, laCaCuon(r) ? 'sach' : 'bb');
+    const ten = dsCachChia(r).find(x => x[0] === cachChia(r));
     v.innerHTML =
         `<div class="kq">Điểm quy đổi = Điểm sản phẩm × Hệ số chia điểm = ${fmt(q.tds,3)} × ${fmt(q.h,4)} = <b>${fmt(q.d,3)}</b></div>`
       + `<div class="buoc"><i>Điểm sản phẩm:</i> ${fmt(q.tds,3)} (${r.suaTay ? 'điểm sản phẩm đã sửa tay' : 'điểm sản phẩm theo Biểu mẫu 609'})</div>`
       + `<div class="buoc"><i>Hệ số chia điểm — ${esc(k.vai)}, ${n} tác giả:</i> ${esc(k.ct)} = ${fmt(q.h,4)}</div>`
-      + `<div class="buoc"><i>Căn cứ:</i> Biểu mẫu bảng tính KPI kèm Quyết định số 609/QĐ-KHXH — ${esc(ten ? ten[1] : '')}.</div>`
+      + `<div class="buoc"><i>Căn cứ:</i> Sổ tay hướng dẫn Biểu mẫu bảng tính KPI kèm Quyết định số 609/QĐ-KHXH — ${esc(ten ? ten[1].replace('Có chú thích — ','') : '')}.</div>`
       + (k.canh ? `<div class="buoc"><b>${esc(k.canh)}</b></div>` : '')
       + (q.canh ? `<div class="buoc"><b>${esc(q.canh)}</b></div>` : '');
     return v;
@@ -1790,16 +1831,30 @@ function renderKY(){
 }
 
 /* ---------- II.3 Ấn phẩm ISBN ---------- */
+/* II.3 chia hai phần vì Sổ tay 609 tính khác nhau: a) sách nguyên cuốn (mốc 30, phân loại
+   theo chủ biên); b) chương sách, bài viết trong sách (mốc 10, phân loại tác giả như bài báo).
+   Cả hai vẫn nằm chung mảng S.sach, phân biệt bằng tiền tố của mã loại ấn phẩm. */
+/* thứ tự kê trong Word và Excel: sách nguyên cuốn trước, chương sách và bài viết sau */
+function sachXepThuTu(){
+  return S.sach.filter(r => laCaCuon(r)).concat(S.sach.filter(r => !laCaCuon(r)));
+}
 function renderSach(){
-  const box = $('#list-sach'); box.innerHTML='';
+  const boxA = $('#list-sach'), boxB = $('#list-chuong');
+  boxA.innerHTML=''; boxB.innerHTML='';
+  let iA = 0, iB = 0, tA = 0, tB = 0;
   S.sach.forEach((r,i) => {
+    const ca = laCaCuon(r);
     const q = quyDoiSach(r);
-    const d = recShell(i, r.ten || 'Ấn phẩm chưa đặt tên', () => { S.sach.splice(i,1); renderAll(); }, fmt(q.d));
+    if(ca) tA += q.d; else tB += q.d;
+    const d = recShell(ca ? iA++ : iB++, r.ten || (ca ? 'Sách chưa đặt tên' : 'Chương sách, bài viết chưa đặt tên'),
+      () => { S.sach.splice(i,1); renderAll(); }, fmt(q.d));
+    const ds = AN_PHAM.filter(a => a.id.startsWith('s_') === ca);
     const g = el('div','grid');
     g.append(
-      rong(field('Tên sách / chương sách / bài viết','',inpDai(r.ten, v=>{r.ten=v;}))),
-      field('Loại ấn phẩm','mã 1.1.5 – 1.2.7 trong Biểu mẫu 609',
-        sel(r.kieu, AN_PHAM.map(a=>[a.id, `${a.ma} · ${a.t} — ${fmt(a.d,3)}`]), v=>{r.kieu=v; r.suaTay=false; r.diem=null; renderAll();})),
+      rong(field(ca ? 'Tên sách' : 'Tên chương sách / bài viết','',inpDai(r.ten, v=>{r.ten=v;}))),
+      field(ca ? 'Loại sách' : 'Loại chương sách, bài viết',
+        ca ? 'mã 1.1.7 – 1.1.11 và 1.2.7 trong Biểu mẫu 609' : 'mã 1.1.5, 1.1.6, 1.2.5, 1.2.6 trong Biểu mẫu 609',
+        sel(r.kieu, ds.map(a=>[a.id, `${a.ma} · ${a.t} — ${fmt(a.d,3)}`]), v=>{r.kieu=v; r.suaTay=false; r.diem=null; renderAll();})),
       field('Nhà xuất bản','',inpDai(r.nxb, v=>r.nxb=v)),
       field('Mã ISBN','',inp(r.isbn, v=>r.isbn=v)),
       field('Năm công bố','',inp(r.nam, v=>{r.nam=v; renderAll();}, '2026','number')),
@@ -1814,8 +1869,10 @@ function renderSach(){
     d.append(v);
     d.append(oTacGiaSach(r));
     d.append(dongQuyDoi(q, r, 'sach'));
-    box.append(d);
+    (ca ? boxA : boxB).append(d);
   });
+  $('#note-sach-a').textContent = fmt(tA,2);
+  $('#note-sach-b').textContent = fmt(tB,2);
 }
 /* ô chia điểm cho SÁCH: khi không chia đều, phân chủ biên (tác giả chính) và tác giả
    theo Điều 4 khoản 4 Quy chế 1020, thay cho ô "Vai trò" của bài báo. */
@@ -1828,12 +1885,37 @@ function oTacGiaSach(r){
   );
   if(n >= 2){
     g.append(oCachChia(r, true));
-    if(cachChia(r) !== 'a'){
+    const c = cachChia(r);
+    if(c === 'q1020'){
       g.append(field('Vai trò','',
         sel(r.vaisach || 'cb', VAI_SACH, v=>{r.vaisach=v; renderAll();})));
       if((r.vaisach || 'cb') === 'cb'){
         g.append(field('Tổng số chủ biên','từ 2 chủ biên trở lên thì phần của tác giả chính chia đều',
           inpNguyen(r.sochubien, v=>{r.sochubien=v; renderAll();}, '1')));
+      }
+    } else if(laCaCuon(r)){
+      /* sách nguyên cuốn: vai trò theo đúng trường hợp của Sổ tay 609 */
+      if(VAI_S609[c]){
+        g.append(field('Vai trò của người kê khai','',
+          sel(vaiS609(r), VAI_S609[c], v=>{r.vaiS=v; renderAll();})));
+      }
+      if(c === 'dcb'){
+        g.append(field('Số chủ biên (m)','phần của tác giả chính chia đều cho m chủ biên',
+          inpNguyen(Math.max(2, parseInt(r.sochubien,10)||2), v=>{r.sochubien=v; renderAll();}, '2')));
+      }
+      if(c === 'kcb'){
+        g.append(rong(field('Lưu ý','',
+          (()=>{ const t = el('div','mt'); t.textContent = 'Tổng số tác giả chỉ đếm những người đứng tên tác giả, không tính chủ biên không viết bài.'; return t; })())));
+      }
+    } else {
+      /* bài viết trong sách, chương sách: phân loại tác giả như bài báo (Mục 1.1.1 Sổ tay 609) */
+      if(c === 'b' || c === 'd'){
+        g.append(field('Vị trí của tác giả liên hệ chính','theo cách ghi trên chính ấn phẩm',
+          sel(r.lhcDau || 'khac', VI_TRI_LHC, v=>{r.lhcDau=v; renderAll();})));
+      }
+      if(c !== 'a'){
+        g.append(field('Vai trò của người kê khai','',
+          sel(vai609(r), dsVai609(r), v=>{r.vai609=v; renderAll();})));
       }
     }
   }
@@ -2303,6 +2385,10 @@ function tacGiaWord(r){
   const n = Math.max(1, parseInt(r.sotg,10)||1);
   if(n === 1) return 'Tác giả duy nhất';
   if('vaisach' in r){
+    if(cachChia(r) !== 'q1020'){
+      const k = heSo609(r, laCaCuon(r) ? 'sach' : 'bb');
+      return k.vai.split(' — ')[0].replace(/\s*\(.*?\)/g,'') + `/${n} tác giả`;
+    }
     if((r.vaisach || 'cb') !== 'cb') return `Tác giả/${n} tác giả`;
     return (Math.min(n, Math.max(1, parseInt(r.sochubien,10)||1)) > 1 ? 'Đồng chủ biên' : 'Chủ biên') + `/${n} tác giả`;
   }
@@ -2396,7 +2482,7 @@ function buildDocXml(){
   out.push(PT('3. Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch', {b:true, before:240, after:120, keep:true}));
   const rS = [[HEAD('STT'), HEAD('Tên sách/Chương sách'), HEAD('Nhà xuất bản'), HEAD('Mã ISBN'),
                HEAD('Năm công bố'), HEAD('Tác giả/đồng tác giả'), HEAD('Đường link (nếu có)'), HEAD('Tính điểm')]];
-  S.sach.forEach((r,i) => {
+  sachXepThuTu().forEach((r,i) => {
     const o = AN_PHAM.find(x => x.id === r.kieu);
     rS.push([GIUA(String(i+1)), {t:r.ten || ''}, GIUA(r.nxb), GIUA(r.isbn),
       GIUA(thoiGianCB(r)), GIUA(tacGiaWord(r)), {t:duongLink(r.link)}, GIUA(fmt(quyDoiSach(r).d))]);
@@ -2839,7 +2925,7 @@ function dungBangTinh(){
 
   tieuDe('3. Sách chuyên khảo, sách giáo trình, sách tham khảo, sách hướng dẫn, sách dịch');
   const bSach = bangSP(['STT', 'Tên sách/Chương sách', 'Nhà xuất bản', 'Mã ISBN', 'Năm công bố', 'Đường link (nếu có)', 'Tác giả/đồng tác giả'],
-    S.sach.map((x, i) => {
+    sachXepThuTu().map((x, i) => {
       const q = AN_PHAM.find(y => y.id === x.kieu);
       return {
         tds: tdsSach(x), hs: heSoSach(x).h, loi: true,
@@ -2980,6 +3066,10 @@ function bind(){
   $('#f-thang').value = S.thang;
   $('#f-thang').oninput = e => { S.thang = e.target.value; renderAll(); };
 
+  $('#add-sach').type = 'button';
+  $('#add-sach').onclick = () => { S.sach.push(MAU.sach()); renderAll(); };
+  $('#add-chuong').type = 'button';
+  $('#add-chuong').onclick = () => { S.sach.push(Object.assign(MAU.sach(), {kieu:'cs_tn_ck_off', vaisach:'tg'})); renderAll(); };
   document.querySelectorAll('[data-add]').forEach(b => {
     b.type = 'button';
     b.onclick = () => { const k = b.dataset.add; S[k].push(MAU[k]()); renderAll(); };
@@ -2996,6 +3086,16 @@ function bind(){
 /* ===================== Khởi động ===================== */
 /* bản nháp cũ có ngành, lĩnh vực và cách chia đặt ở mục A — chuyển xuống từng dòng */
 function chuanHoa(){
+  /* sách: mã trường hợp cũ 'a', 'c' đổi sang phân loại của Sổ tay 609 */
+  S.sach.forEach(r => {
+    if(!String(r.kieu || '').startsWith('s_')) return;
+    if(r.cachchia === 'a') r.cachchia = 'dong';
+    else if(r.cachchia === 'c'){
+      const m = parseInt(r.sochubien,10)||1, laCB = (r.vaisach || 'cb') === 'cb';
+      r.cachchia = (laCB && m > 1) ? 'dcb' : 'cb';
+      r.vaiS = laCB ? 'cb' : 'khac';
+    }
+  });
   S.kh.forEach(r => { if(r.thoathuan !== 'co'){ r.thoathuan=''; delete r.tyledonggop; } });
   if(S.doingach !== 'co'){ S.doingach=''; S.chucdanhCu=''; S.hslCu=''; S.thangMoi=0; }
   [...S.bb, ...S.ky, ...S.sach].forEach(r => { if(!r.cachchia) r.cachchia = 'q1020'; });
