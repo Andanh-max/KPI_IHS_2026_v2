@@ -762,16 +762,16 @@ const MAU = {
    Hệ số của tác giả chính đứng đầu: bài báo và bài kỷ yếu (10 − n × 1,25)/10;
    sách và chương sách (30 − n × 1,05)/30. */
 const CACH_CHIA = [
-  ['q1020','Chia theo Điều 4 khoản 4 Quy chế 1020 (mặc định)'],
-  ['a','(a) Ấn phẩm ghi rõ đồng tác giả (Co-authors) — chia đều'],
-  ['b','(b) Ấn phẩm ghi rõ tác giả chính (First author) và tác giả liên hệ chính (Corresponding author)'],
-  ['c','(c) Ấn phẩm không ghi tác giả chính và tác giả liên hệ chính'],
-  ['d','(d) Ấn phẩm chỉ ghi tác giả liên hệ chính (Corresponding author)']
+  ['q1020','Không có chú thích — tính theo QĐ 1020 (Điều 4 khoản 4)'],
+  ['a','Có chú thích — (a) ghi rõ đồng tác giả (Co-authors), chia đều'],
+  ['b','Có chú thích — (b) ghi rõ tác giả chính (First author) và tác giả liên hệ chính (Corresponding author)'],
+  ['c','Có chú thích — (c) không ghi rõ tác giả chính và tác giả liên hệ chính, tác giả đứng đầu là tác giả chính'],
+  ['d','Có chú thích — (d) chỉ ghi tác giả liên hệ chính (Corresponding author)']
 ];
 const CACH_CHIA_SACH = [
-  ['q1020','Chia theo Điều 4 khoản 4 Quy chế 1020 (mặc định)'],
-  ['a','(a) Sách ghi rõ đồng tác giả — chia đều cho các tác giả'],
-  ['c','(c) Theo Biểu mẫu 609 — chủ biên hoặc tác giả đứng đầu hưởng hệ số (30 − n × 1,05)/30']
+  ['q1020','Không có chú thích — tính theo QĐ 1020 (Điều 4 khoản 4)'],
+  ['a','Có chú thích — ghi rõ đồng tác giả, chia đều cho các tác giả'],
+  ['c','Có chú thích — ghi rõ chủ biên hoặc tác giả đứng đầu, hưởng hệ số (30 − n × 1,05)/30']
 ];
 const VI_TRI_LHC = [
   ['khac','Tác giả liên hệ chính KHÔNG đứng đầu danh sách'],
@@ -1329,9 +1329,13 @@ function oTacGia(r){
 }
 /* Ô chọn cách chia điểm, dùng chung cho bài báo, bài kỷ yếu và sách. */
 function oCachChia(r, sach){
-  return rong(field('Cách chia điểm giữa các tác giả',
-    'Quy chế 1020 không nêu căn cứ xác định tác giả chính; chọn trường hợp đúng với cách ghi tác giả trên ấn phẩm theo Biểu mẫu 609',
+  const f = rong(field('Cách chia điểm giữa các tác giả', '',
     sel(cachChia(r), sach ? CACH_CHIA_SACH : CACH_CHIA, v=>{r.cachchia=v; renderAll();})));
+  /* chú giải hai dòng ngay dưới nhãn */
+  const h = el('span','hint'); h.style.display = 'block';
+  h.innerHTML = '– Nếu không có chú thích trong ấn phẩm: tính theo QĐ 1020<br>– Nếu có chú thích trong ấn phẩm: tính theo QĐ 609';
+  f.querySelector('span').append(h);
+  return f;
 }
 /* ô chia điểm cho NHIỆM VỤ KH&CN: đếm người tham gia thay vì tác giả, không có đường link */
 function oTacGiaNV(r){
